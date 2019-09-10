@@ -49,7 +49,7 @@ export default {
   flex-flow: column nowrap;
   justify-content: center;
   height: 100%;
-  font-size: 0.8em;
+  font-size: 1em;
   width: 40%;
   margin: 0 1em;
   text-shadow: 1px 1px 1px black;
@@ -70,20 +70,10 @@ export default {
 .icon {
   color: white;
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   left: 49%;
   &:hover {
     cursor: pointer;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .home-banner__text {
-    font-size: 1.2em;
-  }
-}
-@media only screen and (min-width: 800px) {
-  .home-banner__text {
-    font-size: 1.4em;
   }
 }
 </style>

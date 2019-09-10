@@ -88,8 +88,9 @@ a {
   box-sizing: border-box;
 }
 .router-view {
-  padding-top: 4em;
+  padding-top: 64px;
 }
+
 @media only screen and (min-width: 600px) {
   body,
   html {
@@ -99,7 +100,7 @@ a {
 @media only screen and (min-width: 800px) {
   body,
   html {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 </style>
