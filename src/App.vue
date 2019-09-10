@@ -2,6 +2,63 @@
   <div id="app">
     <AppNavBar />
     <router-view class="router-view" />
+    <div>
+      <a href="#" v-scroll-to="'#element'">Scroll to #element</a>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae obcaecati
+      temporibus ratione! Recusandae repudiandae quo, voluptate inventore,
+      libero mollitia blanditiis vel magnam maxime ipsam necessitatibus
+      corporis, dolorem labore illum harum!
+    </div>
+
+    <div id="element">Hi. I'm #element.</div>
   </div>
 </template>
 
@@ -20,14 +77,29 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-size: 1rem;
 }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 * {
   box-sizing: border-box;
 }
 .router-view {
-  position: absolute;
-  width: 100%;
-  top: 34px;
-  left: 0;
+  padding-top: 4em;
+}
+@media only screen and (min-width: 600px) {
+  body,
+  html {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  body,
+  html {
+    font-size: 1rem;
+  }
 }
 </style>
