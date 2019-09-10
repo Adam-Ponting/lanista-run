@@ -93,6 +93,12 @@ a {
 @media only screen and (min-width: 600px) {
   body,
   html {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (min-width: 800px) {
+  body,
+  html {
     font-size: 1rem;
   }
 }

@@ -32,9 +32,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-#HomeBanner {
-  border: 20px solid yellow;
-}
 .home-banner__image {
   position: relative;
   top: 0;
@@ -51,7 +48,6 @@ export default {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  border: 2px solid red;
   height: 100%;
   font-size: 0.8em;
   width: 40%;
@@ -59,12 +55,9 @@ export default {
   text-shadow: 1px 1px 1px black;
 
   p {
-    font-size: 0.9em;
     text-align: center;
   }
   a {
-    font-size: 0.9em;
-
     align-self: center;
     width: fit-content;
     padding: 0.5em;
@@ -81,6 +74,16 @@ export default {
   left: 49%;
   &:hover {
     cursor: pointer;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .home-banner__text {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .home-banner__text {
+    font-size: 1.4em;
   }
 }
 </style>
