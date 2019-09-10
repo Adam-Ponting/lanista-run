@@ -77,6 +77,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-size: 1rem;
 }
 a {
   color: inherit;
@@ -88,5 +89,11 @@ a {
 }
 .router-view {
   padding-top: 4em;
+}
+@media only screen and (min-width: 600px) {
+  body,
+  html {
+    font-size: 1rem;
+  }
 }
 </style>

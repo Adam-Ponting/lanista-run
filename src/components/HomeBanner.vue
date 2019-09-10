@@ -1,14 +1,25 @@
 <template>
   <div id="HomeBanner">
-    <div class="image" alt>
+    <div class="home-banner__image" alt="scroll down">
       <base-icon
         name="arrow-down-circle"
         class="icon"
+        height="32"
+        width="32"
         v-scroll-to="{
           el: '#element',
           duration: 1000
         }"
       ></base-icon>
+      <div class="home-banner__text">
+        <p>
+          Many runners do not have the time to join organised groups, it doesn’t
+          have to end there. Improve your performance with training plans.
+        </p>
+        <router-link :to="{ name: 'create-account' }"
+          >Create Account</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -21,7 +32,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.image {
+#HomeBanner {
+  border: 20px solid yellow;
+}
+.home-banner__image {
+  position: relative;
+  top: 0;
   width: 100%;
   height: 100vh;
   background-image: url('https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/running-banner-image.jpg?alt=media&token=f5246ce0-7f45-42f2-a0cb-66e99f557938"');
@@ -30,12 +46,39 @@ export default {
   background-position: 70% center;
   background-attachment: scroll;
 }
+.home-banner__text {
+  color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  border: 2px solid red;
+  height: 100%;
+  font-size: 0.8em;
+  width: 40%;
+  margin: 0 1em;
+  text-shadow: 1px 1px 1px black;
+
+  p {
+    font-size: 0.9em;
+    text-align: center;
+  }
+  a {
+    font-size: 0.9em;
+
+    align-self: center;
+    width: fit-content;
+    padding: 0.5em;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid white;
+  }
+}
 
 .icon {
   color: white;
   position: absolute;
-  bottom: 10%;
-  left: 50%;
+  bottom: 20%;
+  left: 49%;
   &:hover {
     cursor: pointer;
   }

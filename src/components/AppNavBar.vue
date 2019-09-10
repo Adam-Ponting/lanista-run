@@ -119,6 +119,7 @@ export default {
   background-color: #f9f9fb;
   color: #444;
   position: fixed;
+  top: 0;
   box-shadow: 0 2px 15px #444;
   transform: translate3d(0, 0, 0);
   transition: 0.1s all ease-out;
