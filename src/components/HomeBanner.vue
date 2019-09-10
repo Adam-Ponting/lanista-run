@@ -7,7 +7,7 @@
         height="32"
         width="32"
         v-scroll-to="{
-          el: '#element',
+          el: '#HomeText',
           duration: 1000
         }"
       ></base-icon>

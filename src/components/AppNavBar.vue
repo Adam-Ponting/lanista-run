@@ -1,14 +1,13 @@
 <template>
-  <nav class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
+  <nav id="NavBar" class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
     <!-- START NAVBAR -->
     <div class="navbar--mobile">
       <router-link
         :to="{ name: 'home' }"
         @click.native="isOpen = false"
         v-scroll-to="{
-          el: '#HomeBanner',
-          duration: 1000,
-          offset: -64
+          el: '#NavBar',
+          duration: 1000
         }"
       >
         <base-icon
