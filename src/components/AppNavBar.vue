@@ -1,14 +1,13 @@
 <template>
-  <nav class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
+  <nav id="NavBar" class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
     <!-- START NAVBAR -->
     <div class="navbar--mobile">
       <router-link
         :to="{ name: 'home' }"
         @click.native="isOpen = false"
         v-scroll-to="{
-          el: '#HomeBanner',
-          duration: 1000,
-          offset: -64
+          el: '#NavBar',
+          duration: 1000
         }"
       >
         <base-icon
@@ -114,7 +113,7 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 4em;
+  height: 64px;
   width: 100%;
   background-color: #f9f9fb;
   color: #444;
@@ -137,8 +136,8 @@ export default {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center;
-    margin: 0 1em;
+    align-items: stretch;
+    margin: 0 2em;
   }
 }
 
@@ -151,8 +150,9 @@ export default {
 
 .navbar__icon {
   display: flex;
+  height: 100%;
   align-items: center;
-  padding: 1em;
+  padding: 0 1em;
   &:hover {
     cursor: pointer;
   }
@@ -166,8 +166,8 @@ export default {
 
   &--mobile {
     display: block;
-    font-size: 1.5em;
-    padding: 0.2em 0;
+    font-size: 1.1em;
+    padding: 0.25em 0;
     &:hover {
       background-color: darken(#f9f9fb, 10%);
     }
