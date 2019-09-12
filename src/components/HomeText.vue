@@ -1,22 +1,23 @@
 <template>
   <div id="HomeText">
-    <h1>Lanista Run Training Plans</h1>
+    <h1 class="header">Lanista Run Training Plans</h1>
     <hr class="divider" />
-    <div>
-      <article class="welcome">
-        <p>
-          Running is a great way to get fit, feel better and even form new
-          relationships with other runners. Starting a new running habit doesn’t
-          have to be hard - all it takes is a comfortable pair of shoes and a
-          willingness to move a little or a lot, all at your own pace.
-        </p>
-        <router-link
-          :to="{ name: 'training-plans' }"
-          class="button button--link"
-          >Find your training plan</router-link
-        >
-      </article>
-    </div>
+    <p class="text">
+      Running is a great way to get fit, feel better and even form new
+      relationships with other runners. Starting a new running habit doesn’t
+      have to be hard - all it takes is a comfortable pair of shoes and a
+      willingness to move a little or a lot, all at your own pace.
+    </p>
+    <p class="text">
+      People of all abilities turn to these science-backed training plans to get
+      faster. Whether you currently have a little fitness or a lot, there’s a
+      structured plan for you that will help you achieve your goals.
+    </p>
+    <base-button-link
+      link="training-plans"
+      name="arrow-right"
+      class="button--position button--color"
+    ></base-button-link>
   </div>
 </template>
 
@@ -27,45 +28,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.welcome {
-  padding: 0 1em;
-}
-.button {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  &::after {
-    content: '\2192';
-    color: red;
-    font-size: 2em;
-    transition: all 0.5s ease;
-    padding-left: 0.1em;
-  }
-  &:hover {
-    cursor: pointer;
-    &::after {
-      content: '\2192';
-      color: orange;
-      padding-left: 0.2em;
-    }
-  }
-}
-h1 {
+.header {
   text-align: center;
+  color: black;
 }
 .divider {
-  border: 2px solid orange;
+  border: 0.1em solid orange;
   width: 50%;
 }
-
-.features {
-  background-color: #f9f9fb;
-  text-align: center;
+.text {
+  color: #444;
+  padding: 0 1em;
 }
-@media only screen and (min-width: 600px) {
-  .welcome {
-    // display: flex;
-    flex-flow: row nowrap;
-  }
+.button--position {
+  margin-left: 1em;
+}
+.button--color {
+  color: black;
 }
 </style>

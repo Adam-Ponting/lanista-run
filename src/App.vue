@@ -23,6 +23,7 @@ html {
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  color: #444;
 }
 a {
   color: inherit;
@@ -31,7 +32,7 @@ a {
 
 * {
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .router-view {
   padding-top: 64px;
