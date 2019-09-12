@@ -1,97 +1,52 @@
 <template>
-  <div id="HomeText" class="features">
-    <CardFeature>
-      <base-icon
-        name="activity"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Structured Workouts</h3>
-      </template>
-      <template v-slot:content>
-        <p>
-          Training or racing, get faster in less time with access to expertly
-          designed workouts.
-        </p>
-      </template>
-    </CardFeature>
-    <CardFeature>
-      <base-icon
-        name="award"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Training Plans</h3>
-      </template>
-
-      <template v-slot:content>
-        <p>
-          Go from beginner to pro. Choose from multiple comprehensive running
-          plans.
-        </p>
-      </template>
-    </CardFeature>
-    <CardFeature>
-      <base-icon
-        name="calendar"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Calendar</h3>
-      </template>
-      <template v-slot:content>
-        <p>
-          Keep your training on track with Calendar. Schedule workouts, races,
-          and other activities.
-        </p>
-      </template>
-    </CardFeature>
-    <CardFeature>
-      <base-icon
-        name="compass"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Performance Analytics</h3>
-      </template>
-      <template v-slot:content>
-        <p>
-          Use your run data to improve. Get simple tools to analyze your
-          training to see if you’re getting faster.
-        </p>
-      </template>
-    </CardFeature>
+  <div id="HomeText">
+    <h1 class="header">Lanista Run Training Plans</h1>
+    <hr class="divider" />
+    <p class="text">
+      Running is a great way to get fit, feel better and even form new
+      relationships with other runners. Starting a new running habit doesn’t
+      have to be hard - all it takes is a comfortable pair of shoes and a
+      willingness to move a little or a lot, all at your own pace.
+    </p>
+    <p class="text">
+      People of all abilities turn to these science-backed training plans to get
+      faster. Whether you currently have a little fitness or a lot, there’s a
+      structured plan for you that will help you achieve your goals.
+    </p>
+    <base-button-link
+      link="training-plans"
+      name="arrow-right"
+      class="button--position button--color"
+    ></base-button-link>
   </div>
 </template>
 
 <script>
-import CardFeature from '@/components/CardFeature'
 export default {
-  name: 'HomeText',
-  components: {
-    CardFeature
-  }
+  name: 'HomeText'
 }
 </script>
 
 <style lang="scss" scoped>
-.features {
-  background-color: #f9f9fb;
+#HomeText {
+  min-height: 70vh;
 }
-@media only screen and (min-width: 600px) {
-  .features {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    background-color: #f9f9fb;
-  }
+.header {
+  text-align: center;
+  color: black;
+}
+.divider {
+  border: 0.1em solid orange;
+  width: 50%;
+}
+.text {
+  color: #444;
+  padding: 0 1em;
+}
+.button--position {
+  margin-left: 1em;
+}
+.button--color {
+  color: black;
 }
 </style>

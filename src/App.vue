@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <AppNavBar />
-    <router-view class="router-view" />
+    <transition name="fade" mode="out-in">
+      <router-view class="router-view" />
+    </transition>
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import AppNavBar from '@/components/AppNavBar.vue'
+import AppFooter from '@/components/AppFooter.vue'
 
 export default {
   components: {
-    AppNavBar
+    AppNavBar,
+    AppFooter
   }
 }
 </script>
@@ -21,6 +26,7 @@ html {
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  color: #444;
 }
 a {
   color: inherit;
@@ -29,10 +35,27 @@ a {
 
 * {
   box-sizing: border-box;
+  transition: all 0.2s ease;
 }
 .router-view {
   padding-top: 64px;
+  overflow-x: hidden;
 }
+/* START TRANSITIONS */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+/* END TRANSITIONS */
+/* START MEDIA QUERY */
 
 @media only screen and (min-width: 600px) {
   body,
@@ -46,4 +69,5 @@ a {
     font-size: 1.2rem;
   }
 }
+/* END MEDIA QUERY */
 </style>

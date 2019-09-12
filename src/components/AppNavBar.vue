@@ -179,18 +179,4 @@ export default {
   background-color: darken(#f9f9fb, 5%);
   color: darken(#444, 10%);
 }
-
-// fade effect for menu
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-out;
-}
-.fade-enter-to,
-.fade-leave {
-  opacity: 1;
-}
-.fade-leave-to,
-.fade-enter {
-  opacity: 0;
-}
 </style>

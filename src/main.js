@@ -23,7 +23,11 @@ Vue.use(VueScrollTo, {
 
 // to register global icons, useful if not using many
 import BaseIcon from '@/components/BaseIcon.vue' // import as global component
+import BaseButtonLink from '@/components/BaseButtonLink.vue' // import as global component
+
+import './registerServiceWorker'
 Vue.component('BaseIcon', BaseIcon) // register global component('asName', component) // must be above new.Vue...
+Vue.component('BaseButtonLink', BaseButtonLink) // register global component('asName', component) // must be above new.Vue...
 
 Vue.config.productionTip = false
 

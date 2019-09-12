@@ -20,8 +20,9 @@ export default {
 .card {
   padding: 0.5em;
   text-align: center;
-  background-color: white;
-  box-shadow: 0 0 10px 0 rgba(black, 0.1);
+}
+.card-header {
+  color: black;
 }
 .icon--modifier {
   // class passed in from HomeText
@@ -42,7 +43,10 @@ export default {
 @media only screen and (min-width: 1000px) {
   .card {
     flex: 0 1 calc(25% - 1em); // make each the same size
-    margin-bottom: 0;
+    &:nth-child(-n + 2) {
+      // remove margin as cards are on single line
+      margin-bottom: 0;
+    }
   }
 }
 </style>

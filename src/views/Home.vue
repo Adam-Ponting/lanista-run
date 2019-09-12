@@ -2,6 +2,7 @@
   <div>
     <HomeBanner />
     <HomeText class="component" />
+    <HomeCards class="component" />
   </div>
 </template>
 
@@ -9,17 +10,19 @@
 // @ is an alias to /src
 import HomeBanner from '@/components/HomeBanner.vue'
 import HomeText from '@/components/HomeText.vue'
+import HomeCards from '@/components/HomeCards.vue'
 
 export default {
   name: 'Home',
   components: {
     HomeBanner,
-    HomeText
+    HomeText,
+    HomeCards
   }
 }
 </script>
 <style lang="scss" scoped>
 .component {
-  padding: 3em 0;
+  padding: 5em 0;
 }
 </style>
