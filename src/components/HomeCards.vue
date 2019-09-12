@@ -1,12 +1,7 @@
 <template>
   <div class="features">
     <CardFeature>
-      <base-icon
-        name="activity"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
+      <base-icon name="activity" height="32" width="32" class="icon--modifier"></base-icon>
       <template v-slot:title>
         <h3>Structured Workouts</h3>
       </template>
@@ -18,12 +13,7 @@
       </template>
     </CardFeature>
     <CardFeature>
-      <base-icon
-        name="award"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
+      <base-icon name="award" height="32" width="32" class="icon--modifier"></base-icon>
       <template v-slot:title>
         <h3>Training Plans</h3>
       </template>
@@ -36,12 +26,7 @@
       </template>
     </CardFeature>
     <CardFeature>
-      <base-icon
-        name="calendar"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
+      <base-icon name="calendar" height="32" width="32" class="icon--modifier"></base-icon>
       <template v-slot:title>
         <h3>Calendar</h3>
       </template>
@@ -53,12 +38,7 @@
       </template>
     </CardFeature>
     <CardFeature>
-      <base-icon
-        name="compass"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
+      <base-icon name="compass" height="32" width="32" class="icon--modifier"></base-icon>
       <template v-slot:title>
         <h3>Performance Analytics</h3>
       </template>
@@ -83,14 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  text-align: center;
-}
-.divider {
-  border: 2px solid orange;
-  width: 50%;
-}
-
 .features {
   background-color: #f9f9fb;
   text-align: center;
