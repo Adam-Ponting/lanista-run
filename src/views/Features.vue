@@ -1,10 +1,16 @@
 <template>
-  <div>features</div>
+  <div>
+    <FeatureBanner />
+  </div>
 </template>
 
 <script>
+import FeatureBanner from '@/components/FeatureBanner.vue'
 export default {
-  name: 'Features'
+  name: 'Features',
+  components: {
+    FeatureBanner
+  }
 }
 </script>
 

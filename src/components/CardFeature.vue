@@ -20,8 +20,9 @@ export default {
 .card {
   padding: 0.5em;
   text-align: center;
-  // background-color: white;
-  // box-shadow: 0 0 10px 0 rgba(black, 0.1);
+}
+.card-header {
+  color: black;
 }
 .icon--modifier {
   // class passed in from HomeText
