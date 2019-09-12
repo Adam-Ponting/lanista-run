@@ -28,6 +28,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#HomeText {
+  min-height: 70vh;
+}
 .header {
   text-align: center;
   color: black;

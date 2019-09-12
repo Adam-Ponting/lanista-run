@@ -4,15 +4,18 @@
     <transition name="fade" mode="out-in">
       <router-view class="router-view" />
     </transition>
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import AppNavBar from '@/components/AppNavBar.vue'
+import AppFooter from '@/components/AppFooter.vue'
 
 export default {
   components: {
-    AppNavBar
+    AppNavBar,
+    AppFooter
   }
 }
 </script>
