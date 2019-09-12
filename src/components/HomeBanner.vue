@@ -47,13 +47,12 @@ export default {
   color: white;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-end;
+  height: 50%;
   font-size: 1em;
-  width: 40%;
-  margin: 0 1em;
+  width: 100%;
+  padding: 1em;
   text-shadow: 1px 1px 1px black;
-
   p {
     text-align: center;
   }
@@ -63,17 +62,23 @@ export default {
     padding: 0.5em;
     text-align: center;
     text-transform: uppercase;
-    border: 2px solid white;
   }
 }
-
 .icon {
   color: white;
   position: absolute;
-  bottom: 15%;
+  bottom: 20%;
   left: 49%;
   &:hover {
     cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .home-banner__text {
+    width: 40%;
+    justify-content: center;
+    height: 100%;
   }
 }
 </style>
