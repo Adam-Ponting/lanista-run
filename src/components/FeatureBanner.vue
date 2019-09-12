@@ -57,7 +57,7 @@ export default {
   padding: 2em 1em;
 }
 .feature-banner__image {
-  background-image: url('https://www.trainingpeaks.com/images/home/train-the-right-way-768.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/features-banner.jpg?alt=media&token=b2ccc621-75b9-43b9-aa34-73fd0c399dc2');
   background-repeat: no-repeat;
   background-position: 100% 0;
   background-size: cover;
@@ -94,7 +94,7 @@ export default {
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
   .flex-container {
     display: flex;
     flex-flow: row nowrap;
