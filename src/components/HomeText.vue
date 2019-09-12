@@ -1,97 +1,71 @@
 <template>
-  <div id="HomeText" class="features">
-    <CardFeature>
-      <base-icon
-        name="activity"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Structured Workouts</h3>
-      </template>
-      <template v-slot:content>
+  <div id="HomeText">
+    <h1>Lanista Run Training Plans</h1>
+    <hr class="divider" />
+    <div>
+      <article class="welcome">
         <p>
-          Training or racing, get faster in less time with access to expertly
-          designed workouts.
+          Running is a great way to get fit, feel better and even form new
+          relationships with other runners. Starting a new running habit doesn’t
+          have to be hard - all it takes is a comfortable pair of shoes and a
+          willingness to move a little or a lot, all at your own pace.
         </p>
-      </template>
-    </CardFeature>
-    <CardFeature>
-      <base-icon
-        name="award"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Training Plans</h3>
-      </template>
-
-      <template v-slot:content>
-        <p>
-          Go from beginner to pro. Choose from multiple comprehensive running
-          plans.
-        </p>
-      </template>
-    </CardFeature>
-    <CardFeature>
-      <base-icon
-        name="calendar"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Calendar</h3>
-      </template>
-      <template v-slot:content>
-        <p>
-          Keep your training on track with Calendar. Schedule workouts, races,
-          and other activities.
-        </p>
-      </template>
-    </CardFeature>
-    <CardFeature>
-      <base-icon
-        name="compass"
-        height="32"
-        width="32"
-        class="icon--modifier"
-      ></base-icon>
-      <template v-slot:title>
-        <h3>Performance Analytics</h3>
-      </template>
-      <template v-slot:content>
-        <p>
-          Use your run data to improve. Get simple tools to analyze your
-          training to see if you’re getting faster.
-        </p>
-      </template>
-    </CardFeature>
+        <router-link
+          :to="{ name: 'training-plans' }"
+          class="button button--link"
+          >Find your training plan</router-link
+        >
+      </article>
+    </div>
   </div>
 </template>
 
 <script>
-import CardFeature from '@/components/CardFeature'
 export default {
-  name: 'HomeText',
-  components: {
-    CardFeature
-  }
+  name: 'HomeText'
 }
 </script>
 
 <style lang="scss" scoped>
+.welcome {
+  padding: 0 1em;
+}
+.button {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  &::after {
+    content: '\2192';
+    color: red;
+    font-size: 2em;
+    transition: all 0.5s ease;
+    padding-left: 0.1em;
+  }
+  &:hover {
+    cursor: pointer;
+    &::after {
+      content: '\2192';
+      color: orange;
+      padding-left: 0.2em;
+    }
+  }
+}
+h1 {
+  text-align: center;
+}
+.divider {
+  border: 2px solid orange;
+  width: 50%;
+}
+
 .features {
   background-color: #f9f9fb;
+  text-align: center;
 }
 @media only screen and (min-width: 600px) {
-  .features {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    background-color: #f9f9fb;
+  .welcome {
+    // display: flex;
+    flex-flow: row nowrap;
   }
 }
 </style>

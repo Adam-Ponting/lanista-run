@@ -23,7 +23,6 @@ html {
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  overflow-x: hidden;
 }
 a {
   color: inherit;

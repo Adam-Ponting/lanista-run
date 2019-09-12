@@ -62,6 +62,7 @@ export default {
     padding: 0.5em;
     text-align: center;
     text-transform: uppercase;
+    border: 2px solid white;
   }
 }
 .icon {
