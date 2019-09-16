@@ -7,8 +7,9 @@
     </h6>
     <div class="flex-container">
       <div v-for="feature in features" :key="feature.title" class="feature">
-        <h3 class="feature__title">{{ feature.title }}</h3>
         <base-icon :name="feature.icon" class="icon--modifier"></base-icon>
+        <h3 class="feature__title">{{ feature.title }}</h3>
+
         <p class="feature__content">{{ feature.content }}</p>
       </div>
     </div>
@@ -29,19 +30,19 @@ export default {
       {
         title: 'Structure your training',
         content:
-          'Plan your training volume and intensity to create the right workouts          at the right time.',
+          'Plan your training volume and intensity to create the right workouts at the right time.',
         icon: 'filter'
       },
       {
         title: 'Work smarter',
         content:
-          'Export planned workouts and automatically sync the results back to your calendar.',
+          'Share planned workouts with your peers and create your own to add to your calendar.',
         icon: 'calendar'
       },
       {
         title: 'Track your progress',
         content:
-          'Watch as your fitness improves and get rewarded for hitting PeakPerformances along the way.',
+          'Watch as your fitness improves and get rewarded along the way.',
         icon: 'bar-chart-2'
       }
     ]
@@ -57,7 +58,7 @@ export default {
   padding: 2em 1em;
 }
 .feature-banner__image {
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/features-banner.jpg?alt=media&token=b2ccc621-75b9-43b9-aa34-73fd0c399dc2');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/hero_features.jpg?alt=media&token=468f86c0-d6c0-4aeb-9446-db80ced022a0');
   background-repeat: no-repeat;
   background-position: 100% 0;
   background-size: cover;
