@@ -3,6 +3,33 @@ import router from '@/router.js'
 import { firebaseApp } from '@/firebaseConfig.js'
 import NProgress from 'nprogress' // <--- include the library
 
+function updateProfile(userName) {
+  NProgress.start()
+
+  let firstName = userName.firstName
+  let lastName = userName.lastName
+  firebaseApp
+    .firestore()
+    .collection('users')
+    .doc(store.state.currentUser.uid)
+    .update({ firstName, lastName })
+    .then(user => {
+      console.log(user)
+      store.dispatch(
+        'addFirebaseAuthNotification',
+        'Username updated: ' + firstName + ' ' + lastName
+      )
+
+      NProgress.done()
+    })
+    .catch(err => {
+      console.log(err.message)
+      store.dispatch('addFirebaseAuthNotification', err.message)
+
+      NProgress.done()
+    })
+}
+
 function resetPassword(email) {
   NProgress.start()
   firebaseApp
@@ -135,4 +162,4 @@ function uploadPlan(plan) {
   })
 }
  */
-export { login, logout, uploadPlan, signup, resetPassword }
+export { login, logout, uploadPlan, signup, resetPassword, updateProfile }

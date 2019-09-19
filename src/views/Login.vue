@@ -45,16 +45,6 @@
         </button>
       </fieldset>
       <div class="alt-link">
-        <span class="alt-link__text">Want an account? Sign up</span>
-        <button
-          type="button"
-          class="form__button form__button--muted"
-          @click="toCreateAccount"
-        >
-          Create Account
-        </button>
-      </div>
-      <div class="alt-link">
         <span class="alt-link__text">Forgotten your password?</span>
         <button
           type="button"
@@ -64,7 +54,18 @@
           Reset Password
         </button>
       </div>
+      <div class="alt-link">
+        <span class="alt-link__text">Want an account? Sign up</span>
+        <button
+          type="button"
+          class="form__button form__button--muted"
+          @click="toCreateAccount"
+        >
+          Create Account
+        </button>
+      </div>
     </form>
+
     <AuthResetPassword v-if="showResetPassword" @toLoginView="showLoginView" />
   </div>
 </template>

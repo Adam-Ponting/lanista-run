@@ -12,6 +12,10 @@ fb.auth.onAuthStateChanged(user => {
     store.commit('setCurrentUser', user)
     store.dispatch('fetchUserProfile')
 
+    fb.usersCollection.doc(user.uid).onSnapshot(doc => {
+      store.commit('setUserProfile', doc.data())
+    })
+
     // realtime updates from our posts collection
     fb.postsCollection
       .orderBy('createdOn', 'desc')
@@ -64,6 +68,20 @@ export const store = new Vuex.Store({
     },
     removeFirebaseAuthNotification({ commit }, notificationToRemove) {
       commit('DELETE_FIREBASE_AUTH_NOTIFICATION', notificationToRemove)
+    },
+    updateProfile({ state }, userName) {
+      let firstName = userName.firstName
+      let lastName = userName.lastName
+
+      fb.usersCollection
+        .doc(state.currentUser.uid)
+        .update({ firstName, lastName })
+        .then(user => {
+          console.log('user ', user)
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
     },
     clearData({ commit }) {
       commit('setCurrentUser', null)

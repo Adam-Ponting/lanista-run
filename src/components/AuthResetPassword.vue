@@ -5,7 +5,7 @@
       <input
         type="email"
         name="email"
-        id="email"
+        id="resetEmail"
         placeholder="Enter your email"
         class="form__input"
         required

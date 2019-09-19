@@ -39,7 +39,7 @@ export default {
   position: absolute;
   top: -10px;
   color: whitesmoke;
-  padding-left: 0.5em;
+  padding: 0.1em 0.5em;
   font-size: 0.7em;
   border-left: 2px solid red;
   background-color: rgba(grey, 0.5);
