@@ -60,7 +60,7 @@ a {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease-out;
 }
 
 .fade-leave-to {
