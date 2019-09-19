@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <AppNavBar />
+    <div class="user" v-if="currentUser">user is:{{ currentUser.email }}</div>
     <transition name="fade" mode="out-in">
       <router-view class="router-view" />
     </transition>
@@ -9,6 +10,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import AppNavBar from '@/components/AppNavBar.vue'
 import AppFooter from '@/components/AppFooter.vue'
 
@@ -16,11 +19,20 @@ export default {
   components: {
     AppNavBar,
     AppFooter
+  },
+  computed: {
+    ...mapState(['currentUser'])
   }
 }
 </script>
 
 <style lang="scss">
+.user {
+  position: fixed;
+  top: 0;
+  left: 40%;
+  z-index: 1;
+}
 body,
 html {
   margin: 0;

@@ -1,123 +1,93 @@
 <template>
-  <div class="form-container">
-    <form
-      @submit.prevent="login"
-      class="form--display"
-      v-if="!showResetPassword"
-    >
-      <fieldset>
-        <legend class="legend__text">Login</legend>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          class="form__input"
-          required
-          v-model.trim="loginForm.email"
-          minlength="5"
-          maxlength="25"
-        />
-        <input
-          v-model.trim="loginForm.password"
-          type="password"
-          placeholder="Password"
-          id="password"
-          class="form__input"
-          required
-          minlength="5"
-          maxlength="10"
-        />
-        <NotificationContainer v-if="notifications.length > 0" />
+  <form @submit.prevent="resetPassword" class="form--display">
+    <fieldset>
+      <legend class="legend__text">Reset Password</legend>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your email"
+        class="form__input"
+        required
+        v-model.trim="passwordForm.email"
+        minlength="5"
+        maxlength="25"
+      />
+      <NotificationContainer v-if="notifications.length > 0" />
 
-        <button
-          type="submit"
-          value="Submit"
-          class="form__button"
-          ref="buttonSubmit"
-          :class="[
-            isFormValid
-              ? 'form__button--activeButton'
-              : 'form__button--disabledButton'
-          ]"
-        >
-          Login
-        </button>
-      </fieldset>
-      <div class="alt-link">
-        <span class="alt-link__text">Want an account? Sign up</span>
-        <button
-          type="button"
-          class="form__button form__button--muted"
-          @click="toCreateAccount"
-        >
-          Create Account
-        </button>
-      </div>
-      <div class="alt-link">
-        <span class="alt-link__text">Forgotten your password?</span>
-        <button
-          type="button"
-          class="form__button form__button--muted"
-          @click="toForgottenPassword"
-        >
-          Reset Password
-        </button>
-      </div>
-    </form>
-    <AuthResetPassword v-if="showResetPassword" @toLoginView="showLoginView" />
-  </div>
+      <button
+        type="submit"
+        value="Submit"
+        class="form__button"
+        ref="buttonSubmit"
+        :class="[
+          isFormValid
+            ? 'form__button--activeButton'
+            : 'form__button--disabledButton'
+        ]"
+      >
+        Reset
+      </button>
+    </fieldset>
+    <div class="alt-link">
+      <span class="alt-link__text">Already signed up? Proceed to Login</span>
+      <button
+        type="button"
+        class="form__button form__button--muted"
+        @click="toLogin"
+      >
+        Login
+      </button>
+    </div>
+    <div class="alt-link">
+      <span class="alt-link__text">Want an account? Sign up</span>
+      <button
+        type="button"
+        class="form__button form__button--muted"
+        @click="toCreateAccount"
+      >
+        Create Account
+      </button>
+    </div>
+  </form>
 </template>
 
 <script>
-import { login } from '@/components/functions.js'
 import { mapState } from 'vuex'
 
-import NProgress from 'nprogress' // <--- include the library
-import AuthResetPassword from '@/components/AuthResetPassword.vue'
+import { resetPassword } from '@/components/functions.js'
 import NotificationContainer from '@/components/NotificationContainer.vue'
 
 export default {
-  name: 'Login',
   components: {
-    AuthResetPassword,
     NotificationContainer
   },
-
   data() {
     return {
-      loginForm: {
-        email: '',
-        password: ''
-      },
-      showResetPassword: false
+      passwordForm: {
+        email: ''
+      }
     }
   },
   computed: {
     isFormValid() {
-      return (
-        this.emailIncludes &&
-        this.loginForm.email.length >= 5 &&
-        this.loginForm.password.length >= 5
-      )
+      return this.passwordForm.email.length >= 5 && this.emailIncludes
     },
     emailIncludes() {
       return (
-        this.loginForm.email.includes('.') && this.loginForm.email.includes('@')
+        this.passwordForm.email.includes('.') &&
+        this.passwordForm.email.includes('@')
       )
     },
     ...mapState(['notifications'])
   },
   methods: {
-    showLoginView() {
-      this.showResetPassword = false
+    resetPassword() {
+      resetPassword(this.passwordForm.email)
+      this.passwordForm.email = ''
     },
-    toForgottenPassword() {
-      this.showResetPassword = true
-    },
-    login() {
-      NProgress.start()
-      login(this.loginForm.email, this.loginForm.password)
+    toLogin() {
+      this.$emit('toLoginView')
     },
     toCreateAccount() {
       this.$router.push({ name: 'create-account' })

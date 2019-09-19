@@ -34,6 +34,7 @@ export default {
   text-align: center;
   font-size: 0.8em;
   padding: 0.1em 0.5em;
+  height: 90px;
 }
 .footer-link {
   color: orange;

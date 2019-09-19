@@ -7,19 +7,15 @@
       :header="header"
       :subHeader="subHeader"
     />
-
-    <FeatureBanner />
   </div>
 </template>
 
 <script>
-import FeatureBanner from '@/components/FeatureBanner.vue'
 import ViewsBanner from '@/components/ViewsBanner.vue'
 
 export default {
   name: 'Features',
   components: {
-    FeatureBanner,
     ViewsBanner
   },
   created() {
