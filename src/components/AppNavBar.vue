@@ -55,14 +55,32 @@
           class="nav__link nav__link--mobile"
           >Resources</router-link
         >
-        <router-link :to="{ name: 'login' }" class="nav__link nav__link--mobile"
-          >Login</router-link
+        <router-link
+          :to="{ name: 'dashboard' }"
+          v-if="currentUser"
+          class="nav__link nav__link--mobile"
+          >Dashboard</router-link
         >
         <router-link
+          v-if="!currentUser"
           :to="{ name: 'create-account' }"
           class="nav__link nav__link--mobile"
           >Create Account</router-link
         >
+        <router-link
+          v-if="!currentUser"
+          :to="{ name: 'login' }"
+          class="nav__link nav__link--mobile"
+          >Login</router-link
+        >
+        <button
+          v-else
+          @click="logout"
+          type="button"
+          class="nav__link nav__link--mobile button--reset"
+        >
+          Log out
+        </button>
       </div>
     </transition>
 
@@ -71,6 +89,9 @@
 </template>
 
 <script>
+import { logout } from '@/components/functions.js'
+import { mapState } from 'vuex'
+
 export default {
   name: 'AppNavBar',
   data() {
@@ -87,6 +108,9 @@ export default {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
+    logout() {
+      logout()
+    },
     onScroll() {
       // Get the current scroll position
       const currentScrollPosition =
@@ -107,6 +131,9 @@ export default {
       // close nav menu along with hiding navbar
       this.isOpen = false
     }
+  },
+  computed: {
+    ...mapState(['currentUser'])
   }
 }
 </script>
@@ -138,6 +165,19 @@ export default {
     justify-content: space-between;
     align-items: stretch;
     margin: 0 2em;
+  }
+}
+.button--reset {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  border: none;
+  background-color: inherit;
+  &:hover {
+    cursor: pointer;
   }
 }
 

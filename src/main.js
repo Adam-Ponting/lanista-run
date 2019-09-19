@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import { store } from './store'
+const firebase = require('@/firebaseConfig.js')
 
 // https://www.npmjs.com/package/vue-nprogress
-import 'nprogress/nprogress.css' // <-----
+import 'nprogress/nprogress.css'
 
 const VueScrollTo = require('vue-scrollto') // https://vue-scrollto.netlify.com/
 Vue.use(VueScrollTo, {
@@ -31,8 +32,22 @@ Vue.component('BaseButtonLink', BaseButtonLink) // register global component('as
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+// handle page reloads
+let app
+firebase.auth.onAuthStateChanged(user => {
+  console.log('user =>', user)
+  if (!app) {
+    app = new Vue({
+      el: '#app',
+      router,
+      store,
+      render: h => h(App)
+    })
+  }
+})
+
+// new Vue({
+//   router,
+//   store,
+//   render: h => h(App)
+// }).$mount('#app')
