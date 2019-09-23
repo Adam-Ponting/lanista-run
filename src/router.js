@@ -7,6 +7,11 @@ import Resources from '@/views/Resources.vue'
 import Login from '@/views/Login.vue'
 import CreateAccount from '@/views/CreateAccount.vue'
 import Dashboard from '@/views/Dashboard.vue'
+import GettingStarted from '@/views/GettingStarted.vue'
+import FiveK from '@/views/FiveK.vue'
+import TenK from '@/views/TenK.vue'
+import HalfMarathon from '@/views/HalfMarathon.vue'
+import Marathon from '@/views/Marathon.vue'
 import firebase from 'firebase/app'
 
 // https://www.vuemastery.com/courses/next-level-vue/progress-bar-global-and-per-route-guards
@@ -33,6 +38,32 @@ const router = new Router({
       name: 'training-plans',
       component: TrainingPlans
     },
+    {
+      path: '/training-plans/getting-started',
+      name: 'getting-started',
+      component: GettingStarted
+    },
+    {
+      path: '/training-plans/5k',
+      name: '5k',
+      component: FiveK
+    },
+    {
+      path: '/training-plans/10k',
+      name: '10k',
+      component: TenK
+    },
+    {
+      path: '/training-plans/half-marathon',
+      name: 'half-marathon',
+      component: HalfMarathon
+    },
+    {
+      path: '/training-plans/marathon',
+      name: 'marathon',
+      component: Marathon
+    },
+
     {
       path: '/resources',
       name: 'resources',

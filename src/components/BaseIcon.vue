@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <span>
     <svg class="icon" :width="width" :height="height">
       <use v-bind="{ 'xlink:href': '/feather-sprite.svg#' + name }" />
     </svg>
     <!-- default slot -->
     <slot></slot>
-  </div>
+  </span>
 </template>
 
 <script>
