@@ -17,7 +17,11 @@
       link="training-plans"
       name="arrow-right"
       class="button--position button--color"
-    ></base-button-link>
+    >
+      <template v-slot:linkTo
+        >Find your training plan</template
+      >
+    </base-button-link>
   </div>
 </template>
 
@@ -37,6 +41,7 @@ export default {
 }
 .divider {
   border: 0.1em solid orange;
+  background-color: orange;
   width: 50%;
 }
 .text {

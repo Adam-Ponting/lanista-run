@@ -21,8 +21,4 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.component {
-  padding: 5em 0;
-}
-</style>
+<style lang="scss" scoped></style>

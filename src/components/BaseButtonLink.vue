@@ -1,6 +1,6 @@
 <template>
   <router-link :to="{ name: link }" class="button">
-    Find your training plan
+    <slot name="linkTo"></slot>
     <base-icon
       :name="name"
       class="icon"

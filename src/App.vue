@@ -39,10 +39,25 @@ html {
   padding: 0;
   font-size: 1rem;
   color: #444;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 a {
   color: inherit;
   text-decoration: none;
+}
+button {
+  color: inherit;
+  text-decoration: none;
+  border: none;
+  background-color: inherit;
+  &:active,
+  &:hover,
+  &:focus,
+  &:focus-within {
+    border: none;
+    outline: none;
+  }
 }
 
 * {
@@ -53,6 +68,16 @@ a {
   padding-top: 64px;
   overflow-x: hidden;
 }
+.component {
+  padding: 5em 0;
+  &--light {
+    background-color: #f9f9fb;
+  }
+  &--dark {
+    background-color: whitesmoke;
+  }
+}
+
 /* START TRANSITIONS */
 .fade-enter {
   opacity: 0;
