@@ -1,16 +1,16 @@
 <template>
   <div>
     <HomeBanner />
-    <HomeText class="component" />
-    <HomeCards class="component" />
+    <HomeText class="component--padding" />
+    <HomeCards class="component--padding" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HomeBanner from '@/components/HomeBanner.vue'
-import HomeText from '@/components/HomeText.vue'
-import HomeCards from '@/components/HomeCards.vue'
+import HomeBanner from '@/components/home/HomeBanner.vue'
+import HomeText from '@/components/home/HomeText.vue'
+import HomeCards from '@/components/home/HomeCards.vue'
 
 export default {
   name: 'Home',

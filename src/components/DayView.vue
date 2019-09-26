@@ -40,13 +40,13 @@ export default {
 <style lang="scss" scoped>
 .day-view {
   text-align: center;
-  background-color: #f9f9fb;
+
   &__day {
     margin: 0;
     padding: 0.2em 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    background: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.1);
     font-size: 1em;
     text-transform: uppercase;
   }
@@ -60,7 +60,7 @@ export default {
     margin: 0;
     padding-top: 0.25em;
     padding-bottom: 0.1em;
-
+    color: var(--text-color-main);
     &:after {
       content: ''; /* This is necessary for the pseudo element to work. */
       display: block; /* This will put the pseudo element on its own line. */
@@ -76,6 +76,20 @@ export default {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .day-view {
+    padding: 0 0.25em;
+    flex: 1;
+    &__activity {
+      font-size: 0.8em;
+      &:after {
+        content: ''; /* This is necessary for the pseudo element to work. */
+        padding-top: 0; /* This creates some space between the element and the border. */
+        border-bottom: none; /* This creates the border. Replace black with whatever color you want. */
+      }
+    }
   }
 }
 </style>

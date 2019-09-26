@@ -1,86 +1,61 @@
 <template>
   <nav id="NavBar" class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
-    <!-- START NAVBAR -->
-    <div class="navbar--mobile">
+    <!-- START NAVBAR ICONS -->
+
+    <div class="navbar--mobile max-width">
       <router-link
         :to="{ name: 'home' }"
+        class="home__icon"
         @click.native="isOpen = false"
         v-scroll-to="{
           el: '#NavBar',
           duration: 1000
         }"
       >
-        <base-icon
-          name="home"
-          height="32"
-          width="32"
-          class="navbar__icon"
-        ></base-icon>
+        <base-icon name="home" height="32" width="32" class="navbar__icon"></base-icon>
       </router-link>
       <div @click="isOpen = !isOpen">
-        <base-icon
-          name="menu"
-          height="32"
-          width="32"
-          v-if="!isOpen"
-          class="navbar__icon"
-        ></base-icon>
-        <base-icon
-          name="x"
-          height="32"
-          width="32"
-          v-else
-          class="navbar__icon"
-        ></base-icon>
+        <transition name="scale" mode="out-in">
+          <base-icon
+            name="menu"
+            height="32"
+            width="32"
+            v-if="!isOpen"
+            class="navbar__icon"
+            key="menu"
+          ></base-icon>
+          <base-icon name="x" height="32" width="32" v-else class="navbar__icon" key="close"></base-icon>
+        </transition>
       </div>
     </div>
 
-    <!-- END NAVBAR -->
+    <!-- END NAVBAR ICONS -->
 
     <!-- START MOBILE LINKS -->
     <transition name="fade">
       <div class="nav-mobile" v-if="isOpen" @click="isOpen = false">
-        <router-link
-          :to="{ name: 'features' }"
-          class="nav__link nav__link--mobile"
-          >Features</router-link
-        >
+        <router-link :to="{ name: 'features' }" class="nav__link nav__link--mobile">Features</router-link>
         <router-link
           :to="{ name: 'training-plans' }"
           class="nav__link nav__link--mobile"
-          >training plans</router-link
-        >
-        <router-link
-          :to="{ name: 'resources' }"
-          class="nav__link nav__link--mobile"
-          >Resources</router-link
-        >
+        >training plans</router-link>
+        <router-link :to="{ name: 'resources' }" class="nav__link nav__link--mobile">Resources</router-link>
         <router-link
           :to="{ name: 'dashboard' }"
           v-if="currentUser"
           class="nav__link nav__link--mobile"
-          >Dashboard</router-link
-        >
+        >Dashboard</router-link>
         <router-link
           v-if="!currentUser"
           :to="{ name: 'create-account' }"
           class="nav__link nav__link--mobile"
-          >Create Account</router-link
-        >
+        >Create Account</router-link>
         <router-link
           v-if="!currentUser"
           :to="{ name: 'login' }"
           class="nav__link nav__link--mobile"
-          >Login</router-link
-        >
-        <button
-          v-else
-          @click="logout"
-          type="button"
-          class="nav__link nav__link--mobile button--reset"
-        >
-          Log out
-        </button>
+        >Login</router-link>
+        <button v-else @click="logout" type="button" class="nav__link nav__link--mobile">Log out</button>
       </div>
     </transition>
 
@@ -98,7 +73,8 @@ export default {
     return {
       showNavbar: true,
       lastScrollPosition: 0,
-      isOpen: false
+      isOpen: false,
+      navHover: true
     }
   },
   mounted() {
@@ -142,21 +118,17 @@ export default {
 .navbar {
   height: 64px;
   width: 100%;
-  background-color: #f9f9fb;
-  color: #444;
+  background-color: var(--bg-color-main);
+  color: var(--text-color-main);
   position: fixed;
   top: 0;
-  box-shadow: 0 2px 15px #444;
-  transform: translate3d(0, 0, 0);
-  transition: 0.1s all ease-out;
+  box-shadow: 0 2px 15px var(--bg-color-black);
+  border-bottom: 1px solid lightgray;
   z-index: 1;
-
   // hides nav
   &--hidden {
     box-shadow: none;
-    transform: translate3d(0, -100%, 0);
   }
-
   // mobile spacing
   &--mobile {
     height: 100%;
@@ -164,30 +136,15 @@ export default {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: stretch;
-    margin: 0 2em;
   }
 }
-.button--reset {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  margin: 0;
-  overflow: visible;
-  text-transform: none;
-  border: none;
-  background-color: inherit;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .nav-mobile {
   display: flex;
   flex-flow: column nowrap;
-  background-color: #f9f9fb;
-  border-top: 0.1em solid orange;
+  background-color: inherit;
+  border-top: 0.1em solid var(--active-orange);
+  border-bottom: 1px solid lightgray;
 }
-
 .navbar__icon {
   display: flex;
   height: 100%;
@@ -197,26 +154,33 @@ export default {
     cursor: pointer;
   }
 }
-
 .nav__link {
   text-decoration: none;
-  color: #666;
   text-transform: uppercase;
   text-align: center;
-
+  opacity: 0.5;
   &--mobile {
     display: block;
-    font-size: 1.1em;
+    font-weight: bold;
     padding: 0.25em 0;
+    transition: all 0.3s ease;
+    border-left: 0.2em solid transparent;
+    border-right: 0.2em solid transparent;
     &:hover {
-      background-color: darken(#f9f9fb, 10%);
+      cursor: pointer;
+      opacity: 1;
+      background-color: var(--bg-color-white);
+      border-left: 0.2em solid var(--active-red);
+      border-right: 0.2em solid transparent;
     }
   }
 }
-
 // style active links
 .router-link-exact-active {
-  background-color: darken(#f9f9fb, 5%);
-  color: darken(#444, 10%);
+  opacity: 1;
+  &:not(.home__icon) {
+    // give a left border to the active link, as long as it's not .home__icon
+    border-left: 0.2em solid var(--active-red);
+  }
 }
 </style>

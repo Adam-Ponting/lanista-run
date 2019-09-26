@@ -11,7 +11,6 @@
 
 <script>
 import { mapState } from 'vuex'
-
 import AppNavBar from '@/components/AppNavBar.vue'
 import AppFooter from '@/components/AppFooter.vue'
 
@@ -20,6 +19,7 @@ export default {
     AppNavBar,
     AppFooter
   },
+
   computed: {
     ...mapState(['currentUser'])
   }
@@ -27,6 +27,26 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --bg-color-main: #f7f7f7;
+  --bg-color-white: #fff;
+  --bg-color-black: #1c1a17;
+  --bg-color-blue: #17698b;
+
+  --text-color-main: #444;
+  --text-color-faded: #999;
+  --text-color-black: #111;
+  --text-color-white: #fff;
+  --text-color-notwhite: #edd;
+
+  --active-orange: orange;
+  --active-red: red;
+  --active-green: #72c02c;
+}
+.max-width {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .user {
   position: fixed;
   top: 0;
@@ -38,7 +58,8 @@ html {
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  color: #444;
+  background-color: var(--bg-color-main);
+  color: var(--text-color-main);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
@@ -47,10 +68,16 @@ a {
   text-decoration: none;
 }
 button {
-  color: inherit;
-  text-decoration: none;
-  border: none;
   background-color: inherit;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  text-decoration: none;
+  text-transform: none;
   &:active,
   &:hover,
   &:focus,
@@ -68,28 +95,33 @@ button {
   padding-top: 64px;
   overflow-x: hidden;
 }
-.component {
-  padding: 5em 0;
-  &--light {
-    background-color: #f9f9fb;
-  }
-  &--dark {
-    background-color: whitesmoke;
-  }
+.component--padding {
+  padding: 4em 0;
 }
 
 /* START TRANSITIONS */
+
 .fade-enter {
   opacity: 0;
 }
-
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s linear;
 }
-
 .fade-leave-to {
   opacity: 0;
+}
+
+.scale-enter {
+  transform: scale(0); // start from 0
+}
+.scale-enter-active,
+.scale-leave-active {
+  // default scale to 1
+  transition: transform 0.2s ease-out;
+}
+.scale-leave-to {
+  transform: scale(0); // scale to 0
 }
 /* END TRANSITIONS */
 /* START MEDIA QUERY */

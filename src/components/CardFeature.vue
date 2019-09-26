@@ -1,52 +1,52 @@
 <template>
   <div class="card">
-    <div class="card-header">
-      <slot></slot>
+    <slot name="icon"></slot>
+    <h4 class="card__title">
       <slot name="title"></slot>
-    </div>
-    <div class="card-content">
+    </h4>
+    <p class="card__content">
       <slot name="content"></slot>
-    </div>
+    </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'CardFeature'
+  name: 'CardFeature',
+  props: {
+    feature: {
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .card {
-  padding: 0.5em;
+  background-color: white;
   text-align: center;
-}
-.card-header {
-  color: black;
-}
-.icon--modifier {
-  // class passed in from HomeText
-  color: orange;
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin: 0.5em;
+  padding: 1em 0.5em;
+  &__title {
+    margin: 0.5em 0;
+    color: var(--text-color-black);
+  }
+  &__content {
+    margin: 0.3em 0;
+    font-size: 0.7em;
+  }
 }
 @media only screen and (min-width: 600px) {
   .card {
     width: 100%;
-    flex: 0 1 calc(50% - 1em); // make each the same size
-    &:nth-child(-n + 2) {
-      // add margin to top 2 tiles only
-      margin-bottom: 0.5em;
-    }
+    flex: 0 1 calc(50% - 1em); // make each the same size 2 per line
   }
 }
 @media only screen and (min-width: 1000px) {
   .card {
-    flex: 0 1 calc(25% - 1em); // make each the same size
-    &:nth-child(-n + 2) {
-      // remove margin as cards are on single line
-      margin-bottom: 0;
-    }
+    flex: 0 1 calc(25% - 1em); // make each the same size 4 on line
   }
 }
 </style>

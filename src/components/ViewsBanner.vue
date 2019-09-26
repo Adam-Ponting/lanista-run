@@ -60,7 +60,6 @@ export default {
 <style scoped lang="scss">
 .feature-banner {
   text-align: center;
-  color: white;
   padding: 2em 1em;
 }
 .feature-banner__image {
@@ -70,15 +69,15 @@ export default {
   top: 0;
   width: 100%;
 }
-
 .feature-banner__header {
   text-transform: uppercase;
+  color: var(--text-color-white);
 }
 .feature-banner__sub-header {
+  color: var(--text-color-white);
   font-size: 1.1em;
   font-weight: normal;
 }
-
 .icon--modifier {
   display: flex;
   justify-content: center;
@@ -88,6 +87,10 @@ export default {
   padding: 0.2em 0;
   &:nth-child(odd) {
     color: #f7e7ce;
+    color: var(--text-color-notwhite);
+  }
+  &:nth-child(even) {
+    color: var(--text-color-white);
   }
   &__title {
     text-transform: uppercase;
@@ -98,7 +101,6 @@ export default {
     margin-top: 0.25em;
   }
 }
-
 @media only screen and (min-width: 700px) {
   .flex-container {
     display: flex;
