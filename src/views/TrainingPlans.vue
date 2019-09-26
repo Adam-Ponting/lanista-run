@@ -7,20 +7,20 @@
       :header="header"
       :subHeader="subHeader"
     />
-    <section class="component component--light">
-      <h2 class="text--center">Choose a Training Plan</h2>
-      <TrainingPlansDistances :distance="gettingStarted" />
-      <TrainingPlansDistances :distance="fiveK" />
-      <TrainingPlansDistances :distance="tenK" />
-      <TrainingPlansDistances :distance="halfMarathon" />
-      <TrainingPlansDistances :distance="marathon" />
+    <section class="component--padding component--light">
+      <h2 class="text--center text--color">Choose a Training Plan</h2>
+      <TrainingPlansDistances
+        v-for="distance in distances"
+        :distance="distance"
+        :key="distance.heading"
+      />
     </section>
   </div>
 </template>
 
 <script>
 import ViewsBanner from '@/components/ViewsBanner.vue'
-import TrainingPlansDistances from '@/components/TrainingPlansDistances.vue'
+import TrainingPlansDistances from '@/components/trainingPlans/TrainingPlansDistances.vue'
 export default {
   name: 'TrainingPlans',
   components: {
@@ -60,36 +60,43 @@ export default {
         icon: 'database'
       }
     ]
-    this.gettingStarted = {
-      heading: 'Getting Started',
-      link: 'getting-started',
-      description:
-        'Begin your running journey with those all-important first steps – our Get-Started Schedule will take you from nought to 30 minutes in just eight weeks, whatever your current level of fitness.'
-    }
-    this.fiveK = {
-      heading: '5k',
-      link: '5k',
-      description:
-        "5K (3.1 miles) is many things to many runners - it can be the perfect beginner's distance or a testing time trial. Whether you're a beginner aiming to get round or a regular runner, we've got schedules that'll see you to 5K in 6 - 12 weeks."
-    }
-    this.tenK = {
-      heading: '10k',
-      link: '10k',
-      description:
-        "The UK's most popular race distance is something special – versatile, testing and the perfect training companion for more other running goals than any other distance. Whether you've got two weeks or two months until your race, we've got the schedule for you."
-    }
-    this.halfMarathon = {
-      heading: 'Half-marathon',
-      link: 'half-marathon',
-      description:
-        "Looking for a tough, but satisfying endurance event? The half-marathon could be just the thing, and with ten and twelve-week plans, we've got a schedule for every runner."
-    }
-    this.marathon = {
-      heading: 'Marathon',
-      link: 'marathon',
-      description:
-        "Whether you're a first-timer or a marathon devotee, pick one of our huge range of 16-week schedules and you could soon be lining up ready to tackle the big one."
-    }
+    this.distances = [
+      {
+        plan: 'gettingStarted',
+        heading: 'Getting Started',
+        link: 'getting-started',
+        description:
+          'Begin your running journey with those all-important first steps – our Get-Started Schedule will take you from nought to 30 minutes in just eight weeks, whatever your current level of fitness.'
+      },
+      {
+        plan: 'fiveK',
+        heading: '5k',
+        link: '5k',
+        description:
+          "5K (3.1 miles) is many things to many runners - it can be the perfect beginner's distance or a testing time trial. Whether you're a beginner aiming to get round or a regular runner, we've got schedules that'll see you to 5K in 6 - 12 weeks."
+      },
+      {
+        plan: 'tenK',
+        heading: '10k',
+        link: '10k',
+        description:
+          "The UK's most popular race distance is something special – versatile, testing and the perfect training companion for more other running goals than any other distance. Whether you've got two weeks or two months until your race, we've got the schedule for you."
+      },
+      {
+        plan: 'halfMarathon',
+        heading: 'Half-marathon',
+        link: 'half-marathon',
+        description:
+          "Looking for a tough, but satisfying endurance event? The half-marathon could be just the thing, and with ten and twelve-week plans, we've got a schedule for every runner."
+      },
+      {
+        plan: 'marathon',
+        heading: 'Marathon',
+        link: 'marathon',
+        description:
+          "Whether you're a first-timer or a marathon devotee, pick one of our huge range of 16-week schedules and you could soon be lining up ready to tackle the big one."
+      }
+    ]
   }
 }
 </script>
@@ -97,5 +104,8 @@ export default {
 <style lang="scss" scoped>
 .text--center {
   text-align: center;
+}
+.text-color {
+  color: var(--text-color-black);
 }
 </style>

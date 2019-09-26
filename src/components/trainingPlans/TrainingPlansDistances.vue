@@ -29,16 +29,16 @@ export default {
 <style lang="scss" scoped>
 .distances {
   padding: 0.25em 1em;
-  margin: 0em;
+  margin: 0.5em 0;
 }
 .button--position {
   margin-left: 1em;
 }
 .button--color {
-  color: black;
+  color: var(--text-color-black);
 }
 .distances__heading {
-  margin: 0.5em 0;
+  margin: 0.25em 0;
 }
 .distances__description {
   margin: 0;

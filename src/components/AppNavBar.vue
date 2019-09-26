@@ -2,7 +2,7 @@
   <nav id="NavBar" class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
     <!-- START NAVBAR ICONS -->
 
-    <div class="navbar--mobile">
+    <div class="navbar--mobile max-width">
       <router-link
         :to="{ name: 'home' }"
         class="home__icon"
@@ -12,12 +12,7 @@
           duration: 1000
         }"
       >
-        <base-icon
-          name="home"
-          height="32"
-          width="32"
-          class="navbar__icon"
-        ></base-icon>
+        <base-icon name="home" height="32" width="32" class="navbar__icon"></base-icon>
       </router-link>
       <div @click="isOpen = !isOpen">
         <transition name="scale" mode="out-in">
@@ -29,14 +24,7 @@
             class="navbar__icon"
             key="menu"
           ></base-icon>
-          <base-icon
-            name="x"
-            height="32"
-            width="32"
-            v-else
-            class="navbar__icon"
-            key="close"
-          ></base-icon>
+          <base-icon name="x" height="32" width="32" v-else class="navbar__icon" key="close"></base-icon>
         </transition>
       </div>
     </div>
@@ -46,47 +34,28 @@
     <!-- START MOBILE LINKS -->
     <transition name="fade">
       <div class="nav-mobile" v-if="isOpen" @click="isOpen = false">
-        <router-link
-          :to="{ name: 'features' }"
-          class="nav__link nav__link--mobile"
-          >Features</router-link
-        >
+        <router-link :to="{ name: 'features' }" class="nav__link nav__link--mobile">Features</router-link>
         <router-link
           :to="{ name: 'training-plans' }"
           class="nav__link nav__link--mobile"
-          >training plans</router-link
-        >
-        <router-link
-          :to="{ name: 'resources' }"
-          class="nav__link nav__link--mobile"
-          >Resources</router-link
-        >
+        >training plans</router-link>
+        <router-link :to="{ name: 'resources' }" class="nav__link nav__link--mobile">Resources</router-link>
         <router-link
           :to="{ name: 'dashboard' }"
           v-if="currentUser"
           class="nav__link nav__link--mobile"
-          >Dashboard</router-link
-        >
+        >Dashboard</router-link>
         <router-link
           v-if="!currentUser"
           :to="{ name: 'create-account' }"
           class="nav__link nav__link--mobile"
-          >Create Account</router-link
-        >
+        >Create Account</router-link>
         <router-link
           v-if="!currentUser"
           :to="{ name: 'login' }"
           class="nav__link nav__link--mobile"
-          >Login</router-link
-        >
-        <button
-          v-else
-          @click="logout"
-          type="button"
-          class="nav__link nav__link--mobile"
-        >
-          Log out
-        </button>
+        >Login</router-link>
+        <button v-else @click="logout" type="button" class="nav__link nav__link--mobile">Log out</button>
       </div>
     </transition>
 
@@ -104,7 +73,8 @@ export default {
     return {
       showNavbar: true,
       lastScrollPosition: 0,
-      isOpen: false
+      isOpen: false,
+      navHover: true
     }
   },
   mounted() {
@@ -152,7 +122,8 @@ export default {
   color: var(--text-color-main);
   position: fixed;
   top: 0;
-  box-shadow: 0 2px 15px var(--text-color-faded);
+  box-shadow: 0 2px 15px var(--bg-color-black);
+  border-bottom: 1px solid lightgray;
   z-index: 1;
   // hides nav
   &--hidden {
@@ -165,7 +136,6 @@ export default {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: stretch;
-    margin: 0 2em;
   }
 }
 .nav-mobile {
@@ -173,6 +143,7 @@ export default {
   flex-flow: column nowrap;
   background-color: inherit;
   border-top: 0.1em solid var(--active-orange);
+  border-bottom: 1px solid lightgray;
 }
 .navbar__icon {
   display: flex;

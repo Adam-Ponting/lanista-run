@@ -60,7 +60,7 @@ export default {
     margin: 0;
     padding-top: 0.25em;
     padding-bottom: 0.1em;
-
+    color: var(--text-color-main);
     &:after {
       content: ''; /* This is necessary for the pseudo element to work. */
       display: block; /* This will put the pseudo element on its own line. */

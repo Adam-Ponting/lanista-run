@@ -30,9 +30,7 @@ export default {
 }
 .week-view {
   padding: 0 1em;
-  background: rgba(0, 0, 0, 0.05);
-
-  // background-color: #f9f9fb;
+  background-color: var(--bg-color-main);
 }
 .week-number {
   margin: 0;
@@ -40,21 +38,31 @@ export default {
   font-size: 1em;
   margin-top: 1em;
   margin-bottom: 0;
-
   padding: 0.25em;
-  color: whitesmoke;
+  color: var(--text-color-white);
   background: linear-gradient(
     to right,
-    rgba(lightgrey, 0.1),
-    rgba(023, 105, 139, 1.25),
-    rgba(lightgrey, 0.1)
+    var(--bg-color-main),
+    var(--bg-color-blue) 10%,
+    var(--bg-color-blue) 90%,
+    var(--bg-color-main)
   );
   text-transform: capitalize;
   text-align: center;
 }
 @media only screen and (min-width: 1000px) {
+  .getting-started--responsive .week-view {
+  }
   .week-view--responsive {
     display: flex;
+  }
+  .week-number {
+    background: linear-gradient(
+      to right,
+      var(--bg-color-main),
+      var(--bg-color-blue) 50%,
+      var(--bg-color-main)
+    );
   }
 }
 </style>
