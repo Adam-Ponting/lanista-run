@@ -156,7 +156,6 @@ export default {
   z-index: 1;
   // hides nav
   &--hidden {
-    border: 3px solid red;
     box-shadow: none;
   }
   // mobile spacing
@@ -191,7 +190,7 @@ export default {
   opacity: 0.5;
   &--mobile {
     display: block;
-    font-size: 1.1em;
+    font-weight: bold;
     padding: 0.25em 0;
     transition: all 0.3s ease;
     border-left: 0.2em solid transparent;

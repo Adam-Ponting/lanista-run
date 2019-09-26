@@ -3,7 +3,7 @@
     <div class="home-banner__image" alt="scroll down">
       <base-icon
         name="arrow-down-circle"
-        class="icon"
+        class="icon--modifier"
         height="32"
         width="32"
         v-scroll-to="{
@@ -11,12 +11,12 @@
           duration: 1000
         }"
       ></base-icon>
-      <div class="home-banner__text">
-        <p>
+      <div class="home-banner__text-container">
+        <p class="home-banner__text">
           Many runners do not have the time to join organised groups, it doesn’t
           have to end there. Improve your performance with training plans.
         </p>
-        <router-link :to="{ name: 'create-account' }"
+        <router-link :to="{ name: 'create-account' }" class="home-banner__link"
           >Create Account</router-link
         >
       </div>
@@ -43,8 +43,8 @@ export default {
   background-position: 70% center;
   background-attachment: scroll;
 }
-.home-banner__text {
-  color: white;
+.home-banner__text-container {
+  color: var(--text-color-white);
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
@@ -52,11 +52,11 @@ export default {
   font-size: 1em;
   width: 100%;
   padding: 1em;
-  text-shadow: 1px 1px 1px black;
-  p {
+  text-shadow: 1px 1px 1px var(--text-color-black);
+  .home-banner__text {
     text-align: center;
   }
-  a {
+  .home-banner__link {
     align-self: center;
     width: fit-content;
     padding: 0.5em;
@@ -65,7 +65,7 @@ export default {
     border: 2px solid white;
   }
 }
-.icon {
+.icon--modifier {
   color: white;
   position: absolute;
   bottom: 20%;
@@ -76,7 +76,7 @@ export default {
 }
 
 @media only screen and (min-width: 600px) {
-  .home-banner__text {
+  .home-banner__text-container {
     width: 40%;
     justify-content: center;
     height: 100%;

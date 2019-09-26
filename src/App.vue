@@ -35,6 +35,7 @@ export default {
   --text-color-main: #444;
   --text-color-faded: #999;
   --text-color-black: #111;
+  --text-color-white: #fff;
   --text-color-red: rgb(255, 0, 0);
 
   --active-orange: orange;
