@@ -1,9 +1,11 @@
 <template>
   <nav id="NavBar" class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
-    <!-- START NAVBAR -->
+    <!-- START NAVBAR ICONS -->
+
     <div class="navbar--mobile">
       <router-link
         :to="{ name: 'home' }"
+        class="home__icon"
         @click.native="isOpen = false"
         v-scroll-to="{
           el: '#NavBar',
@@ -18,24 +20,28 @@
         ></base-icon>
       </router-link>
       <div @click="isOpen = !isOpen">
-        <base-icon
-          name="menu"
-          height="32"
-          width="32"
-          v-if="!isOpen"
-          class="navbar__icon"
-        ></base-icon>
-        <base-icon
-          name="x"
-          height="32"
-          width="32"
-          v-else
-          class="navbar__icon"
-        ></base-icon>
+        <transition name="scale" mode="out-in">
+          <base-icon
+            name="menu"
+            height="32"
+            width="32"
+            v-if="!isOpen"
+            class="navbar__icon"
+            key="menu"
+          ></base-icon>
+          <base-icon
+            name="x"
+            height="32"
+            width="32"
+            v-else
+            class="navbar__icon"
+            key="close"
+          ></base-icon>
+        </transition>
       </div>
     </div>
 
-    <!-- END NAVBAR -->
+    <!-- END NAVBAR ICONS -->
 
     <!-- START MOBILE LINKS -->
     <transition name="fade">
@@ -77,7 +83,7 @@
           v-else
           @click="logout"
           type="button"
-          class="nav__link nav__link--mobile button--reset"
+          class="nav__link nav__link--mobile"
         >
           Log out
         </button>
@@ -142,21 +148,17 @@ export default {
 .navbar {
   height: 64px;
   width: 100%;
-  background-color: #f9f9fb;
-  color: #444;
+  background-color: var(--bg-color-main);
+  color: var(--text-color-main);
   position: fixed;
   top: 0;
-  box-shadow: 0 2px 15px #444;
-  transform: translate3d(0, 0, 0);
-  transition: 0.1s all ease-out;
+  box-shadow: 0 2px 15px var(--text-color-faded);
   z-index: 1;
-
   // hides nav
   &--hidden {
+    border: 3px solid red;
     box-shadow: none;
-    transform: translate3d(0, -100%, 0);
   }
-
   // mobile spacing
   &--mobile {
     height: 100%;
@@ -167,27 +169,12 @@ export default {
     margin: 0 2em;
   }
 }
-.button--reset {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  margin: 0;
-  overflow: visible;
-  text-transform: none;
-  border: none;
-  background-color: inherit;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .nav-mobile {
   display: flex;
   flex-flow: column nowrap;
-  background-color: #f9f9fb;
-  border-top: 0.1em solid orange;
+  background-color: inherit;
+  border-top: 0.1em solid var(--active-orange);
 }
-
 .navbar__icon {
   display: flex;
   height: 100%;
@@ -197,26 +184,33 @@ export default {
     cursor: pointer;
   }
 }
-
 .nav__link {
   text-decoration: none;
-  color: #666;
   text-transform: uppercase;
   text-align: center;
-
+  opacity: 0.5;
   &--mobile {
     display: block;
     font-size: 1.1em;
     padding: 0.25em 0;
+    transition: all 0.3s ease;
+    border-left: 0.2em solid transparent;
+    border-right: 0.2em solid transparent;
     &:hover {
-      background-color: darken(#f9f9fb, 10%);
+      cursor: pointer;
+      opacity: 1;
+      background-color: var(--bg-color-white);
+      border-left: 0.2em solid var(--active-red);
+      border-right: 0.2em solid transparent;
     }
   }
 }
-
 // style active links
 .router-link-exact-active {
-  background-color: darken(#f9f9fb, 5%);
-  color: darken(#444, 10%);
+  opacity: 1;
+  &:not(.home__icon) {
+    // give a left border to the active link, as long as it's not .home__icon
+    border-left: 0.2em solid var(--active-red);
+  }
 }
 </style>

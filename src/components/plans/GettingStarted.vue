@@ -7,10 +7,6 @@
           Build from nought to 30 minutes in just eight weeks
         </h5>
       </div>
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/getting-started.jpg?alt=media&token=babbabfa-02f6-4732-a869-2a72c262ee34"
-        alt="Image of man running"
-      />
     </section>
     <aside class="component component--light getting-started__intro">
       <h2 class="text--center">Before You Begin</h2>
@@ -32,7 +28,9 @@
     </aside>
     <div class="component component--dark">
       <h2 class="text--center">The Schedule</h2>
-      <WeekView v-for="week in week" :key="week.id" :week="week" class="test" />
+      <section class="getting-started--responsive">
+        <WeekView v-for="week in week" :key="week.id" :week="week" />
+      </section>
     </div>
     <div class="component component--light text--center">
       <h2>The Result</h2>
@@ -66,9 +64,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.test {
-  padding: 0 1em;
-}
 .beginner-headers {
   padding: 1em;
 }
@@ -77,10 +72,6 @@ export default {
 }
 .text--center {
   text-align: center;
-}
-img {
-  display: block;
-  margin: 0 auto;
 }
 .beginner-details {
   padding-left: 0.5em;
@@ -104,5 +95,11 @@ img {
   );
   text-transform: capitalize;
   text-align: center;
+}
+@media only screen and (min-width: 1250px) {
+  // go to flex when content fits best
+  .getting-started--responsive {
+    display: flex;
+  }
 }
 </style>

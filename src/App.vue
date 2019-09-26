@@ -27,6 +27,20 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --bg-color-main: #f7f7f7;
+  --bg-color-white: #fff;
+  --bg-color-black: #343a40;
+
+  --text-color-main: #444;
+  --text-color-faded: #999;
+  --text-color-black: #111;
+  --text-color-red: rgb(255, 0, 0);
+
+  --active-orange: orange;
+  --active-red: red;
+}
+
 .user {
   position: fixed;
   top: 0;
@@ -38,7 +52,8 @@ html {
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  color: #444;
+  background-color: var(--bg-color-main);
+  color: var(--text-color-red);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
@@ -47,10 +62,16 @@ a {
   text-decoration: none;
 }
 button {
-  color: inherit;
-  text-decoration: none;
-  border: none;
   background-color: inherit;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  text-decoration: none;
+  text-transform: none;
   &:active,
   &:hover,
   &:focus,
@@ -79,17 +100,28 @@ button {
 }
 
 /* START TRANSITIONS */
+
 .fade-enter {
   opacity: 0;
 }
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease-out;
 }
-
 .fade-leave-to {
   opacity: 0;
+}
+
+.scale-enter {
+  transform: scale(0); // start from 0
+}
+.scale-enter-active,
+.scale-leave-active {
+  // default scale to 1
+  transition: transform 0.2s ease-out;
+}
+.scale-leave-to {
+  transform: scale(0); // scale to 0
 }
 /* END TRANSITIONS */
 /* START MEDIA QUERY */

@@ -2,17 +2,13 @@
   <main>
     <section>
       <div class="beginner-headers">
-        <h1 class="text--center">5k</h1>
+        <h1 class="text--center header__main">5k training</h1>
         <h5 class="text--center">
           Our one-stop shop for all things 5K, whether you're a beginner in
           training for your first ever race or an experienced runner targeting a
           new PB
         </h5>
       </div>
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/5k-beginner.jpg?alt=media&token=291d7339-7526-47f4-8ebf-53b0716a99b5"
-        alt="Image of woman and man running"
-      />
     </section>
     <aside class="component component--light getting-started__intro">
       <h2 class="text--center">Before You Begin</h2>
@@ -36,7 +32,7 @@
       </section>
     </aside>
     <div class="component component--dark">
-      <h2 class="text--center">5k Training Plans</h2>
+      <h2 class="text--center">Select a 5k Training Plan</h2>
       <div class="tab-selection">
         <button
           v-for="tab in tabs"
@@ -44,17 +40,21 @@
           :class="['tab-button', { active: currentTab === tab }]"
           @click="currentTab = tab"
         >
-          5k {{ tab }}
+          {{ tab }}
         </button>
       </div>
       <transition name="component-fade" mode="out-in">
+        <p v-if="currentTab === ''" class="text--center">
+          Please select an above plan
+        </p>
+
         <component :is="currentTab" class="tab"></component>
       </transition>
     </div>
     <div class="component component--light text--center">
       <h2>The Result</h2>
       <p>
-        Congratulations! You’re a runner! What next? How about a 5K (3.1-mile)
+        Congratulations! You’re a runner! What next? How about a 10K (6.2-mile)
         run?
       </p>
     </div>
@@ -73,7 +73,7 @@ export default {
   },
   data() {
     return {
-      currentTab: 'Beginner',
+      currentTab: '',
       tabs: ['Beginner', 'Intermediate']
     }
   },
@@ -111,6 +111,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header__main {
+  text-transform: uppercase;
+}
 .component-fade-enter-active,
 .component-fade-leave-active {
   transition: opacity 0.2s ease;
@@ -121,6 +124,10 @@ export default {
 }
 .tab-button {
   font-size: 1.1em;
+  padding-top: 0.5em;
+  font-weight: bold;
+  margin: 0 0.25em;
+
   &:hover {
     cursor: pointer;
   }
@@ -145,12 +152,9 @@ export default {
   }
 }
 .tab-selection {
+  margin: 0 1em;
   text-align: center;
   background-color: white;
-
-  &__header {
-    display: inline-block;
-  }
 }
 .question {
   font-weight: bold;
