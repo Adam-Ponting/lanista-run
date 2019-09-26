@@ -51,8 +51,6 @@ export default {
   text-align: center;
 }
 @media only screen and (min-width: 1000px) {
-  .getting-started--responsive .week-view {
-  }
   .week-view--responsive {
     display: flex;
   }

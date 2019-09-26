@@ -3,7 +3,7 @@
     <!-- v-for notifications array -->
     <!-- :key is id -->
     <!-- prop passed in is the notifications object -->
-    <notification-bar
+    <NotificationBar
       v-for="notification in notifications"
       :key="notification.id"
       :notification="notification"
