@@ -18,7 +18,11 @@
         runs per week to help you find the best schedule for you.
       </p>
 
-      <section class="beginner-details" v-for="(faq, index) in faqs" :key="index">
+      <section
+        class="beginner-details"
+        v-for="(faq, index) in faqs"
+        :key="index"
+      >
         <span class="question">
           <base-icon name="play" class="icon--modifier"></base-icon>
           {{ faq.question }}
@@ -34,7 +38,9 @@
           :key="tab"
           :class="['tab-button', { active: currentTab === tab }]"
           @click="currentTab === tab ? (currentTab = '') : (currentTab = tab)"
-        >{{ tab }} Week Plans</button>
+        >
+          {{ tab }} Week Plans
+        </button>
       </div>
       <transition name="component-fade" mode="out-in">
         <component :is="currentTab" class="tab"></component>

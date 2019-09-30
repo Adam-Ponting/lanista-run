@@ -1,7 +1,9 @@
 <template>
   <div id="HomeText">
     <div class="max-width">
-      <h1 class="header text--padding">Lanista Run Training Plans</h1>
+      <h1 class="header text--padding">
+        Lanista Run Training Plans
+      </h1>
       <p class="text--padding">
         Running is a great way to get fit, feel better and even form new
         relationships with other runners. Starting a new running habit doesn’t
@@ -40,17 +42,18 @@ export default {
 }
 .header {
   text-align: center;
-  border-bottom: 2px solid var(--active-orange);
-  width: fit-content;
+  text-decoration: underline;
+  text-decoration-color: var(--active-orange);
   margin: 0 auto;
 }
 .text--padding {
   padding: 0 1em;
 }
 .button--position {
-  margin-left: 1em;
+  margin-left: 1.1em;
 }
 .button--color {
   color: var(--text-color-black);
+  font-size: 0.9em;
 }
 </style>
