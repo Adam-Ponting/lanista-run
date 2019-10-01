@@ -6,7 +6,6 @@ module.exports = {
   extends: [
     'plugin:vue/essential',
     'eslint:recommended',
-
     'plugin:prettier/recommended', // we added this line
     '@vue/prettier'
   ],
