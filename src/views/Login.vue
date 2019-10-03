@@ -181,7 +181,7 @@ export default {
   border: none;
   font-weight: bold;
   margin: 3em auto 2em;
-  padding: 0.75em 1em;
+  padding: 0.25em 0.5em;
   border: 2px solid lightcoral;
 
   &--activeButton {
@@ -199,7 +199,6 @@ export default {
   &--muted {
     display: inline-block;
     font-size: 0.7em;
-
     margin: 0.5em;
     padding: 0.5em;
     background-color: whitesmoke;

@@ -188,7 +188,7 @@ export default {
 .form__button {
   display: block;
   margin: 3em auto 2em;
-  padding: 0.75em 1em;
+  padding: 0.25em 0.5em;
   border: 2px solid lightcoral;
   font-weight: bold;
   &--activeButton {
