@@ -24,7 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  background-color: white;
   text-align: center;
   display: block;
   margin: 0.5em;

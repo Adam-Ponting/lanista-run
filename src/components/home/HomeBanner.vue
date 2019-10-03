@@ -12,10 +12,10 @@
         width="32"
       ></base-icon>
       <div class="home-banner__text-container">
-        <p class="home-banner__text">
+        <h1 class="home-banner__text">
           Many runners do not have the time to join organised groups, it doesn’t
           have to end there. Improve your performance with training plans.
-        </p>
+        </h1>
         <router-link :to="{ name: 'create-account' }" class="home-banner__link"
           >Create Account</router-link
         >
@@ -49,12 +49,13 @@ export default {
   flex-flow: column nowrap;
   justify-content: flex-end;
   height: 50%;
-  font-size: 1em;
   width: 100%;
   padding: 1em;
   text-shadow: 1px 1px 1px var(--text-color-black);
   .home-banner__text {
     text-align: center;
+    font-size: 1em;
+    font-weight: normal;
   }
   .home-banner__link {
     align-self: center;
@@ -62,11 +63,11 @@ export default {
     padding: 0.5em;
     text-align: center;
     text-transform: uppercase;
-    border: 2px solid white;
+    border: 2px solid var(--border-white);
   }
 }
 .icon--modifier {
-  color: white;
+  color: var(--text-color-white);
   position: absolute;
   bottom: 20%;
   left: 49%;

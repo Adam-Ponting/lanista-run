@@ -1,5 +1,5 @@
 <template>
-  <div class="features max-width">
+  <section class="features max-width">
     <CardFeature
       v-for="(feature, index) in features"
       :key="index"
@@ -16,7 +16,7 @@
       <template v-slot:title>{{ feature.title }}</template>
       <template v-slot:content>{{ feature.content }}</template>
     </CardFeature>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div id="HomeText">
-    <div class="max-width">
+    <section class="max-width">
       <h1 class="header text--padding">Lanista Run Training Plans</h1>
       <p class="text--padding">
         Running is a great way to get fit, feel better and even form new
@@ -22,7 +22,7 @@
           ><span>Find your training plan</span>
         </template>
       </base-button-link>
-    </div>
+    </section>
   </div>
 </template>
 

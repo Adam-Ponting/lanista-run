@@ -13,7 +13,7 @@ import HomeText from '@/components/home/HomeText.vue'
 import HomeCards from '@/components/home/HomeCards.vue'
 
 export default {
-  name: 'Home',
+  name: 'HomePage',
   components: {
     HomeBanner,
     HomeText,
