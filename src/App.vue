@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AppNavBar />
-    <div class="user" v-if="currentUser">user is:{{ currentUser.email }}</div>
+    <div v-if="currentUser" class="user">user is:{{ currentUser.email }}</div>
     <transition name="fade" mode="out-in">
       <router-view class="router-view" />
     </transition>

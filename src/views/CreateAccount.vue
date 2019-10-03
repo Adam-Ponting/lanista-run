@@ -1,24 +1,24 @@
 <template>
   <div class="form-container">
-    <form @submit.prevent="signup" class="form--display">
+    <form class="form--display" @submit.prevent="signup">
       <fieldset>
         <legend class="legend__text">Create Account</legend>
         <input
+          id="firstName"
+          v-model.trim="signupForm.firstName"
           type="text"
           name="firstName"
-          id="firstName"
           placeholder="First name"
           class="form__input"
           required
-          v-model.trim="signupForm.firstName"
           minlength="2"
           maxlength="10"
         />
         <input
+          id="lastName"
           v-model.trim="signupForm.lastName"
           type="text"
           placeholder="Last Name"
-          id="lastName"
           class="form__input"
           required
           minlength="5"
@@ -26,22 +26,22 @@
         />
 
         <input
+          id="email"
+          ref="email"
           v-model.trim="signupForm.email"
           type="email"
           placeholder="Email"
-          id="email"
           required
           class="form__input"
-          ref="email"
           minlength="5"
           maxlength="25"
         />
 
         <input
+          id="password"
           v-model.trim="signupForm.password"
           type="password"
           placeholder="Password"
-          id="password"
           required
           class="form__input"
           minlength="5"
@@ -49,10 +49,10 @@
         />
         <NotificationContainer v-if="notifications.length > 0" />
         <button
+          ref="buttonSubmit"
           type="submit"
           value="Submit"
           class="form__button"
-          ref="buttonSubmit"
           :class="[
             isFormValid
               ? 'form__button--activeButton'

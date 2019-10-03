@@ -32,16 +32,16 @@
 
     <PlanTitle>
       <template v-slot:header>
-        <h2 class="plan__header text--center">The Schedule</h2></template
-      >
+        <h2 class="plan__header text--center">The Schedule</h2>
+      </template>
     </PlanTitle>
     <section class="getting-started--responsive">
       <WeekView v-for="week in week" :key="week.id" :week="week" />
     </section>
     <PlanTitle style="backgroundColor:var(--bg-color-white)">
       <template v-slot:header>
-        <h2 class="plan__header text--center">The Result</h2></template
-      >
+        <h2 class="plan__header text--center">The Result</h2>
+      </template>
       <template v-slot:lead-text>
         <p class="plan__lead-text max-width">
           Congratulations! You’re a runner! What next? How about a 5K (3.1-mile)

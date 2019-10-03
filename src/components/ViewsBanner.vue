@@ -26,19 +26,24 @@ export default {
   name: 'ViewsBanner',
   props: {
     bannerDetails: {
-      type: Array
+      type: Array,
+      default: () => [] // es6 returns empty array
     },
     image: {
-      type: String
+      type: String,
+      default: ''
     },
     position: {
-      type: String
+      type: String,
+      default: ''
     },
     header: {
-      type: String
+      type: String,
+      default: ''
     },
     subHeader: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   data() {

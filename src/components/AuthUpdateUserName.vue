@@ -1,28 +1,28 @@
 <template>
   <div class="form-container">
-    <form @submit.prevent="updateProfile" class="form--display">
+    <form class="form--display" @submit.prevent="updateProfile">
       <fieldset>
         <legend class="legend__text">Update User Name</legend>
         <label for="firstName" class="label">First name:</label>
         <input
+          id="firstName"
+          v-model.trim="firstName"
           type="text"
           name="firstName"
-          id="firstName"
           :placeholder="userProfile.firstName"
           class="form__input"
-          v-model.trim="firstName"
           minlength="1"
           maxlength="15"
         />
         <label for="firstName" class="label">Last name:</label>
 
         <input
+          id="lastName"
+          v-model.trim="lastName"
           type="text"
           name="lastName"
-          id="lastName"
           :placeholder="userProfile.lastName"
           class="form__input"
-          v-model.trim="lastName"
           minlength="1"
           maxlength="25"
         />

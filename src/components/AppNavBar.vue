@@ -4,13 +4,13 @@
 
     <div class="navbar--mobile max-width">
       <router-link
-        :to="{ name: 'home' }"
-        class="home__icon"
-        @click.native="isOpen = false"
         v-scroll-to="{
           el: '#NavBar',
           duration: 1000
         }"
+        :to="{ name: 'home' }"
+        class="home__icon"
+        @click.native="isOpen = false"
       >
         <base-icon
           name="home"
@@ -22,20 +22,20 @@
       <div @click="isOpen = !isOpen">
         <transition name="scale" mode="out-in">
           <base-icon
+            v-if="!isOpen"
+            key="menu"
             name="menu"
             height="32"
             width="32"
-            v-if="!isOpen"
             class="navbar__icon"
-            key="menu"
           ></base-icon>
           <base-icon
+            v-else
+            key="close"
             name="x"
             height="32"
             width="32"
-            v-else
             class="navbar__icon"
-            key="close"
           ></base-icon>
         </transition>
       </div>
@@ -45,7 +45,7 @@
 
     <!-- START MOBILE LINKS -->
     <transition name="fade">
-      <div class="nav-mobile" v-if="isOpen" @click="isOpen = false">
+      <div v-if="isOpen" class="nav-mobile" @click="isOpen = false">
         <router-link
           :to="{ name: 'features' }"
           class="nav__link nav__link--mobile"
@@ -62,8 +62,8 @@
           >Resources</router-link
         >
         <router-link
-          :to="{ name: 'dashboard' }"
           v-if="currentUser"
+          :to="{ name: 'dashboard' }"
           class="nav__link nav__link--mobile"
           >Dashboard</router-link
         >
@@ -81,9 +81,9 @@
         >
         <button
           v-else
-          @click="logout"
           type="button"
           class="nav__link nav__link--mobile"
+          @click="logout"
         >
           Log out
         </button>
@@ -107,6 +107,9 @@ export default {
       isOpen: false,
       navHover: true
     }
+  },
+  computed: {
+    ...mapState(['currentUser'])
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
@@ -138,9 +141,6 @@ export default {
       // close nav menu along with hiding navbar
       this.isOpen = false
     }
-  },
-  computed: {
-    ...mapState(['currentUser'])
   }
 }
 </script>

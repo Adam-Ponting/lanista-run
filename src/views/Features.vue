@@ -1,11 +1,11 @@
 <template>
   <div>
     <ViewsBanner
-      :bannerDetails="features"
+      :banner-details="features"
       :image="image"
       :position="position"
       :header="header"
-      :subHeader="subHeader"
+      :sub-header="subHeader"
     />
   </div>
 </template>

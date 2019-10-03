@@ -9,7 +9,7 @@
             <p>create a post</p>
             <form @submit.prevent>
               <textarea v-model.trim="post.content"></textarea>
-              <button @click="createPost" class="button">post</button>
+              <button class="button" @click="createPost">post</button>
             </form>
           </div>
         </div>

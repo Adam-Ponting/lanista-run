@@ -1,7 +1,7 @@
 <template>
   <article class="day-view">
-    <h3 class="day-view__day" v-show="day.day">{{ day.day }}</h3>
-    <h4 class="day-view__type" v-show="day.type">{{ day.type }}</h4>
+    <h3 v-show="day.day" class="day-view__day">{{ day.day }}</h3>
+    <h4 v-show="day.type" class="day-view__type">{{ day.type }}</h4>
     <p class="day-view__activity">{{ day.activity }}</p>
     <!-- <div class="day-view__extras">
       <span class="day-view__extras-comment">

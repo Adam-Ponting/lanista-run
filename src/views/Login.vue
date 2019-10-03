@@ -1,28 +1,28 @@
 <template>
   <div class="form-container">
     <form
-      @submit.prevent="login"
-      class="form--display"
       v-if="!showResetPassword"
+      class="form--display"
+      @submit.prevent="login"
     >
       <fieldset>
         <legend class="legend__text">Login</legend>
         <input
+          id="email"
+          v-model.trim="loginForm.email"
           type="email"
           name="email"
-          id="email"
           placeholder="Email"
           class="form__input"
           required
-          v-model.trim="loginForm.email"
           minlength="5"
           maxlength="25"
         />
         <input
+          id="password"
           v-model.trim="loginForm.password"
           type="password"
           placeholder="Password"
-          id="password"
           class="form__input"
           required
           minlength="5"
@@ -31,10 +31,10 @@
         <NotificationContainer v-if="notifications.length > 0" />
 
         <button
+          ref="buttonSubmit"
           type="submit"
           value="Submit"
           class="form__button"
-          ref="buttonSubmit"
           :class="[
             isFormValid
               ? 'form__button--activeButton'

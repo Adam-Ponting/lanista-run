@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <main>
     <HomeBanner />
     <HomeText class="component--padding" />
     <HomeCards class="component--padding" />
-  </div>
+  </main>
 </template>
 
 <script>
