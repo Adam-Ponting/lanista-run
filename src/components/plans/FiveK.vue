@@ -20,9 +20,9 @@
       </p>
 
       <section
-        class="beginner-details"
         v-for="(faq, index) in faqs"
         :key="index"
+        class="beginner-details"
       >
         <span class="question">
           <base-icon name="play" class="icon--modifier"></base-icon>
@@ -77,6 +77,11 @@ export default {
       tabs: ['Beginner', 'Intermediate']
     }
   },
+  computed: {
+    currentTabComponent() {
+      return 'tab-' + this.currentTab.toLowerCase()
+    }
+  },
   created() {
     this.week = plan
     this.faqs = [
@@ -101,11 +106,6 @@ export default {
         answer: 'Run to a plan.'
       }
     ]
-  },
-  computed: {
-    currentTabComponent() {
-      return 'tab-' + this.currentTab.toLowerCase()
-    }
   }
 }
 </script>

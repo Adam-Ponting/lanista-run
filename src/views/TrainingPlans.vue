@@ -1,18 +1,18 @@
 <template>
   <div>
     <ViewsBanner
-      :bannerDetails="trainingPlans"
+      :banner-details="trainingPlans"
       :image="image"
       :position="position"
       :header="header"
-      :subHeader="subHeader"
+      :sub-header="subHeader"
     />
     <section class="component--padding component--light">
       <h2 class="text--center text--color">Choose a Training Plan</h2>
       <TrainingPlansDistances
         v-for="distance in distances"
-        :distance="distance"
         :key="distance.heading"
+        :distance="distance"
       />
     </section>
   </div>

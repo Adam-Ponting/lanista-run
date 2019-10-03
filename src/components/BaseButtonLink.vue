@@ -14,10 +14,12 @@
 export default {
   props: {
     link: {
-      type: String
+      type: String,
+      default: 'home'
     },
     name: {
-      type: String
+      type: String,
+      default: 'circle'
     },
     width: {
       type: [Number, String], // can be number or string

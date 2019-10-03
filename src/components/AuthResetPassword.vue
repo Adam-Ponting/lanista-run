@@ -1,25 +1,25 @@
 <template>
-  <form @submit.prevent="resetPassword" class="form--display">
+  <form class="form--display" @submit.prevent="resetPassword">
     <fieldset>
       <legend class="legend__text">Reset Password</legend>
       <input
+        id="resetEmail"
+        v-model.trim="passwordForm.email"
         type="email"
         name="email"
-        id="resetEmail"
         placeholder="Enter your email"
         class="form__input"
         required
-        v-model.trim="passwordForm.email"
         minlength="5"
         maxlength="25"
       />
       <NotificationContainer v-if="notifications.length > 0" />
 
       <button
+        ref="buttonSubmit"
         type="submit"
         value="Submit"
         class="form__button"
-        ref="buttonSubmit"
         :class="[
           isFormValid
             ? 'form__button--activeButton'

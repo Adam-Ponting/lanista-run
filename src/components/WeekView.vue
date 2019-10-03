@@ -11,14 +11,14 @@
 import DayView from '@/components/DayView.vue'
 
 export default {
+  components: {
+    DayView
+  },
   props: {
     week: {
       type: Array,
       required: true
     }
-  },
-  components: {
-    DayView
   }
 }
 </script>

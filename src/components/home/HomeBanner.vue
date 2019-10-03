@@ -2,14 +2,14 @@
   <div id="HomeBanner">
     <div class="home-banner__image" alt="scroll down">
       <base-icon
-        name="arrow-down-circle"
-        class="icon--modifier"
-        height="32"
-        width="32"
         v-scroll-to="{
           el: '#HomeText',
           duration: 1000
         }"
+        name="arrow-down-circle"
+        class="icon--modifier"
+        height="32"
+        width="32"
       ></base-icon>
       <div class="home-banner__text-container">
         <p class="home-banner__text">

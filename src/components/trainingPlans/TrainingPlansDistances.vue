@@ -20,7 +20,12 @@ export default {
   props: {
     distance: {
       type: Object,
-      required: false
+      required: true,
+      default: () => ({
+        // es6 returns object
+        heading: 'value',
+        description: 'value'
+      })
     }
   }
 }

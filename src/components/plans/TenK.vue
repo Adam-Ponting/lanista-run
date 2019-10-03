@@ -19,9 +19,9 @@
       </p>
 
       <section
-        class="beginner-details"
         v-for="(faq, index) in faqs"
         :key="index"
+        class="beginner-details"
       >
         <span class="question">
           <base-icon name="play" class="icon--modifier"></base-icon>
@@ -73,6 +73,11 @@ export default {
       tabs: ['Two', 'Four', 'Eight']
     }
   },
+  computed: {
+    currentTabComponent() {
+      return 'tab-' + this.currentTab.toLowerCase()
+    }
+  },
   created() {
     this.faqs = [
       { question: 'How far is 10k in miles?', answer: '10K is 6.2 miles.' },
@@ -107,11 +112,6 @@ export default {
           'Whether you’ve got the speed, but are struggling with the endurance, or are an endurance runner struggling to speed up, we’ve found the solutions to the most common 10K problems here.'
       }
     ]
-  },
-  computed: {
-    currentTabComponent() {
-      return 'tab-' + this.currentTab.toLowerCase()
-    }
   }
 }
 </script>
