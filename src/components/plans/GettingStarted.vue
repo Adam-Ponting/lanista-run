@@ -1,77 +1,92 @@
 <template>
-  <main>
-    <PlanJumbo>
-      <template v-slot:header
-        >Beginners Training Schedule</template
-      >
-      <template v-slot:sub-header
-        >Build from nought to 30 minutes in just eight weeks</template
-      >
-    </PlanJumbo>
-    <PlanTitle>
-      <template v-slot:header>
-        <h1 class="plan__header text--center">{{ header }}</h1>
+  <main class="training-plan">
+    <PlanHeader class="component--padding">
+      <template #heading>
+        <h1 class="plan-header__heading">
+          {{ gettingStarted.header }}
+        </h1>
       </template>
-      <template v-slot:lead-text>
-        <h5 class="plan__lead-text max-width">{{ subHeader }}</h5>
+      <template #sub-heading>
+        <h2 class="plan-header__sub-heading">
+          {{ gettingStarted.subHeader }}
+        </h2>
       </template>
-    </PlanTitle>
-    <PlanPrepare>
-      <template v-slot:details>
-        <p v-for="(detail, index) in details" :key="index" class="details-text">
+    </PlanHeader>
+
+    <section class="component--padding">
+      <div class="max-width">
+        <h2 class="training-plan__section-heading">
+          {{ gettingStarted.toBeginHeading }}
+        </h2>
+        <p class="training-plan__section-lead-text">
+          {{ gettingStarted.toBeginText }}
+        </p>
+      </div>
+    </section>
+
+    <section class="component--padding">
+      <div class="max-width">
+        <h2 class="training-plan__section-heading">
+          {{ gettingStarted.topTips }}
+        </h2>
+        <p v-for="(tip, index) in topTips" :key="index">
           <base-icon
             name="play"
             class="icon--modifier"
             width="20"
             height="20"
           ></base-icon>
-          {{ detail }}
+          {{ tip }}
         </p>
-      </template>
-    </PlanPrepare>
-
-    <PlanTitle>
-      <template v-slot:header>
-        <h2 class="plan__header text--center">The Schedule</h2>
-      </template>
-    </PlanTitle>
-    <section class="getting-started--responsive">
-      <WeekView v-for="week in week" :key="week.id" :week="week" />
+      </div>
     </section>
-    <PlanTitle style="backgroundColor:var(--bg-color-white)">
-      <template v-slot:header>
-        <h2 class="plan__header text--center">The Result</h2>
-      </template>
-      <template v-slot:lead-text>
-        <p class="plan__lead-text max-width">
+
+    <section class="component--padding">
+      <h2 class="training-plan__section-heading">
+        {{ gettingStarted.theSchedule }}
+      </h2>
+      <section class="getting-started--responsive">
+        <WeekView v-for="week in week" :key="week.id" :week="week" />
+      </section>
+    </section>
+
+    <section class="component--padding">
+      <div class="max-width">
+        <h2 class="training-plan__section-heading">
+          {{ gettingStarted.theResults }}
+        </h2>
+        <p class="text--center">
           Congratulations! You’re a runner! What next? How about a 5K (3.1-mile)
           run?
         </p>
-      </template>
-    </PlanTitle>
+      </div>
+    </section>
   </main>
 </template>
 
 <script>
 import { plan } from '@/assets/data/GettingStarted.js'
 import WeekView from '@/components/WeekView.vue'
-import PlanJumbo from '@/components/trainingPlans/PlanJumbo.vue'
-import PlanPrepare from '@/components/trainingPlans/PlanPrepare.vue'
-import PlanTitle from '@/components/trainingPlans/PlanTitle.vue'
+import PlanHeader from '@/components/trainingPlans/PlanHeader.vue'
 
 export default {
   components: {
     WeekView,
-    PlanJumbo,
-    PlanPrepare,
-    PlanTitle
+    PlanHeader
   },
   created() {
-    this.header = 'Before you begin your journey'
-    this.subHeader =
-      'Whatever your level of fitness you should comfortably be able to build from nothing to running continuously for 30 minutes in the space of eight weeks. All you need to do is make a commitment to run at least three times a week and follow this simple run-walk programme which will gradually ease you towards the goal.'
+    this.gettingStarted = {
+      header: 'Beginners Training Schedule',
+      subHeader: 'Build from nought to 30 minutes in just eight weeks',
+      toBeginHeading: 'Before you begin your journey',
+      toBeginText:
+        'Whatever your level of fitness you should comfortably be able to build from nothing to running continuously for 30 minutes in the space of eight weeks. All you need to do is make a commitment to run at least three times a week and follow this simple run-walk programme which will gradually ease you towards the goal.',
+      topTips: 'Top Tips',
+      theSchedule: 'The Schedule',
+      theResults: 'The Results'
+    }
     this.week = plan
-    this.details = [
+    this.topTips = [
       'Allow at least a day between runs when you begin.',
       'If in doubt, slow down. You should be able to hold a conversation while you run. Respecting your body is the best route to progression.',
       'Walk purposefully, and be strict with your run/walk timings.',
@@ -83,33 +98,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.jumbo-plan {
-  background-color: var(--bg-color-black);
-  padding: 1em;
-  &__header {
-    color: var(--text-color-white);
-    font-size: 2em;
+.training-plan {
+  &__section-heading {
+    color: var(--text-color-main);
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
     &::after {
       content: '';
       display: block;
-      border-bottom: 2px solid var(--active-orange);
-      width: 20%;
+      border-bottom: 2px solid var(--active-green);
+      width: 5%;
       margin: 0 auto;
-      padding-top: 0.75em;
+      padding-top: 0.5em;
     }
   }
-  &__sub-header {
+  &__section-lead-text {
     color: var(--text-color-faded);
     font-size: 0.8em;
+    font-weight: 600;
     text-align: center;
-    margin: 0.5em 0;
   }
+}
+section.component--padding:nth-child(odd) {
+  background-color: var(--bg-color-white);
+}
+.icon--modifier {
+  // class received from component
+  color: var(--active-orange);
+  padding-right: 0.25em;
 }
 @media only screen and (min-width: 1250px) {
   // go to flex when content fits best
   .getting-started--responsive {
     display: flex;
-    padding: 1em 0.25em 2em;
+    padding: 0 0.25em 2em;
   }
 }
 </style>

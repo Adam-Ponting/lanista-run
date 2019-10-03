@@ -3,7 +3,10 @@
     <p>
       <strong>Lanista Run</strong>
       by
-      <a :href="this.$options.adp" class="footer-link">Adam Ponting.</a> View my
+      <a :href="this.$options.adp" class="footer-link" target="_blank"
+        >Adam Ponting.</a
+      >
+      View my
       <a :href="this.$options.gitHub" target="_blank" class="footer-link"
         >GitHub.</a
       >
@@ -21,7 +24,7 @@
 <script>
 export default {
   name: 'AppFooter',
-  adp: 'mailto:adamponting@outlook.com',
+  adp: 'https://adp-cv.web.app/',
   MIT: 'http://opensource.org/licenses/mit-license.php',
   gitHub: 'https://github.com/Mada75/lanista-run',
   licence: 'http://creativecommons.org/licenses/by-nc-sa/4.0/'
@@ -30,11 +33,11 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  border-top: 1px solid black;
+  background-color: var(--bg-color-white);
+  border-top: 1px solid var(--border-black);
   text-align: center;
-  font-size: 0.8em;
+  font-size: 0.7em;
   padding: 0.1em 0.5em;
-  height: 90px;
 }
 .footer-link {
   color: orange;
@@ -43,7 +46,9 @@ export default {
     text-decoration: underline;
   }
   &:last-child {
+    // return to top link on new line
     display: block;
+    padding: 0.5em;
   }
 }
 </style>

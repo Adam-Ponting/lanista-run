@@ -40,7 +40,6 @@ export default {
 <style lang="scss" scoped>
 .day-view {
   text-align: center;
-
   &__day {
     margin: 0;
     padding: 0.2em 0;

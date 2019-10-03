@@ -30,7 +30,11 @@ export default {
 }
 .week-view {
   padding: 0 1em;
+  margin: 0.75em 0;
   background-color: var(--bg-color-main);
+  &:hover {
+    cursor: default;
+  }
 }
 .week-number {
   margin: 0;
@@ -40,13 +44,7 @@ export default {
   margin-bottom: 0;
   padding: 0.25em;
   color: var(--text-color-white);
-  background: linear-gradient(
-    to right,
-    var(--bg-color-main),
-    var(--bg-color-blue) 10%,
-    var(--bg-color-blue) 90%,
-    var(--bg-color-main)
-  );
+  background-color: var(--bg-color-black);
   text-transform: capitalize;
   text-align: center;
 }
@@ -55,12 +53,7 @@ export default {
     display: flex;
   }
   .week-number {
-    background: linear-gradient(
-      to right,
-      var(--bg-color-main),
-      var(--bg-color-blue) 50%,
-      var(--bg-color-main)
-    );
+    margin-top: 0;
   }
 }
 </style>

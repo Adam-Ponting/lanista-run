@@ -1,24 +1,29 @@
 <template>
-  <div
+  <section
     class="feature-banner feature-banner__image"
     alt="scroll down"
     :style="styleObject"
   >
-    <h2 class="feature-banner__header">{{ header }}</h2>
-    <h6 class="feature-banner__sub-header">{{ subHeader }}</h6>
+    <h1 class="feature-banner__header">{{ header }}</h1>
+    <h2 class="feature-banner__sub-header">{{ subHeader }}</h2>
     <div class="flex-container">
       <div
         v-for="feature in bannerDetails"
         :key="feature.title"
         class="feature"
       >
-        <base-icon :name="feature.icon" class="icon--modifier"></base-icon>
+        <base-icon
+          :name="feature.icon"
+          class="icon--modifier"
+          height="32"
+          width="32"
+        ></base-icon>
         <h3 class="feature__title">{{ feature.title }}</h3>
 
         <p class="feature__content">{{ feature.content }}</p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -77,11 +82,13 @@ export default {
 .feature-banner__header {
   text-transform: uppercase;
   color: var(--text-color-white);
+  font-size: 1.6em;
 }
 .feature-banner__sub-header {
   color: var(--text-color-white);
   font-size: 1.1em;
   font-weight: normal;
+  margin-bottom: 3em;
 }
 .icon--modifier {
   display: flex;
@@ -89,9 +96,8 @@ export default {
   color: inherit;
 }
 .feature {
-  padding: 0.2em 0;
+  padding: 0.1em 0;
   &:nth-child(odd) {
-    color: #f7e7ce;
     color: var(--text-color-notwhite);
   }
   &:nth-child(even) {

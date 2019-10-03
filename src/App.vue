@@ -42,6 +42,8 @@ export default {
   --active-orange: orange;
   --active-red: red;
   --active-green: #72c02c;
+  --border-white: #fff;
+  --border-black: #000;
 }
 .max-width {
   max-width: 1200px;
@@ -96,7 +98,10 @@ button {
   overflow-x: hidden;
 }
 .component--padding {
-  padding: 4em 0;
+  padding: 4em 1em;
+}
+.text--center {
+  text-align: center;
 }
 
 /* START TRANSITIONS */
