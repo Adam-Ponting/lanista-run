@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <ViewsBanner
       :banner-details="trainingPlans"
       :image="image"
@@ -8,14 +8,16 @@
       :sub-header="subHeader"
     />
     <section class="component--padding component--light">
-      <h2 class="text--center text--color">Choose a Training Plan</h2>
+      <h3 class="text--center text--color text--size">
+        Choose a Training Plan
+      </h3>
       <TrainingPlansDistances
         v-for="distance in distances"
         :key="distance.heading"
         :distance="distance"
       />
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -107,5 +109,8 @@ export default {
 }
 .text-color {
   color: var(--text-color-black);
+}
+.text--size {
+  font-size: 1.4em;
 }
 </style>

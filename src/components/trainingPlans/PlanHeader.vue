@@ -1,12 +1,8 @@
 <template>
-  <section class="jumbo-plan">
-    <h1 class="jumbo-plan__header text--center">
-      <slot name="header"></slot>
-    </h1>
-    <h5 class="jumbo-plan__sub-header">
-      <slot name="sub-header"></slot>
-    </h5>
-  </section>
+  <header class="plan-header">
+    <slot name="heading"></slot>
+    <slot name="sub-heading"></slot>
+  </header>
 </template>
 
 <script>
@@ -14,12 +10,10 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.jumbo-plan {
+.plan-header {
   background-color: var(--bg-color-black);
-  padding: 1em;
   text-align: center;
-
-  &__header {
+  &__heading {
     color: var(--text-color-white);
     font-size: 2em;
     &::after {
@@ -31,10 +25,9 @@ export default {}
       padding-top: 0.75em;
     }
   }
-  &__sub-header {
+  &__sub-heading {
     color: var(--text-color-faded);
     font-size: 0.8em;
-    margin: 0.5em 0;
   }
 }
 </style>

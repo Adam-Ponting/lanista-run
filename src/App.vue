@@ -98,7 +98,10 @@ button {
   overflow-x: hidden;
 }
 .component--padding {
-  padding: 4em 0;
+  padding: 4em 1em;
+}
+.text--center {
+  text-align: center;
 }
 
 /* START TRANSITIONS */

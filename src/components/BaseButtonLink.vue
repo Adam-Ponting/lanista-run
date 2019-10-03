@@ -41,12 +41,11 @@ export default {
   // padding-right is used to balance out padding left
   // to keep element the same width
   .icon {
-    color: red;
+    color: var(--active-red);
     padding-left: 0.1em;
     padding-right: 0.5em;
   }
   &:hover .icon {
-    color: orange;
     padding-left: 0.5em;
     padding-right: 0.1em;
   }
