@@ -42,6 +42,8 @@ export default {
   --active-orange: orange;
   --active-red: red;
   --active-green: #72c02c;
+  --border-white: #fff;
+  --border-black: #000;
 }
 .max-width {
   max-width: 1200px;
