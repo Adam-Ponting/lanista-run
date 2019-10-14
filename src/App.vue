@@ -49,26 +49,10 @@ export default {
   padding-top: 64px;
   overflow-x: hidden;
 }
-.component--padding {
-  padding: 4em 1em;
-}
-.text--center {
-  text-align: center;
-}
-
-/* START MEDIA QUERY */
-
-@media only screen and (min-width: 600px) {
-  body,
-  html {
-    font-size: 1.1rem;
-  }
-}
-@media only screen and (min-width: 800px) {
-  body,
-  html {
-    font-size: 1.2rem;
-  }
-}
-/* END MEDIA QUERY */
+// .component--padding {
+//   padding: 4em 1em;
+// }
+// .text--center {
+//   text-align: center;
+// }
 </style>

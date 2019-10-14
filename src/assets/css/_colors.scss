@@ -1,16 +1,19 @@
-$bg-color-primary:  hsl(0, 0%, 97%);
-$bg-color-black: hsl(36, 10%, 10%);
-$bg-color-white: hsl(0, 0%, 100%);
+$bg-color-primary: 0; // (0, 0, 95%) generally
+$bg-color-light: hsl(0, 0, 95%); 
+$bg-color-dark: hsl(0, 0, 5%); 
 
-$bg-highlight-light: hsl(33, 51%, 44%);
-$bg-hightlight-dark: hsl(353, 38%, 41%);
 
-$fill-light: hsl(353, 38%, 41%);
-$fill-dark: hsl(353, 38%, 41%);
+$bg-highlight-light: hsl(33, 51%, 44%); // attention bg color
+$hsl-highlight-light:33;
+$bg-highlight-dark: hsl(353, 38%, 41%); // alt attention bg color
+$hsl-highlight-dark: 353;
 
-$text-color-primary:  hsl(0, 0%, 27%);
-$text-color-black: hsl(0, 0%, 0%);
-$text-color-white: hsl(0, 0%, 100%);
+$fill-light: hsl(17, 23%, 94%); // light bg or text
+$hsl-fill-light: 17; // light bg or text
+$fill-dark: hsl(218, 49%, 16%); // dark bg or text
+$hsl-fill-dark: 218; // dark bg or text
+
+$text-color-primary: hsl(0, 0%, 5%); // (0, 0, 5%) generally
 
 $button-bg-color-primary: #7f92ab;
 $button-bg-color-info: #15243d;
@@ -18,5 +21,9 @@ $button-bg-color-success: #5ba66b;
 $button-bg-color-warning: #d99633;
 $button-bg-color-danger: #f44336;
 
-
+// Layout Properties (position, float, clear, display)
+// Box Model Properties (width, height, margin, padding)
+// Visual Properties (color, background, border, box-shadow)
+// Typography Properties (font-size, font-family, text-align, text-transform)
+// Misc Properties (cursor, overflow, z-index)
 

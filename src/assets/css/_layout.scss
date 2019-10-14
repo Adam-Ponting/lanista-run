@@ -83,5 +83,17 @@ button {
 	  outline: none;
 	}
 }
+/* START MEDIA QUERY */
+@media only screen and (min-width: 600px) {
+	body {
+	  font-size: 1.1rem;
+	}
+  }
+  @media only screen and (min-width: 800px) {
+	body {
+	  font-size: 1.2rem;
+	}
+  }
+/* END MEDIA QUERY */
   
 /* END GLOBAL APP STYLES */
