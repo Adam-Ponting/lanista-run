@@ -11,7 +11,7 @@
         height="32"
         width="32"
       ></base-icon>
-      <div class="home-banner__text-container">
+      <div ref="hello" class="home-banner__text-container">
         <h1 class="home-banner__text">
           Many runners do not have the time to join organised groups, it doesn’t
           have to end there. Improve your performance with training plans.

@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer id="footer" ref="footerx" class="footer">
     <p>
       <strong>Lanista Run</strong>
       by

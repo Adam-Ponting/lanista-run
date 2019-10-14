@@ -146,11 +146,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// import scss file(s)
+@import '@/assets/css/app.scss';
+
 .navbar {
   height: 64px;
   width: 100%;
-  background-color: var(--bg-color-main);
-  color: var(--text-color-main);
+  background-color: $bg-color-black;
+  color: $text-color-white;
   position: fixed;
   top: 0;
   box-shadow: 0 2px 15px var(--bg-color-black);

@@ -3,6 +3,7 @@
    License: none (public domain)
 */
 
+/* START RESETS */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,3 +47,41 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* END RESETS */
+
+/* START GLOBAL APP STYLES */
+* {
+	box-sizing: border-box;
+	transition: all 0.2s ease;
+  }
+
+body {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+	font-size: 1rem;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+  }
+button {
+	background-color: inherit;
+	border: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	margin: 0;
+	overflow: visible;
+	text-decoration: none;
+	text-transform: none;
+	&:active,
+	&:hover,
+	&:focus,
+	&:focus-within {
+	  border: none;
+	  outline: none;
+	}
+}
+  
+/* END GLOBAL APP STYLES */
