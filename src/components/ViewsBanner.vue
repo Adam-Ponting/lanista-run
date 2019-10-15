@@ -71,7 +71,7 @@ export default {
 @import '@/assets/css/app.scss';
 
 .feature-banner {
-  padding: 3em 1em;
+  padding: 2em 1em;
 
   color: $text-color-secondary;
   text-align: center;
@@ -85,19 +85,19 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.feature-banner__header {
-  text-transform: uppercase;
-  font-size: 1.6em;
-}
-.feature-banner__sub-header {
-  margin-top: 0;
-  margin-bottom: 2em;
+// .feature-banner__header {
+//   text-transform: uppercase;
+//   font-size: 1.6em;
+// }
+// .feature-banner__sub-header {
+//   margin-top: 0;
+//   margin-bottom: 2em;
 
-  opacity: 1;
-  text-shadow: 1px 1px 1px $text-color-primary;
-  font-size: 1.1em;
-  font-weight: normal;
-}
+//   opacity: 1;
+//   text-shadow: 1px 1px 1px $text-color-primary;
+//   font-size: 1.1em;
+//   font-weight: normal;
+// }
 .icon--modifier {
   display: flex;
   justify-content: center;
@@ -106,8 +106,6 @@ export default {
   margin-bottom: 0.25em;
 }
 .feature {
-  margin-top: 2em;
-
   &__title {
     text-transform: uppercase;
     font-size: 1.1em;
@@ -122,7 +120,10 @@ export default {
     }
   }
 }
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 800px) {
+  .feature-banner {
+    padding: 5em 1em;
+  }
   .flex-container {
     display: flex;
     justify-content: space-between;

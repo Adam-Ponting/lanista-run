@@ -32,15 +32,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/app.scss';
+
 .footer {
-  background-color: var(--bg-color-white);
-  border-top: 1px solid var(--border-black);
+  background-color: $bg-color-dark;
+  color: $text-color-secondary;
+  border-top: 1px solid $bg-color-light;
   text-align: center;
-  font-size: 0.7em;
+  font-size: 0.75em;
   padding: 0.1em 0.5em;
 }
 .footer-link {
-  color: orange;
+  color: $color-attention;
   &:hover {
     cursor: pointer;
     text-decoration: underline;

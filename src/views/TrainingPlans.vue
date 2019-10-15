@@ -4,12 +4,10 @@
       :banner-details="trainingPlans"
       :image="image"
       :position="position"
-      :sub-header="subHeader"
     />
     <main>
       <div class="bg-color-wrapper">
         <section class="max-width container-padding">
-          <h2 class="heading">Choose a Training Plan</h2>
           <TrainingPlansDistances
             v-for="distance in distances"
             :key="distance.heading"
@@ -34,8 +32,8 @@ export default {
     this.image =
       'https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/hero_training-plans.jpg?alt=media&token=e117ba91-eaf9-4c64-a704-f19836851f2a'
     this.position = 'center'
-    this.subHeader =
-      'Training plans define how long, hard and frequently you need to run to properly prepare for your event - and to maintain fitness.'
+    // this.subHeader =
+    //   'Training plans define how long, hard and frequently you need to run to properly prepare for your event - and to maintain fitness.'
     this.trainingPlans = [
       {
         title: 'Plans for Every Runner',
@@ -105,15 +103,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
-.heading {
-  margin-bottom: 1em;
-
-  text-align: center;
-
-  text-shadow: 0px 0px 10px $fill-dark;
-  font-size: 2em;
-  text-transform: uppercase;
-}
 .bg-color-wrapper {
   background-color: $bg-color-light;
   color: $text-color-primary;
