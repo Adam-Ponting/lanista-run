@@ -9,7 +9,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
+    "core-js": "^2.6.10",
     "firebase": "^6.6.2",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
@@ -19,10 +19,10 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-plugin-pwa": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^3.12.0",
+    "@vue/cli-plugin-eslint": "^3.12.0",
+    "@vue/cli-plugin-pwa": "^3.12.0",
+    "@vue/cli-service": "^3.12.0",
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
