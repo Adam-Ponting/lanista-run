@@ -44,6 +44,7 @@ export default {
   // to keep element the same width
   .icon {
     color: $button-color-primary;
+    color: $fill-dark;
     padding-left: 0.1em;
     padding-right: 0.5em;
   }

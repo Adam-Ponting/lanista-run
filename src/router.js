@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Home from '@/views/Home.vue'
 import Features from '@/views/Features.vue'
 import TrainingPlans from '@/views/TrainingPlans.vue'
-import Resources from '@/views/Resources.vue'
 import Login from '@/views/Login.vue'
 import CreateAccount from '@/views/CreateAccount.vue'
 import Dashboard from '@/views/Dashboard.vue'
@@ -38,11 +37,7 @@ const router = new Router({
       name: 'training-plans',
       component: TrainingPlans
     },
-    {
-      path: '/resources',
-      name: 'resources',
-      component: Resources
-    },
+
     {
       path: '/login',
       name: 'login',

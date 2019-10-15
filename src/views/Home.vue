@@ -187,7 +187,8 @@ export default {
   text-decoration: underline;
 }
 .button__link {
-  color: $button-color-info;
+  // color: $button-color-info;
+  color: $fill-dark;
 
   font-size: 0.9em;
 }
@@ -199,7 +200,7 @@ export default {
   color: $text-color-secondary;
 }
 .card__icon--modifier {
-  color: orange;
+  color: $color-attention;
 }
 
 @media only screen and (min-width: 600px) {

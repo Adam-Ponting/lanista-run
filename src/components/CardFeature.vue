@@ -36,7 +36,7 @@ export default {
   }
 
   &__title {
-    margin: 0.2em 0;
+    margin: 0.3em 0;
     font-size: 1.1em;
     font-weight: bold;
   }

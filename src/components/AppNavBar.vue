@@ -44,15 +44,14 @@
     <!-- START MOBILE LINKS -->
     <transition name="fade">
       <div v-if="isOpen" class="nav-menu" @click="isOpen = false">
-        <router-link :to="{ name: 'features' }" class="nav__link"
+        <!-- <router-link :to="{ name: 'features' }" class="nav__link"
           >Features</router-link
-        >
+        >-->
+        <router-link :to="{ name: 'home' }" class="nav__link">Home</router-link>
         <router-link :to="{ name: 'training-plans' }" class="nav__link"
           >training plans</router-link
         >
-        <router-link :to="{ name: 'resources' }" class="nav__link"
-          >Resources</router-link
-        >
+
         <router-link
           v-if="currentUser"
           :to="{ name: 'dashboard' }"
