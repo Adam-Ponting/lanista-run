@@ -21,7 +21,7 @@
         >
       </div>
     </section>
-    <section id="HomeText">
+    <div id="HomeText">
       <section class="max-width">
         <h1 class="header">Lanista Run Training Plans</h1>
         <p>
@@ -46,25 +46,28 @@
           </template>
         </base-button-link>
       </section>
-    </section>
-    <section class="features max-width">
-      <CardFeature
-        v-for="(feature, index) in features"
-        :key="index"
-        :feature="feature"
-      >
-        <template v-slot:icon>
-          <base-icon
-            :name="feature.icon"
-            height="32"
-            width="32"
-            class="card__icon--modifier"
-          ></base-icon>
-        </template>
-        <template v-slot:title>{{ feature.title }}</template>
-        <template v-slot:content>{{ feature.content }}</template>
-      </CardFeature>
-    </section>
+    </div>
+
+    <div class="features-bg">
+      <section class="features max-width">
+        <CardFeature
+          v-for="(feature, index) in features"
+          :key="index"
+          :feature="feature"
+        >
+          <template v-slot:icon>
+            <base-icon
+              :name="feature.icon"
+              height="32"
+              width="32"
+              class="card__icon--modifier"
+            ></base-icon>
+          </template>
+          <template v-slot:title>{{ feature.title }}</template>
+          <template v-slot:content>{{ feature.content }}</template>
+        </CardFeature>
+      </section>
+    </div>
   </main>
 </template>
 
@@ -188,10 +191,12 @@ export default {
 
   font-size: 0.9em;
 }
-
 .features {
   display: block;
-  background-color: red;
+}
+.features-bg {
+  background: $bg-highlight-dark;
+  color: $text-color-secondary;
 }
 .card__icon--modifier {
   color: orange;
