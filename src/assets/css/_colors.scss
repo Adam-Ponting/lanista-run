@@ -16,11 +16,11 @@ $hsl-fill-dark: 218; // dark bg or text
 $text-color-primary: hsl(0, 0%, 5%); // (0, 0, 5%) generally
 $text-color-secondary: hsl(0, 0%, 95%); // (0, 0, 5%) generally
 
-$button-bg-color-primary: #7f92ab;
-$button-bg-color-info: #15243d;
-$button-bg-color-success: #5ba66b;
-$button-bg-color-warning: #d99633;
-$button-bg-color-danger: #f44336;
+$button-color-primary: #7f92ab;
+$button-color-info: hsl(218, 49%, 16%);
+$button-color-success: #5ba66b;
+$button-color-warning: #d99633;
+$button-color-danger: #f44336;
 
 // Layout Properties (position, float, clear, display)
 // Box Model Properties (width, height, margin, padding)

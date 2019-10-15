@@ -34,6 +34,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/app.scss';
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -41,7 +43,7 @@ export default {
   // padding-right is used to balance out padding left
   // to keep element the same width
   .icon {
-    color: var(--active-red);
+    color: $button-color-primary;
     padding-left: 0.1em;
     padding-right: 0.5em;
   }

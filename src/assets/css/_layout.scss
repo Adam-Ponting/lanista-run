@@ -64,6 +64,10 @@ a {
 	color: inherit;
 	text-decoration: none;
   }
+p {
+	margin: .75em 0;
+	line-height: 1.2em;
+  }
 button {
 	background-color: inherit;
 	border: none;
@@ -82,6 +86,11 @@ button {
 	  border: none;
 	  outline: none;
 	}
+}
+.max-width {
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 5em 1em;
 }
 /* START MEDIA QUERY */
 @media only screen and (min-width: 600px) {
