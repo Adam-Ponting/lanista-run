@@ -5,7 +5,7 @@
     :style="styleObject"
   >
     <h1 class="feature-banner__header">{{ header }}</h1>
-    <h2 class="feature-banner__sub-header">{{ subHeader }}</h2>
+    <p class="feature-banner__sub-header">{{ subHeader }}</p>
     <div class="flex-container">
       <div
         v-for="feature in bannerDetails"
@@ -18,7 +18,7 @@
           height="32"
           width="32"
         ></base-icon>
-        <h3 class="feature__title">{{ feature.title }}</h3>
+        <h2 class="feature__title">{{ feature.title }}</h2>
 
         <p class="feature__content">{{ feature.content }}</p>
       </div>
@@ -68,58 +68,68 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import '@/assets/css/app.scss';
+
 .feature-banner {
+  padding: 3em 1em;
+
+  color: $text-color-secondary;
   text-align: center;
-  padding: 2em 1em;
 }
 .feature-banner__image {
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   top: 0;
+
   width: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .feature-banner__header {
   text-transform: uppercase;
-  color: var(--text-color-white);
   font-size: 1.6em;
 }
 .feature-banner__sub-header {
-  color: var(--text-color-white);
+  margin-top: 0;
+  margin-bottom: 2em;
+
+  opacity: 1;
+  text-shadow: 1px 1px 1px $text-color-primary;
   font-size: 1.1em;
   font-weight: normal;
-  margin-bottom: 3em;
 }
 .icon--modifier {
   display: flex;
   justify-content: center;
   color: inherit;
+  color: $color-attention;
+  margin-bottom: 0.25em;
 }
 .feature {
-  padding: 0.1em 0;
-  &:nth-child(odd) {
-    color: var(--text-color-notwhite);
-  }
-  &:nth-child(even) {
-    color: var(--text-color-white);
-  }
+  margin-top: 2em;
+
   &__title {
     text-transform: uppercase;
-    font-size: 1em;
-    margin-bottom: 0.25em;
+    font-size: 1.1em;
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
   }
   &__content {
-    margin-top: 0.25em;
+    font-size: 0.9em;
+
+    &:nth-child(odd) {
+      opacity: 0.9;
+    }
   }
 }
 @media only screen and (min-width: 700px) {
   .flex-container {
     display: flex;
+    justify-content: space-between;
     flex-flow: row nowrap;
   }
   .feature {
-    flex: 1;
-    padding: 0 0.5em;
+    flex: 0 1 calc(25% - 1em); // make each the same size 4 on line
   }
 }
 </style>

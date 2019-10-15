@@ -30,20 +30,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/app.scss';
+
 .distances {
-  padding: 0.25em 1em;
-  margin: 0.5em 0;
+  margin: 2em 0;
   &__heading {
-    margin: 0.25em 0;
+    // margin-bottom: 2em;
+    font-size: 1.5em;
   }
   &__description {
-    margin: 0;
+    margin-top: 0.5em;
   }
 }
 .button--position {
   margin-left: 1em;
 }
 .button--color {
-  color: var(--text-color-black);
+  color: $button-color-info;
+  color: $bg-highlight-dark;
 }
 </style>

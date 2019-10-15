@@ -1,23 +1,24 @@
 <template>
-  <main>
+  <div>
     <ViewsBanner
       :banner-details="trainingPlans"
       :image="image"
       :position="position"
-      :header="header"
       :sub-header="subHeader"
     />
-    <section class="component--padding component--light">
-      <h3 class="text--center text--color text--size">
-        Choose a Training Plan
-      </h3>
-      <TrainingPlansDistances
-        v-for="distance in distances"
-        :key="distance.heading"
-        :distance="distance"
-      />
-    </section>
-  </main>
+    <main>
+      <div class="bg-color-wrapper">
+        <section class="max-width container-padding">
+          <h2 class="heading">Choose a Training Plan</h2>
+          <TrainingPlansDistances
+            v-for="distance in distances"
+            :key="distance.heading"
+            :distance="distance"
+          />
+        </section>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -33,9 +34,8 @@ export default {
     this.image =
       'https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/hero_training-plans.jpg?alt=media&token=e117ba91-eaf9-4c64-a704-f19836851f2a'
     this.position = 'center'
-    this.header = 'training plans'
     this.subHeader =
-      'Training plans define how long, hard and frequently you need to run to properly prepare for your event - or just to maintain fitness.'
+      'Training plans define how long, hard and frequently you need to run to properly prepare for your event - and to maintain fitness.'
     this.trainingPlans = [
       {
         title: 'Plans for Every Runner',
@@ -104,13 +104,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text--center {
+@import '@/assets/css/app.scss';
+.heading {
+  margin-bottom: 1em;
+
   text-align: center;
+
+  text-shadow: 0px 0px 10px $fill-dark;
+  font-size: 2em;
+  text-transform: uppercase;
 }
-.text-color {
-  color: var(--text-color-black);
-}
-.text--size {
-  font-size: 1.4em;
+.bg-color-wrapper {
+  background-color: $bg-color-light;
+  color: $text-color-primary;
 }
 </style>

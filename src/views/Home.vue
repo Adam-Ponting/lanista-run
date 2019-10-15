@@ -22,7 +22,7 @@
       </div>
     </section>
     <div id="HomeText">
-      <section class="max-width">
+      <section class="max-width container-padding">
         <h1 class="header">Lanista Run Training Plans</h1>
         <p>
           Running is a great way to get fit, feel better and even form new
@@ -49,7 +49,7 @@
     </div>
 
     <div class="features-bg">
-      <section class="features max-width">
+      <section class="features container-padding">
         <CardFeature
           v-for="(feature, index) in features"
           :key="index"
@@ -187,10 +187,11 @@ export default {
   text-decoration: underline;
 }
 .button__link {
-  // color: $button-color-info;
+  margin-top: 2em;
+
   color: $fill-dark;
 
-  font-size: 0.9em;
+  font-size: 1.2em;
 }
 .features {
   display: block;

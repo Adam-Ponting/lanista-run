@@ -3,7 +3,7 @@
     <AppNavBar />
     <div v-if="currentUser" class="user">user is:{{ currentUser.email }}</div>
     <transition name="fade" mode="out-in">
-      <router-view class="router-view" />
+      <router-view id="router-view" />
     </transition>
     <AppFooter />
   </div>
@@ -34,10 +34,6 @@ export default {
 // Typography Properties (font-size, font-family, text-align, text-transform)
 // Misc Properties (cursor, overflow, z-index)
 
-// .max-width {
-//   max-width: 1200px;
-//   margin: 0 auto;
-// }
 .user {
   position: fixed;
   top: 0;
@@ -45,7 +41,8 @@ export default {
   z-index: 1;
 }
 
-.router-view {
+#router-view {
+  // align all content below nav bar
   padding-top: 64px;
   overflow-x: hidden;
 }
