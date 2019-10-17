@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="home-banner__image">
+    <section class="bg-image">
       <base-icon
         v-scroll-to="{
           el: '#HomeText',
@@ -11,63 +11,59 @@
         height="32"
         width="32"
       ></base-icon>
-      <div class="home-banner__text-container">
-        <h1 class="home-banner__text">
+      <div class="bg-image__text-container">
+        <h1 class="bg-image__text">
           Many runners do not have the time to join organised groups, it doesn’t
           have to end there. Improve your performance with training plans.
         </h1>
-        <router-link :to="{ name: 'create-account' }" class="home-banner__link"
+        <router-link :to="{ name: 'create-account' }" class="bg-image__link"
           >Create Account</router-link
         >
       </div>
     </section>
-    <div id="HomeText">
-      <section class="max-width container-padding">
-        <h1 class="header">Lanista Run Training Plans</h1>
-        <p>
-          Running is a great way to get fit, feel better and even form new
-          relationships with other runners. Starting a new running habit doesn’t
-          have to be hard - all it takes is a comfortable pair of shoes and a
-          willingness to move a little or a lot, all at your own pace.
-        </p>
-        <p>
-          People of all abilities turn to these science-backed training plans to
-          get faster. Whether you currently have a little fitness or a lot,
-          there’s a structured plan for you that will help you achieve your
-          goals.
-        </p>
-        <base-button-link
-          link="training-plans"
-          name="arrow-right"
-          class="button__link"
-        >
-          <template v-slot:linkTo>
-            <span>Find your training plan</span>
-          </template>
-        </base-button-link>
-      </section>
-    </div>
 
-    <div class="features-bg">
-      <section class="features container-padding">
-        <CardFeature
-          v-for="(feature, index) in features"
-          :key="index"
-          :feature="feature"
-        >
-          <template v-slot:icon>
-            <base-icon
-              :name="feature.icon"
-              height="32"
-              width="32"
-              class="card__icon--modifier"
-            ></base-icon>
-          </template>
-          <template v-slot:title>{{ feature.title }}</template>
-          <template v-slot:content>{{ feature.content }}</template>
-        </CardFeature>
-      </section>
-    </div>
+    <section class="home padding">
+      <h1 class="home__header">Lanista Run Training Plans</h1>
+      <p class="home__text">
+        Running is a great way to get fit, feel better and even form new
+        relationships with other runners. Starting a new running habit doesn’t
+        have to be hard - all it takes is a comfortable pair of shoes and a
+        willingness to move a little or a lot, all at your own pace.
+      </p>
+      <p class="home__text">
+        People of all abilities turn to these science-backed training plans to
+        get faster. Whether you currently have a little fitness or a lot,
+        there’s a structured plan for you that will help you achieve your goals.
+      </p>
+      <base-button-link
+        link="training-plans"
+        name="arrow-right"
+        class="button__link"
+      >
+        <template v-slot:linkTo>
+          <span>Find your training plan</span>
+        </template>
+      </base-button-link>
+    </section>
+
+    <section class="features padding">
+      <CardFeature
+        v-for="(feature, index) in features"
+        :key="index"
+        :feature="feature"
+      >
+        <template v-slot:icon>
+          <base-icon
+            :name="feature.icon"
+            height="32"
+            width="32"
+            class="card__icon--modifier"
+          ></base-icon>
+        </template>
+        <template v-slot:title>{{ feature.title }}</template>
+        <template v-slot:content>{{ feature.content }}</template>
+      </CardFeature>
+    </section>
   </main>
 </template>
 
@@ -113,7 +109,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
 
-.home-banner__image {
+.bg-image {
   position: relative;
   top: 0;
 
@@ -125,87 +121,94 @@ export default {
   background-position: 70% center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.home-banner__text-container {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-end;
 
-  height: 50%;
-  padding: 1em;
-  width: 100%;
+  &__text-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
 
-  color: $text-color-secondary;
-  text-shadow: 1px 1px 1px $text-color-primary;
-  .home-banner__text {
+    height: 50%;
+    padding: 1em;
+    width: 100%;
+
+    color: $text-light;
+    text-shadow: 1px 1px 1px $text-dark;
+  }
+
+  &__text {
     font-size: 1em;
     line-height: 1.3em;
     font-weight: normal;
     text-align: center;
     margin-bottom: 1em;
   }
-  .home-banner__link {
+
+  &__link {
     align-self: center;
 
     padding: 0.75em;
     width: fit-content;
 
-    background-color: $button-color-info;
-    color: $text-color-secondary;
+    background-color: $button-info;
+    color: $text-light;
 
     text-align: center;
     text-transform: uppercase;
   }
-}
-.icon--modifier {
-  position: absolute;
-  bottom: 20%;
-  left: 49%;
 
-  color: $text-color-secondary;
+  .icon--modifier {
+    position: absolute;
+    bottom: 20%;
+    left: 49%;
 
-  &:hover {
-    cursor: pointer;
+    color: $text-light;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
-#HomeText {
-  min-height: 70vh;
+.home {
+  background-color: $light-shade;
+  color: $text-dark;
 
-  background-color: $bg-color-light;
-  color: $text-color-primary;
-  color: var(--text-color-main);
+  &__header {
+    padding: 0.75em 0;
+
+    border-top: 1px solid $dark-shade;
+    border-bottom: 1px solid $dark-shade;
+
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    margin: 2em 0;
+    opacity: 0.8;
+  }
+
+  .button__link {
+    background-color: $button-info;
+    color: $text-light;
+
+    font-size: 1.2em;
+  }
 }
-.header {
-  padding-bottom: 1em;
 
-  color: $fill-dark;
-
-  font-size: 2em;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: underline;
-}
-.button__link {
-  margin-top: 2em;
-
-  color: $fill-dark;
-
-  font-size: 1.2em;
-}
 .features {
   display: block;
-}
-.features-bg {
-  background: $bg-highlight-dark;
-  color: $text-color-secondary;
-}
-.card__icon--modifier {
-  color: $color-attention;
+  background-color: $dark-shade;
+  color: $text-light;
+  .card__icon--modifier {
+    color: $light-accent;
+  }
 }
 
 @media only screen and (min-width: 600px) {
-  .home-banner__text-container {
+  .bg-image__text-container {
     justify-content: center;
 
     height: 100%;
