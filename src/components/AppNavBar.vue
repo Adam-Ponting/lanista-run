@@ -141,9 +141,9 @@ export default {
   height: 64px;
   width: 100%;
 
-  background-color: $bg-color-light;
-  box-shadow: 0 1px 10px $bg-color-dark;
-  color: $text-color-primary;
+  background-color: hsl(0, 0, 90%);
+  box-shadow: 0 1px 10px hsl(0, 0, 0%);
+  color: hsl(0, 0, 10%);
 
   z-index: 1;
   // hides nav
@@ -169,9 +169,8 @@ export default {
   display: flex;
   flex-flow: column nowrap;
 
-  background-color: inherit;
-  border-bottom: 1px solid $fill-dark;
-  border-top: 0.1em solid $fill-dark;
+  background-color: hsl(0, 0, 95%);
+  border-top: 1px solid hsl(0, 0, 0%);
 }
 .navbar__icon {
   display: flex;
@@ -180,6 +179,8 @@ export default {
   height: 100%;
 
   &:hover {
+    color: hsl(0, 0, 0%);
+
     cursor: pointer;
   }
 }
@@ -188,24 +189,16 @@ export default {
 
   padding: 0.2em 0;
 
-  border-left: 0.2em solid transparent;
-  border-right: 0.2em solid transparent;
-  opacity: 0.6;
+  opacity: 0.4;
 
   font-size: 1.2em;
   font-weight: bold;
   text-align: center;
-  text-decoration: none;
   text-transform: uppercase;
 
-  transition: all 0.3s ease;
-
   &:hover {
-    background-color: hsl($hsl-highlight-light, 0%, 90%);
-    border-left: 0.2em solid $bg-highlight-dark;
-    border-right: 0.2em solid transparent;
-    opacity: 1;
-
+    opacity: 0.9;
+    background-color: hsl(0, 0, 100%);
     cursor: pointer;
   }
 }
@@ -214,8 +207,7 @@ export default {
   opacity: 1;
   &:not(.home__icon) {
     // give a left border to the active link, as long as it's not .home__icon
-    color: $text-color-primary;
-    background-color: hsl($hsl-highlight-light, 0%, 85%);
+    color: $text-primary;
   }
 }
 </style>
