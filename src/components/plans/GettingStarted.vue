@@ -1,19 +1,15 @@
 <template>
   <main class="training-plan">
-    <PlanHeader class="component--padding">
+    <PlanHeader>
       <template #heading>
-        <h1 class="plan-header__heading">
-          {{ gettingStarted.header }}
-        </h1>
+        <h1 class="plan-header__heading">{{ gettingStarted.header }}</h1>
       </template>
       <template #sub-heading>
-        <h2 class="plan-header__sub-heading">
-          {{ gettingStarted.subHeader }}
-        </h2>
+        <h2 class="plan-header__sub-heading">{{ gettingStarted.subHeader }}</h2>
       </template>
     </PlanHeader>
 
-    <section class="component--padding">
+    <section class="container-padding">
       <div class="max-width">
         <h2 class="training-plan__section-heading">
           {{ gettingStarted.toBeginHeading }}
@@ -24,7 +20,7 @@
       </div>
     </section>
 
-    <section class="component--padding">
+    <section class="container-padding">
       <div class="max-width">
         <h2 class="training-plan__section-heading">
           {{ gettingStarted.topTips }}

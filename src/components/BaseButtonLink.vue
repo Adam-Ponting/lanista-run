@@ -37,14 +37,19 @@ export default {
 @import '@/assets/css/app.scss';
 
 .button {
+  background-color: $button-info;
+  color: $text-light;
+
   display: inline-flex;
+
+  padding: 0.4em;
+
   align-items: center;
+
   /* START HOVER TRANSITION */
   // padding-right is used to balance out padding left
   // to keep element the same width
   .icon {
-    color: $button-color-primary;
-    color: $fill-dark;
     padding-left: 0.1em;
     padding-right: 0.5em;
   }

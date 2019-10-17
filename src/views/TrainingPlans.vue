@@ -1,31 +1,27 @@
 <template>
   <div>
-    <ViewsBanner
+    <TrainingPlansBanner
       :banner-details="trainingPlans"
       :image="image"
       :position="position"
     />
-    <main>
-      <div class="bg-color-wrapper">
-        <section class="max-width container-padding">
-          <TrainingPlansDistances
-            v-for="distance in distances"
-            :key="distance.heading"
-            :distance="distance"
-          />
-        </section>
-      </div>
+    <main class="padding">
+      <TrainingPlansDistances
+        v-for="distance in distances"
+        :key="distance.heading"
+        :distance="distance"
+      />
     </main>
   </div>
 </template>
 
 <script>
-import ViewsBanner from '@/components/ViewsBanner.vue'
+import TrainingPlansBanner from '@/components/TrainingPlansBanner.vue'
 import TrainingPlansDistances from '@/components/trainingPlans/TrainingPlansDistances.vue'
 export default {
   name: 'TrainingPlans',
   components: {
-    ViewsBanner,
+    TrainingPlansBanner,
     TrainingPlansDistances
   },
   created() {
@@ -103,8 +99,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
-.bg-color-wrapper {
-  background-color: $bg-color-light;
-  color: $text-color-primary;
+.padding {
+  background-color: $light-shade;
 }
 </style>

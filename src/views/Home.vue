@@ -3,7 +3,7 @@
     <section class="bg-image">
       <base-icon
         v-scroll-to="{
-          el: '#HomeText',
+          el: '#Home',
           duration: 1000
         }"
         name="arrow-down-circle"
@@ -22,7 +22,8 @@
       </div>
     </section>
 
-    <section class="home padding">
+    <!-- id="home" for scroll anchor -->
+    <section id="Home" class="home padding">
       <h1 class="home__header">Lanista Run Training Plans</h1>
       <p class="home__text">
         Running is a great way to get fit, feel better and even form new
@@ -179,6 +180,8 @@ export default {
     border-top: 1px solid $dark-shade;
     border-bottom: 1px solid $dark-shade;
 
+    font-family: fantasy;
+    letter-spacing: 0.1em;
     font-size: 2em;
     font-weight: bold;
     text-align: center;
@@ -191,9 +194,7 @@ export default {
   }
 
   .button__link {
-    background-color: $button-info;
-    color: $text-light;
-
+    margin-left: 1em;
     font-size: 1.2em;
   }
 }

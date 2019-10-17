@@ -1,11 +1,5 @@
 <template>
-  <section
-    class="feature-banner feature-banner__image"
-    alt="scroll down"
-    :style="styleObject"
-  >
-    <h1 class="feature-banner__header">{{ header }}</h1>
-    <p class="feature-banner__sub-header">{{ subHeader }}</p>
+  <section class="banner-image padding" :style="styleObject">
     <div class="flex-container">
       <div
         v-for="feature in bannerDetails"
@@ -14,12 +8,11 @@
       >
         <base-icon
           :name="feature.icon"
-          class="icon--modifier"
+          class="feature__icon"
           height="32"
           width="32"
         ></base-icon>
         <h2 class="feature__title">{{ feature.title }}</h2>
-
         <p class="feature__content">{{ feature.content }}</p>
       </div>
     </div>
@@ -28,7 +21,7 @@
 
 <script>
 export default {
-  name: 'ViewsBanner',
+  name: 'TrainingPlansBanner',
   props: {
     bannerDetails: {
       type: Array,
@@ -39,14 +32,6 @@ export default {
       default: ''
     },
     position: {
-      type: String,
-      default: ''
-    },
-    header: {
-      type: String,
-      default: ''
-    },
-    subHeader: {
       type: String,
       default: ''
     }
@@ -70,13 +55,7 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/css/app.scss';
 
-.feature-banner {
-  padding: 2em 1em;
-
-  color: $text-color-secondary;
-  text-align: center;
-}
-.feature-banner__image {
+.banner-image {
   position: relative;
   top: 0;
 
@@ -84,46 +63,42 @@ export default {
 
   background-repeat: no-repeat;
   background-size: cover;
-}
-// .feature-banner__header {
-//   text-transform: uppercase;
-//   font-size: 1.6em;
-// }
-// .feature-banner__sub-header {
-//   margin-top: 0;
-//   margin-bottom: 2em;
 
-//   opacity: 1;
-//   text-shadow: 1px 1px 1px $text-color-primary;
-//   font-size: 1.1em;
-//   font-weight: normal;
-// }
-.icon--modifier {
-  display: flex;
-  justify-content: center;
-  color: inherit;
-  color: $color-attention;
-  margin-bottom: 0.25em;
+  color: $text-light;
+  text-align: center;
 }
 .feature {
-  &__title {
-    text-transform: uppercase;
-    font-size: 1.1em;
-    margin-top: 0.25em;
-    margin-bottom: 0.5em;
-  }
-  &__content {
-    font-size: 0.9em;
+  margin-bottom: 1em; // vertical spacing
 
-    &:nth-child(odd) {
-      opacity: 0.9;
-    }
+  &:last-child {
+    margin-bottom: 0; // remove spacing on last child
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+
+    color: $light-accent;
+  }
+
+  &__title {
+    margin: 0.25em 0;
+
+    color: $text-light;
+
+    font-size: 1.1em;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    margin: 0; // removes global p margin
+
+    color: $light-shade;
+
+    font-size: 0.8em;
   }
 }
 @media only screen and (min-width: 800px) {
-  .feature-banner {
-    padding: 5em 1em;
-  }
   .flex-container {
     display: flex;
     justify-content: space-between;
@@ -131,6 +106,11 @@ export default {
   }
   .feature {
     flex: 0 1 calc(25% - 1em); // make each the same size 4 on line
+    margin-bottom: 0; // removes mobile vertical spacing
+
+    &__title {
+      margin: 0.7em 0;
+    }
   }
 }
 </style>

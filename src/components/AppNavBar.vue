@@ -207,7 +207,7 @@ export default {
   opacity: 1;
   &:not(.home__icon) {
     // give a left border to the active link, as long as it's not .home__icon
-    color: $text-primary;
+    color: $text-dark;
   }
 }
 </style>

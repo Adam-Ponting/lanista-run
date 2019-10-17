@@ -10,23 +10,35 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/app.scss';
+
 .plan-header {
-  background-color: var(--bg-color-black);
+  padding: 4em 1em;
+
+  background-color: $fill-dark;
+
   text-align: center;
   &__heading {
-    color: var(--text-color-white);
+    color: $fill-light;
+
     font-size: 2em;
     &::after {
       content: '';
       display: block;
-      border-bottom: 2px solid var(--active-orange);
+
       width: 20%;
       margin: 0 auto;
-      padding-top: 0.75em;
+      padding-top: 0.25em;
+
+      border-bottom: 2px solid $color-attention;
     }
   }
   &__sub-heading {
-    color: var(--text-color-faded);
+    padding-top: 2em;
+
+    color: $fill-light;
+    opacity: 0.8;
+
     font-size: 0.8em;
   }
 }

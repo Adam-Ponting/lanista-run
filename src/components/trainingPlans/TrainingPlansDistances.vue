@@ -3,7 +3,7 @@
     <base-button-link
       :link="distance.link"
       name="arrow-right"
-      class="button--position button--color"
+      class="distances__button"
     >
       <template v-slot:linkTo>
         <h3 class="distances__heading">{{ distance.heading }}</h3>
@@ -33,20 +33,25 @@ export default {
 @import '@/assets/css/app.scss';
 
 .distances {
-  margin: 2em 0;
+  margin-bottom: 1em; // vertical spacing
+
+  &:last-child {
+    margin-bottom: 0; // remove from last
+  }
+
   &__heading {
-    // margin-bottom: 2em;
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
+
   &__description {
-    margin-top: 0.5em;
+    margin: 1em 0 2em; // paragraph vertical spacing
+
+    &:last-child {
+      margin-bottom: 0; // remove from last
+    }
   }
 }
-.button--position {
+.distances__button {
   margin-left: 1em;
-}
-.button--color {
-  color: $button-color-info;
-  color: $bg-highlight-dark;
 }
 </style>

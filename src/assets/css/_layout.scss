@@ -52,13 +52,14 @@ table {
 /* START GLOBAL APP STYLES */
 * {
 	box-sizing: border-box;
-	transition: all 0.2s ease;
+	transition: all 0.1s ease;
   }
 
 body {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 	font-size: 1rem;
+	cursor: default;
 }
 a {
 	color: inherit;
@@ -87,25 +88,28 @@ button {
 	  outline: none;
 	}
 }
-.max-width {
-	margin: 0 auto;
-	max-width: 1200px;
-}
-.container-padding {
+.padding {
 	padding: 5em 1em;
-
 }
 /* START MEDIA QUERY */
 @media only screen and (min-width: 600px) {
 	body {
 	  font-size: 1.1rem;
 	}
+	.padding {
+		padding: 5em 3em;
+	}
+	
   }
 
   @media only screen and (min-width: 800px) {
 	body {
 	  font-size: 1.2rem;
 	}
+	.padding {
+		padding: 5em;
+	}
+	
 }
 /* END MEDIA QUERY */
   
