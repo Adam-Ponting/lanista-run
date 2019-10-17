@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" ref="footerx" class="footer">
+  <footer id="footer" class="footer">
     <p>
       <strong>Lanista Run</strong>
       by
@@ -35,23 +35,27 @@ export default {
 @import '@/assets/css/app.scss';
 
 .footer {
-  background-color: $bg-color-dark;
-  color: $text-color-secondary;
-  border-top: 1px solid $bg-color-light;
-  text-align: center;
+  padding: 2em 1em;
+
+  background-color: #111;
+  box-shadow: 0 0 5px #111;
+  color: #bbb;
+
   font-size: 0.75em;
-  padding: 0.1em 0.5em;
+  text-align: center;
 }
 .footer-link {
-  color: $color-attention;
+  color: #eee;
   &:hover {
     cursor: pointer;
+
     text-decoration: underline;
   }
   &:last-child {
     // return to top link on new line
     display: block;
-    padding: 0.5em;
+    color: #fff;
+    padding-top: 2em;
   }
 }
 </style>
