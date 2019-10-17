@@ -28,11 +28,6 @@ export default {
 
 <style lang="scss">
 @import '@/assets/css/app.scss';
-// Layout Properties (position, float, clear, display)
-// Box Model Properties (width, height, margin, padding)
-// Visual Properties (color, background, border, box-shadow)
-// Typography Properties (font-size, font-family, text-align, text-transform)
-// Misc Properties (cursor, overflow, z-index)
 
 .user {
   position: fixed;
@@ -46,10 +41,4 @@ export default {
   padding-top: 64px;
   overflow-x: hidden;
 }
-// .component--padding {
-//   padding: 4em 1em;
-// }
-// .text--center {
-//   text-align: center;
-// }
 </style>
