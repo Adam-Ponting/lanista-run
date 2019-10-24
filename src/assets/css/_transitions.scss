@@ -1,25 +1,25 @@
 /* START TRANSITIONS */
 
 .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.3s linear;
-  }
-  .fade-leave-to {
-    opacity: 0;
-  }
-  
-  .scale-enter {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s linear;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+
+.scale-enter {
     transform: scale(0); // start from 0
   }
-  .scale-enter-active,
-  .scale-leave-active {
+.scale-enter-active,
+.scale-leave-active {
     // default scale to 1
     transition: transform 0.2s ease-out;
   }
-  .scale-leave-to {
+.scale-leave-to {
     transform: scale(0); // scale to 0
   }
   /* END TRANSITIONS */
