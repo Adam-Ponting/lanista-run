@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .notification-container {
-  position: relative;
-  text-align: center;
+  position: relative; // remove element from the flow so age doesnt move on appearing
+  text-align: left;
 }
 </style>

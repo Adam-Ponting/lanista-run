@@ -1,5 +1,7 @@
 <template>
-  <p class="notification-message">{{ notification.message }}</p>
+  <p class="notification-message" @click="removeNotification">
+    {{ notification.message }}
+  </p>
 </template>
 
 <script>
@@ -22,7 +24,7 @@ export default {
       // start a timeout on mounted
       // call the remove action, send in this.notification
       this.removeFirebaseAuthNotification(this.notification)
-    }, 3000)
+    }, 10000)
   },
   beforeDestroy() {
     // remove notification from array
@@ -30,18 +32,28 @@ export default {
     // clear timeout
     clearTimeout(this.timeout)
   },
-  methods: mapActions(['removeFirebaseAuthNotification']) // bring in the remove action from the notification module
+  methods: {
+    removeNotification() {
+      this.removeFirebaseAuthNotification(this.notification)
+    },
+    ...mapActions(['removeFirebaseAuthNotification']) // bring in the remove action from the notification module
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/css/app.scss';
+
 .notification-message {
   position: absolute;
-  top: -10px;
-  color: whitesmoke;
-  padding: 0.1em 0.5em;
+  left: 0;
+  top: -4em;
+  padding: 0.2em;
+
+  background-color: $button-warning;
+  border-left: 2px solid $button-info;
+  color: $text-light;
+
   font-size: 0.7em;
-  border-left: 2px solid red;
-  background-color: rgba(grey, 0.5);
 }
 </style>
