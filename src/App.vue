@@ -39,6 +39,5 @@ export default {
 #router-view {
   // align all content below nav bar
   padding-top: 64px;
-  overflow-x: hidden;
 }
 </style>
