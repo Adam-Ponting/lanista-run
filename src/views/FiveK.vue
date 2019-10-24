@@ -53,7 +53,7 @@
           class="ability-card__button"
           @click="
             sleep(level.level).then(() => {
-              $scrollTo('#' + currentTab, { offset: -100 })
+              $scrollTo('#' + currentTab + '-one', { offset: -100 })
             })
           "
         >
@@ -62,88 +62,20 @@
       </div>
     </section>
     <!-- https://vuejs.org/v2/guide/transitions.html#Transitioning-Between-Elements -->
+    <section class="plan-tables padding">
+      <WeekView
+        v-for="(week, index) in beginnerWeeks"
+        :key="index"
+        :beginner="beginnerWeeks[index]"
+        :intermediate="intermediateWeeks[index]"
+        :week-number="weekNumber[index]"
+        :days-of-week="weekDays"
+        :tab="currentTab"
+        :tabs="tabs"
+        @togglePlan="toggleLevel"
+      />
+    </section>
 
-    <transition name="fade" mode="out-in">
-      <section
-        v-if="currentTab === 'Beginner'"
-        id="Beginner"
-        key="beginner-transition"
-      >
-        <article class="plan__container padding">
-          <div class="plan__level" @click="toggleLevel">{{ currentTab }}</div>
-
-          <div class="plan-day plan-day--sticky">
-            <div
-              v-for="weekDay in weekDays"
-              :key="weekDay"
-              class="plan-day__content"
-            >
-              {{ weekDay }}
-            </div>
-          </div>
-          <div class="plan-week">
-            <div
-              v-for="(weekNo, index) in weekNumber.slice(
-                0,
-                beginnerData.length / 7
-              )"
-              :key="index"
-              class="plan-week__content"
-            >
-              Week {{ weekNo }}
-            </div>
-          </div>
-          <div class="plan-activity">
-            <div
-              v-for="days in beginnerData"
-              :key="days.id"
-              class="plan-activity__content"
-            >
-              {{ days.activity }}
-            </div>
-          </div>
-        </article>
-      </section>
-      <section
-        v-else-if="currentTab === 'Intermediate'"
-        id="Intermediate"
-        key="intermediate-transition"
-      >
-        <article class="plan__container padding">
-          <div class="plan__level" @click="toggleLevel">{{ currentTab }}</div>
-          <div class="plan-day plan-day--sticky">
-            <div
-              v-for="weekDay in weekDays"
-              :key="weekDay"
-              class="plan-day__content"
-            >
-              {{ weekDay }}
-            </div>
-          </div>
-          <div class="plan-week">
-            <div
-              v-for="(weekNo, index) in weekNumber.slice(
-                0,
-                intermediateData.length / 7
-              )"
-              :key="index"
-              class="plan-week__content"
-            >
-              Week {{ weekNo }}
-            </div>
-          </div>
-          <div class="plan-activity">
-            <div
-              v-for="days in intermediateData"
-              :key="days.id"
-              class="plan-activity__content"
-            >
-              {{ days.activity }}
-            </div>
-          </div>
-        </article>
-      </section>
-    </transition>
     <section class="padding congratulations">
       <h6 class="congratulations__header">
         Congratulations!
@@ -176,37 +108,25 @@
 import { beginnerData, intermediateData } from '@/assets/data/FiveK.js'
 
 import PlanHeader from '@/components/trainingPlans/PlanHeader.vue'
+import WeekView from '@/components/WeekView.vue'
 
 export default {
   components: {
-    PlanHeader
+    PlanHeader,
+    WeekView
   },
 
   data() {
     return {
-      currentTab: 'Beginner'
+      currentTab: 'Beginner',
+      tabs: ['Beginner', 'Intermediate', 'Advanced']
     }
   },
-  // computed: {
-  //   shortenDayName() {
-  //     return this.weekDays.map(day => {
-  //       return day.slice(0, 3)
-  //     })
-  //   }
-  // },
 
   created() {
     this.beginnerData = beginnerData
     this.intermediateData = intermediateData
-    this.weekDays = [
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
-      'saturday',
-      'sunday'
-    ]
+    this.weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
     this.weekNumber = [
       'one',
       'two',
@@ -218,6 +138,17 @@ export default {
       'eight'
     ]
     /* split data into 7 day chunks */
+    function chunkArray(myArray, weekLength) {
+      let chunk = []
+
+      while (myArray.length) {
+        chunk.push(myArray.splice(0, weekLength))
+      }
+
+      return chunk // return each week out to weeks array
+    }
+    this.beginnerWeeks = chunkArray(beginnerData, 7)
+    this.intermediateWeeks = chunkArray(intermediateData, 7)
     // function chunkArray(myArray, weekLength) {
     //   let oneWeek = []
 
@@ -308,15 +239,32 @@ export default {
   },
   methods: {
     sleep: function(level, ms = 400) {
-      console.log('go')
+      console.log('sleeping')
       /* https://github.com/rigor789/vue-scrollto/issues/26 */
       this.currentTab = level
       return new Promise(resolve => setTimeout(resolve, ms))
     },
-    toggleLevel() {
+    toggleLevel(x) {
       this.currentTab === 'Beginner'
         ? (this.currentTab = 'Intermediate')
         : (this.currentTab = 'Beginner')
+      console.log('x', x)
+      this.go(x)
+    },
+    go(x) {
+      console.log(x)
+
+      let adam = function(ms = 400) {
+        console.log('sleeping')
+        /* https://github.com/rigor789/vue-scrollto/issues/26 */
+        return new Promise(resolve => setTimeout(resolve, ms))
+      }
+
+      adam().then(() => {
+        x.tab === 'Beginner'
+          ? this.$scrollTo(`#Intermediate-${x.weekNumber}`, { offset: -100 })
+          : this.$scrollTo(`#Beginner-${x.weekNumber}`, { offset: -100 })
+      })
     }
   }
 }
@@ -324,115 +272,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
-.plan__container {
-  display: grid;
-  grid-template-columns: 1fr 7fr; // week number is half of day width
-  grid-template-areas:
-    ' level  day '
-    ' week content ';
-  background: $light-shade;
-
-  font-size: 0.8rem; // chanage rem to sort scaling issue
-}
-.plan__level {
-  grid-area: level;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: $dark-shade;
-  color: $text-light;
-  font-size: 0.9em;
-
-  opacity: 0.4;
-  &:hover {
-    cursor: pointer;
-  }
-}
-.plan-day {
-  grid-area: day;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-
-  text-align: center;
-  text-transform: capitalize;
-
-  &--sticky {
-    position: sticky;
-    top: 64px;
-  }
-
-  &__content {
-    padding: 0.5em 0;
-
-    background-color: $dark-shade;
-    border-left: 1px solid $main-brand;
-    border-right: 1px solid $main-brand;
-    color: $text-light;
-
-    &:first-of-type {
-      border-left: 2px solid $main-brand;
-    }
-
-    &:last-of-type {
-      border-right: 2px solid $main-brand;
-    }
-  }
-}
-.plan-week {
-  grid-area: week;
-  display: grid;
-  grid-template-rows: repeat(6, 1fr);
-
-  background-color: $dark-shade;
-  color: $text-light;
-
-  &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100%; // to push borders out
-    padding: 0 0.5em;
-
-    border-top: 1px solid $main-brand;
-    border-bottom: 1px solid $main-brand;
-    text-align: center;
-    text-transform: capitalize;
-
-    &:first-of-type {
-      border-top: 2px solid $main-brand;
-    }
-
-    &:last-of-type {
-      border-bottom: 2px solid $main-brand;
-    }
-  }
-}
-.plan-activity {
-  grid-area: content;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-
-  border: 1px solid $main-brand;
-
-  text-align: center;
-
-  &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 0.5em;
-
-    border: 1px solid $main-brand;
-
-    font-size: 0.9em;
-  }
-}
-
-.the-plan {
+.plan-tables {
   background-color: $light-shade;
 }
 .tab__header {
@@ -448,6 +288,7 @@ export default {
   text-align: center;
   display: block;
 }
+
 .ability-card {
   display: flex;
   flex-direction: column;
