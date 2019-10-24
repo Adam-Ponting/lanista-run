@@ -38,11 +38,7 @@
       </div>
     </aside>
 
-    <div class="padding the-plan">
-      <section class="the-plan--responsive">
-        <WeekView v-for="week in week" :key="week.id" :week="week" />
-      </section>
-    </div>
+    <div class="padding the-plan"></div>
 
     <section class="padding congratulations">
       <h6 class="congratulations__header">
@@ -59,26 +55,43 @@
           >5k</router-link
         >&nbsp;(3.1-mile) run?
       </p>
+      <p class="congratulations__text">
+        View all
+        <router-link
+          :to="{ name: 'training-plans' }"
+          class="congratulations__link"
+          title="View 5k plans"
+          >training plans</router-link
+        >.
+      </p>
     </section>
   </main>
 </template>
 
 <script>
-import { plan } from '@/assets/data/GettingStarted.js'
-import WeekView from '@/components/WeekView.vue'
+import { gettingStarted } from '@/assets/data/GettingStarted.js'
 import PlanHeader from '@/components/trainingPlans/PlanHeader.vue'
 
 export default {
   components: {
-    WeekView,
     PlanHeader
   },
   created() {
+    this.weekNumber = [
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight'
+    ]
     this.gettingStarted = {
       header: 'Beginners Training Schedule',
       subHeader: 'Build from nought to 30 minutes in just eight weeks'
     }
-    this.week = plan
+    this.gettingStartedData = gettingStarted
     this.topTips = [
       {
         title: 'rest',
@@ -94,7 +107,7 @@ export default {
           'https://img.livestrong.com/630x/clsd/getty/88f292be87624da3b7262c0f31cc64b3.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
       },
       {
-        title: 'with purpose',
+        title: 'walk',
         tip: 'Walk purposefully, and be strict with your run/walk timings.',
         image:
           'https://img.livestrong.com/630x/clsd/getty/ec1b8cf9b0e2416eb12d961347de22b5.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
@@ -119,25 +132,12 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
-.congratulations__header {
-  text-align: center;
-  font-size: 1.5em;
-  line-height: 1.5em;
-}
-.congratulations__text {
-  opacity: 0.9;
-  text-align: center;
-}
-.congratulations__link {
-  text-decoration: underline;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .intro-text {
   background-color: $light-shade;
+
   color: $text-dark;
+
+  text-align: center;
 }
 .text {
   text-align: center;
@@ -215,11 +215,27 @@ export default {
   }
 }
 
-@media only screen and (min-width: 900px) {
-  .text {
-    text-align: left;
+.congratulations {
+  background-color: $dark-shade;
+  color: $text-light;
+}
+.congratulations__header {
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+.congratulations__text {
+  opacity: 0.9;
+  text-align: center;
+}
+.congratulations__link {
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
   }
+}
 
+@media only screen and (min-width: 900px) {
   .card-wrapper {
     text-align: center;
     padding-bottom: 2em; // to offset -margin for the cards
@@ -244,11 +260,11 @@ export default {
     }
   }
 }
-.congratulations {
-  background-color: $dark-shade;
-  color: $text-light;
-}
 @media only screen and (min-width: 1200px) {
+  .text {
+    text-align: left;
+  }
+
   .the-plan {
     padding: 5em 1em; // overide default padding for plan table
   }
