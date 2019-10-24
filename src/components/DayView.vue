@@ -58,17 +58,17 @@ export default {
   &__activity {
     margin: 0;
     padding-top: 0.25em;
-    padding-bottom: 0.1em;
-    color: var(--text-color-main);
+    opacity: 0.8;
+    // color: red;
     &:after {
       content: ''; /* This is necessary for the pseudo element to work. */
       display: block; /* This will put the pseudo element on its own line. */
       width: 25%; /* Change this to whatever width you want to have before hover. */
       margin: 0 auto;
-      padding-top: 0.15em; /* This creates some space between the element and the border. */
+      padding-top: 0.25em; /* This creates some space between the element and the border. */
       border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
       transition: 0.5s; /* This establishes the amount of time in seconds the animation should take from start to finish */
-      opacity: 0.25;
+      opacity: 0.2;
     }
   }
   &__extras {
@@ -77,10 +77,12 @@ export default {
     justify-content: space-around;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1200px) {
   .day-view {
-    padding: 0 0.25em;
+    text-align: center;
+    padding: 0 0.2em;
     flex: 1;
+    width: 100%;
     &__activity {
       font-size: 0.8em;
       &:after {
