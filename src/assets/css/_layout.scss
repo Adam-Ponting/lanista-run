@@ -60,6 +60,7 @@ body {
     'Lucida Sans', Arial, sans-serif;
 	font-size: 1rem;
 	cursor: default;
+	overflow-x: hidden;
 }
 a {
 	color: inherit;
@@ -91,6 +92,9 @@ button {
 .padding {
 	padding: 5em 1em;
 }
+
+
+  
 /* START MEDIA QUERY */
 @media only screen and (min-width: 600px) {
 	body {
