@@ -38,6 +38,7 @@ export default {
 
 .button {
   background-color: $button-info;
+
   color: $text-light;
 
   display: inline-flex;
