@@ -13,7 +13,8 @@
         <div class="day-wrapper">
           <div v-for="day in daysOfWeek" :key="day" class="day">{{ day }}</div>
         </div>
-        <div v-show="tab === 'Beginner'" class="box activity-wrapper">
+
+        <div v-show="tab === 'Beginner'" class="activity-wrapper">
           <div
             v-for="day in beginner"
             :key="day.id"
@@ -178,7 +179,7 @@ export default {
     grid-template-areas:
       'level  days'
       'week activities';
-    font-size: 0.9em;
+    font-size: 1em;
   }
   .activity-wrapper,
   .day-wrapper {
@@ -187,11 +188,17 @@ export default {
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto;
   }
-
   .activity {
     padding: 0.2em;
+    font-size: 0.8em;
+  }
+  .week,
+  .day {
+    font-size: 0.8em;
   }
   .week {
+    padding: 0.5em 0.2em;
+
     border-top-right-radius: 0;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -200,6 +207,11 @@ export default {
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 0;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .activity-wrapper {
+    font-size: 1em;
   }
 }
 </style>
