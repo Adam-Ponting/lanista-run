@@ -38,7 +38,14 @@
       </div>
     </aside>
 
-    <div class="padding the-plan"></div>
+    <section class="padding the-plan--wrapper">
+      <div class="the-plan--responsive">
+        <div v-for="(week, index) in weekNumber" :key="week" class="week">
+          <h2 class="week__number">week {{ week }}</h2>
+          <div class="week__activity">{{ plan[index].activity }}</div>
+        </div>
+      </div>
+    </section>
 
     <section class="padding congratulations">
       <h6 class="congratulations__header">
@@ -87,6 +94,7 @@ export default {
       'seven',
       'eight'
     ]
+    this.plan = gettingStarted
     this.gettingStarted = {
       header: 'Beginners Training Schedule',
       subHeader: 'Build from nought to 30 minutes in just eight weeks'
@@ -132,6 +140,36 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
+.the-plan--wrapper {
+  background-color: $light-shade;
+  text-align: center;
+}
+.week {
+  &:not(:first-child):not(:last-child) {
+    margin: 1em 0; // add top/bottom for all apart from 1+8 weeks
+  }
+
+  &__number {
+    margin: 0;
+    padding: 0.5em;
+
+    background-color: $dark-accent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $text-light;
+
+    font-size: 1em;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  &__activity {
+    padding: 0.5em 0.25em;
+
+    border: 1px solid $main-brand;
+  }
+}
+
 .intro-text {
   background-color: $light-shade;
 
@@ -208,13 +246,6 @@ export default {
     opacity: 0.75;
   }
 }
-.the-plan {
-  background-color: $light-shade;
-  &__heading {
-    text-align: center;
-  }
-}
-
 .congratulations {
   background-color: $dark-shade;
   color: $text-light;
@@ -259,19 +290,49 @@ export default {
       font-size: 0.7em;
     }
   }
+  .the-plan--responsive {
+    display: grid;
+    grid-gap: 0.25em;
+
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .week {
+    display: grid;
+    grid-template-rows: minmax(auto, 0.4fr) 1fr;
+
+    &:not(:first-child):not(:last-child) {
+      margin: 0; // remove top/bottom margins
+    }
+
+    &__number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 0.9em;
+    }
+
+    &__activity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 0.5em 0.25em;
+
+      font-size: 0.7em;
+      line-height: 1.3em;
+    }
+  }
 }
 @media only screen and (min-width: 1200px) {
   .text {
     text-align: left;
   }
-
-  .the-plan {
-    padding: 5em 1em; // overide default padding for plan table
-  }
-  // go to flex when content fits best
-  .the-plan--responsive {
-    display: flex;
-    justify-content: flex-end;
+  .week {
+    &__number,
+    &__activity {
+      font-size: 1em;
+    }
   }
 }
 </style>
