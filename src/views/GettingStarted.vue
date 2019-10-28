@@ -140,35 +140,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
-.the-plan--wrapper {
-  background-color: $light-shade;
-  text-align: center;
-}
-.week {
-  &:not(:first-child):not(:last-child) {
-    margin: 1em 0; // add top/bottom for all apart from 1+8 weeks
-  }
-
-  &__number {
-    margin: 0;
-    padding: 0.5em;
-
-    background-color: $dark-accent;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: $text-light;
-
-    font-size: 1em;
-    text-transform: capitalize;
-    font-weight: bold;
-  }
-
-  &__activity {
-    padding: 0.5em 0.25em;
-
-    border: 1px solid $main-brand;
-  }
-}
 
 .intro-text {
   background-color: $light-shade;
@@ -201,6 +172,10 @@ export default {
 
   &:nth-child(odd) {
     background-color: $light-accent;
+  }
+
+  &:first-child {
+    margin-top: 2em; // correctly align top image after margin -2em
   }
 }
 .image-wrapper {
@@ -246,6 +221,37 @@ export default {
     opacity: 0.75;
   }
 }
+
+.the-plan--wrapper {
+  background-color: $light-shade;
+  text-align: center;
+}
+.week {
+  &:not(:first-child):not(:last-child) {
+    margin: 1em 0; // add top/bottom for all apart from 1+8 weeks
+  }
+
+  &__number {
+    margin: 0;
+    padding: 0.5em;
+
+    background-color: $main-brand;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $text-dark;
+
+    font-size: 1em;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  &__activity {
+    padding: 0.5em 0.25em;
+
+    border: 1px solid $main-brand;
+  }
+}
+
 .congratulations {
   background-color: $dark-shade;
   color: $text-light;
@@ -274,8 +280,8 @@ export default {
   .card {
     width: calc(100% / 3 - 4em);
     margin: 2em 1em;
-
-    vertical-align: middle;
+    height: 100%;
+    vertical-align: bottom;
 
     text-align: left;
   }
@@ -290,6 +296,7 @@ export default {
       font-size: 0.7em;
     }
   }
+
   .the-plan--responsive {
     display: grid;
     grid-gap: 0.25em;
