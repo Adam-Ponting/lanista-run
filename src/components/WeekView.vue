@@ -129,8 +129,8 @@ export default {
 
   text-transform: capitalize;
 
-  background-color: $dark-accent;
-  color: $text-light;
+  background-color: $main-brand;
+  color: $text-dark;
 
   font-weight: bold;
 }
