@@ -473,7 +473,7 @@ export default {
     width: calc(100% / 2 - 4em);
     margin: 2em 1em;
 
-    vertical-align: middle;
+    vertical-align: bottom;
 
     text-align: left;
   }
