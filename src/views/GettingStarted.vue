@@ -38,32 +38,6 @@
       </div>
     </section>
 
-    <!-- <section class="padding congratulations">
-      <h6 class="congratulations__header">
-        Congratulations!
-        <br />You’re a runner!
-      </h6>
-      <p class="congratulations__text">
-        What next?
-        <br />How about a
-        <router-link
-          :to="{ name: '5k' }"
-          class="congratulations__link"
-          title="View 5k plans"
-          >5k</router-link
-        >&nbsp;(3.1-mile) run?
-      </p>
-      <p class="congratulations__text">
-        View all
-        <router-link
-          :to="{ name: 'training-plans' }"
-          class="congratulations__link"
-          title="View 5k plans"
-          >training plans</router-link
-        >.
-      </p>
-    </section>-->
-
     <PlanCongratulations>
       <template #heading></template>
       <template #next>
@@ -72,7 +46,7 @@
           class="congratulations__link"
           title="View 5k plans"
           >5k</router-link
-        >&nbsp;(3.1-mile)
+        >&nbsp;(3.1 mile)
       </template>
     </PlanCongratulations>
   </main>
@@ -80,6 +54,7 @@
 
 <script>
 import { gettingStarted } from '@/assets/data/GettingStarted.js'
+
 import PlanHeader from '@/components/trainingPlans/PlanHeader.vue'
 import PlanIntroText from '@/components/trainingPlans/PlanIntroText.vue'
 import PlanCongratulations from '@/components/trainingPlans/PlanCongratulations.vue'
