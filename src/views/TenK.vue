@@ -1,16 +1,9 @@
 <template>
-  <div>
-    <TenK />
-  </div>
+  <div>10k</div>
 </template>
 
 <script>
-import TenK from '@/components/plans/TenK.vue'
-export default {
-  components: {
-    TenK
-  }
-}
+export default {}
 </script>
 
 <style lang="scss" scoped></style>

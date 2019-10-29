@@ -30,6 +30,8 @@ import './registerServiceWorker'
 Vue.component('BaseIcon', BaseIcon) // register global component('asName', component) // must be above new.Vue...
 Vue.component('BaseButtonLink', BaseButtonLink) // register global component('asName', component) // must be above new.Vue...
 
+import '@/assets/css/app.scss'
+
 Vue.config.productionTip = false
 
 // handle page reloads

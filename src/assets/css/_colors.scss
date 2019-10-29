@@ -1,0 +1,52 @@
+/* BACKGROUNDS */
+$light-shade: hsl(72, 31%, 90%); // text color of an light-on-dark design, or bg
+$light-accent: hsl(53, 44%, 66%); // colors to bring attention to design elements by contrasting with the rest of the palette.
+$main-brand: hsl(199, 78%, 61%); // liberally applied to your layout as its main identity.
+$dark-accent: hsl(341, 64%, 53%); // accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
+$dark-shade: hsl(258, 35%, 17%); // text color for dark-on-light designs, bg.
+
+/* TEXT */
+$text-dark: hsl(0, 0%, 5%); // (0, 0, 5%) generally
+$text-light: hsl(0, 0%, 95%); // (0, 0, 5%) generally
+
+/* BUTTONS */
+$button-primary: hsl(199, 78%, 61%);
+$button-info: hsl(257, 36%, 47%);
+$button-success: hsl(149, 40%, 50%);
+$button-warning: hsl(42, 55%, 53%);
+$button-danger: hsl(4, 90%, 58%);
+
+
+/* dont use below */
+$bg-color-primary: 0; // (0, 0, 95%) generally
+$bg-color-light: hsl(0, 0, 95%); 
+$bg-color-dark: hsl(0, 0, 5%); 
+
+
+$bg-highlight-light: hsl(33, 51%, 44%); // attention bg color
+$hsl-highlight-light:33;
+$bg-highlight-dark: hsl(353, 38%, 41%); // alt attention bg color
+$hsl-highlight-dark: 353;
+
+$fill-light: hsl(17, 23%, 94%); // light bg or text
+$hsl-fill-light: 17; // light bg or text
+$fill-dark: hsl(218, 49%, 16%); // dark bg or text
+$hsl-fill-dark: 218; // dark bg or text
+
+$text-color-primary: hsl(0, 0%, 5%); // (0, 0, 5%) generally
+$text-color-secondary: hsl(0, 0%, 95%); // (0, 0, 5%) generally
+
+$color-attention: hsl(39, 95%, 60%);
+
+$button-color-primary: #7f92ab;
+$button-color-info: hsl(218, 49%, 16%);
+$button-color-success: #5ba66b;
+$button-color-warning: #d99633;
+$button-color-danger: #f44336;
+
+// Layout Properties (position, float, clear, display)
+// Box Model Properties (width, height, margin, padding)
+// Visual Properties (color, background, border, box-shadow)
+// Typography Properties (font-size, font-family, text-align, text-transform)
+// Misc Properties (cursor, overflow, z-index)
+

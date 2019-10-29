@@ -1,41 +1,35 @@
 <template>
-  <main>
-    <ViewsBanner
+  <div>
+    <TrainingPlansBanner
       :banner-details="trainingPlans"
       :image="image"
       :position="position"
-      :header="header"
-      :sub-header="subHeader"
     />
-    <section class="component--padding component--light">
-      <h3 class="text--center text--color text--size">
-        Choose a Training Plan
-      </h3>
+    <main class="padding">
       <TrainingPlansDistances
         v-for="distance in distances"
         :key="distance.heading"
         :distance="distance"
       />
-    </section>
-  </main>
+    </main>
+  </div>
 </template>
 
 <script>
-import ViewsBanner from '@/components/ViewsBanner.vue'
+import TrainingPlansBanner from '@/components/TrainingPlansBanner.vue'
 import TrainingPlansDistances from '@/components/trainingPlans/TrainingPlansDistances.vue'
 export default {
   name: 'TrainingPlans',
   components: {
-    ViewsBanner,
+    TrainingPlansBanner,
     TrainingPlansDistances
   },
   created() {
     this.image =
       'https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/hero_training-plans.jpg?alt=media&token=e117ba91-eaf9-4c64-a704-f19836851f2a'
     this.position = 'center'
-    this.header = 'training plans'
-    this.subHeader =
-      'Training plans define how long, hard and frequently you need to run to properly prepare for your event - or just to maintain fitness.'
+    // this.subHeader =
+    //   'Training plans define how long, hard and frequently you need to run to properly prepare for your event - and to maintain fitness.'
     this.trainingPlans = [
       {
         title: 'Plans for Every Runner',
@@ -76,41 +70,36 @@ export default {
         link: '5k',
         description:
           "5K (3.1 miles) is many things to many runners - it can be the perfect beginner's distance or a testing time trial. Whether you're a beginner aiming to get round or a regular runner, we've got schedules that'll see you to 5K in 6 - 12 weeks."
-      },
-      {
-        plan: 'tenK',
-        heading: '10k',
-        link: '10k',
-        description:
-          "The UK's most popular race distance is something special – versatile, testing and the perfect training companion for more other running goals than any other distance. Whether you've got two weeks or two months until your race, we've got the schedule for you."
-      },
-      {
-        plan: 'halfMarathon',
-        heading: 'Half-marathon',
-        link: 'half-marathon',
-        description:
-          "Looking for a tough, but satisfying endurance event? The half-marathon could be just the thing, and with ten and twelve-week plans, we've got a schedule for every runner."
-      },
-      {
-        plan: 'marathon',
-        heading: 'Marathon',
-        link: 'marathon',
-        description:
-          "Whether you're a first-timer or a marathon devotee, pick one of our huge range of 16-week schedules and you could soon be lining up ready to tackle the big one."
       }
+      // {
+      //   plan: 'tenK',
+      //   heading: '10k',
+      //   link: '10k',
+      //   description:
+      //     "The UK's most popular race distance is something special – versatile, testing and the perfect training companion for more other running goals than any other distance. Whether you've got two weeks or two months until your race, we've got the schedule for you."
+      // },
+      // {
+      //   plan: 'halfMarathon',
+      //   heading: 'Half-marathon',
+      //   link: 'half-marathon',
+      //   description:
+      //     "Looking for a tough, but satisfying endurance event? The half-marathon could be just the thing, and with ten and twelve-week plans, we've got a schedule for every runner."
+      // },
+      // {
+      //   plan: 'marathon',
+      //   heading: 'Marathon',
+      //   link: 'marathon',
+      //   description:
+      //     "Whether you're a first-timer or a marathon devotee, pick one of our huge range of 16-week schedules and you could soon be lining up ready to tackle the big one."
+      // }
     ]
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.text--center {
-  text-align: center;
-}
-.text-color {
-  color: var(--text-color-black);
-}
-.text--size {
-  font-size: 1.4em;
+@import '@/assets/css/app.scss';
+.padding {
+  background-color: $light-shade;
 }
 </style>

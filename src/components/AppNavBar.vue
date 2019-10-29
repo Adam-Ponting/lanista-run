@@ -1,8 +1,7 @@
 <template>
   <nav id="NavBar" class="navbar" :class="{ 'navbar--hidden': !showNavbar }">
     <!-- START NAVBAR ICONS -->
-
-    <div class="navbar--mobile max-width">
+    <div class="navbar--top">
       <router-link
         v-scroll-to="{
           el: '#NavBar',
@@ -40,56 +39,42 @@
         </transition>
       </div>
     </div>
-
     <!-- END NAVBAR ICONS -->
 
     <!-- START MOBILE LINKS -->
     <transition name="fade">
-      <div v-if="isOpen" class="nav-mobile" @click="isOpen = false">
-        <router-link
-          :to="{ name: 'features' }"
-          class="nav__link nav__link--mobile"
+      <div v-if="isOpen" class="nav-menu" @click="isOpen = false">
+        <!-- <router-link :to="{ name: 'features' }" class="nav__link"
           >Features</router-link
-        >
-        <router-link
-          :to="{ name: 'training-plans' }"
-          class="nav__link nav__link--mobile"
+        >-->
+        <router-link :to="{ name: 'home' }" class="nav__link">Home</router-link>
+        <router-link :to="{ name: 'training-plans' }" class="nav__link"
           >training plans</router-link
         >
-        <router-link
-          :to="{ name: 'resources' }"
-          class="nav__link nav__link--mobile"
-          >Resources</router-link
-        >
+
         <router-link
           v-if="currentUser"
           :to="{ name: 'dashboard' }"
-          class="nav__link nav__link--mobile"
+          class="nav__link"
           >Dashboard</router-link
         >
         <router-link
           v-if="!currentUser"
           :to="{ name: 'create-account' }"
-          class="nav__link nav__link--mobile"
+          class="nav__link"
           >Create Account</router-link
         >
         <router-link
           v-if="!currentUser"
           :to="{ name: 'login' }"
-          class="nav__link nav__link--mobile"
+          class="nav__link"
           >Login</router-link
         >
-        <button
-          v-else
-          type="button"
-          class="nav__link nav__link--mobile"
-          @click="logout"
-        >
+        <button v-else type="button" class="nav__link" @click="logout">
           Log out
         </button>
       </div>
     </transition>
-
     <!-- END MOBILE LINKS -->
   </nav>
 </template>
@@ -122,6 +107,7 @@ export default {
       logout()
     },
     onScroll() {
+      /* https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe */
       // Get the current scroll position
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
@@ -146,64 +132,74 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// import scss file(s)
+@import '@/assets/css/app.scss';
 .navbar {
-  height: 64px;
-  width: 100%;
-  background-color: var(--bg-color-main);
-  color: var(--text-color-main);
   position: fixed;
   top: 0;
-  box-shadow: 0 2px 15px var(--bg-color-black);
-  border-bottom: 1px solid lightgray;
+
+  height: 64px;
+  width: 100%;
+
+  background-color: hsl(0, 0, 90%);
+  box-shadow: 0 1px 10px hsl(0, 0, 0%);
+  color: hsl(0, 0, 10%);
+
   z-index: 1;
   // hides nav
-  &--hidden {
-    box-shadow: none;
-  }
+  /* currently not used - think it's best to keep nav shown */
+  // &--hidden {
+  //   box-shadow: none;
+  //   transform: translate3d(0%, -100%, 0);
+  // }
   // mobile spacing
-  &--mobile {
-    height: 100%;
+  &--top {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: stretch;
+
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 1em;
   }
 }
-.nav-mobile {
+.nav-menu {
   display: flex;
   flex-flow: column nowrap;
-  background-color: inherit;
-  border-top: 0.1em solid var(--active-orange);
-  border-bottom: 1px solid lightgray;
+
+  background-color: hsl(0, 0, 95%);
+  border-top: 1px solid hsl(0, 0, 0%);
 }
 .navbar__icon {
   display: flex;
-  height: 100%;
   align-items: center;
-  padding: 0 1em;
+
+  height: 100%;
+
   &:hover {
+    color: hsl(0, 0, 0%);
+
     cursor: pointer;
   }
 }
 .nav__link {
-  text-decoration: none;
-  text-transform: uppercase;
+  display: block;
+
+  padding: 0.2em 0;
+
+  opacity: 0.4;
+
+  font-size: 1.2em;
+  font-weight: bold;
   text-align: center;
-  opacity: 0.5;
-  &--mobile {
-    display: block;
-    font-weight: bold;
-    padding: 0.25em 0;
-    transition: all 0.3s ease;
-    border-left: 0.2em solid transparent;
-    border-right: 0.2em solid transparent;
-    &:hover {
-      cursor: pointer;
-      opacity: 1;
-      background-color: var(--bg-color-white);
-      border-left: 0.2em solid var(--active-red);
-      border-right: 0.2em solid transparent;
-    }
+  text-transform: uppercase;
+
+  &:hover {
+    opacity: 0.9;
+    background-color: hsl(0, 0, 100%);
+    cursor: pointer;
   }
 }
 // style active links
@@ -211,7 +207,7 @@ export default {
   opacity: 1;
   &:not(.home__icon) {
     // give a left border to the active link, as long as it's not .home__icon
-    border-left: 0.2em solid var(--active-red);
+    color: $text-dark;
   }
 }
 </style>

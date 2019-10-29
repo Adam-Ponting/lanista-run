@@ -1,5 +1,5 @@
 <template>
-  <header class="plan-header">
+  <header class="padding distance-header">
     <slot name="heading"></slot>
     <slot name="sub-heading"></slot>
   </header>
@@ -10,24 +10,52 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.plan-header {
-  background-color: var(--bg-color-black);
+@import '@/assets/css/app.scss';
+
+.distance-header {
+  background-color: $main-brand;
+
   text-align: center;
+
   &__heading {
-    color: var(--text-color-white);
-    font-size: 2em;
+    // class is from parent
+    padding: 0.75em 0;
+
+    color: $text-dark;
+    border-top: 1px solid hsl(257, 36%, 17%);
+
+    font-family: fantasy;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+
     &::after {
       content: '';
       display: block;
-      border-bottom: 2px solid var(--active-orange);
-      width: 20%;
+
       margin: 0 auto;
-      padding-top: 0.75em;
+      padding-top: 0.25em;
+      width: 20%;
+
+      border-bottom: 2px solid hsl(39, 100%, 50%);
     }
   }
   &__sub-heading {
-    color: var(--text-color-faded);
+    // class is from parent
+    padding: 0.75em 0;
+
+    border-bottom: 1px solid #251c3b;
+
+    color: $text-light;
     font-size: 0.8em;
+    font-family: cursive;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .distance-header__heading {
+    font-size: 2em;
   }
 }
 </style>

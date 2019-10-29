@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ViewsBanner
+    <TrainingPlansBanner
       :banner-details="features"
       :image="image"
       :position="position"
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import ViewsBanner from '@/components/ViewsBanner.vue'
+import TrainingPlansBanner from '@/components/TrainingPlansBanner.vue'
 
 export default {
   name: 'Features',
   components: {
-    ViewsBanner
+    TrainingPlansBanner
   },
   created() {
     this.image =

@@ -1,0 +1,129 @@
+.form-container {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+
+	height: 100vh;
+	
+	background-image: url('https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/bg-account.png?alt=media&token=1ee9669a-334b-4710-8cb2-b739684ef4ff');
+	background-repeat: no-repeat;
+	background-position: -70px 80px;
+	background-size: contain;
+	background-color: $main-brand;
+  }
+  
+  .form {
+	width: 50%;
+
+	&__legend {
+	  color: $text-light;
+  
+	  text-align: left;
+	  font-variant: small-caps;
+	}
+  }
+  .form__input {
+	margin: 0.25em 0;
+	padding-left: 0.5em;
+  
+	width: 100%;
+  
+	line-height: 2em;
+	color: $text-dark;
+  
+	background-color: $light-shade;
+  
+	border: none; // remove defaults
+	border-top: 2px solid transparent;
+	border-bottom: 2px solid transparent;
+	border-left: 2px solid transparent;
+	border-radius: 0.5em;
+  
+	font-size: 0.9em;
+  
+	transition: border-color 0.2s ease-in-out;
+  
+	&:focus {
+	  outline: none; // remove defaults
+  
+	  border-bottom-color: $button-info;
+	}
+  
+	&:required {
+	  border-left-color: $button-success;
+	}
+  
+	&:invalid {
+	  border-left-color: $button-danger;
+	  opacity: 0.9;
+	}
+  
+	&::placeholder {
+	  opacity: 0.5;
+	}
+  }
+  
+  .form__button {
+	display: block;
+  
+	margin: 1em auto 3em;
+  
+	color: $text-light;
+  
+	&--activeButton {
+	  background-color: $button-success;
+  
+	  &:hover {
+		cursor: pointer;
+	  }
+	}
+  
+	&--disabledButton {
+	  background-color: $button-warning;
+	  opacity: 0.9;
+	}
+  
+	&--muted {
+	  display: inline-block;
+	  font-size: 0.7em;
+	  margin: 0.5em;
+	  padding: 0.5em;
+	  color: #444;
+	  &:hover {
+		cursor: pointer;
+	  }
+	}
+  }
+  //
+  @media only screen and (min-width: 600px) {
+	.form-container {
+	  background-position: 40% 80px; // align bg image
+	}
+  }
+  .login-extras {
+	display: block;
+  
+	background: linear-gradient(
+	  to right,
+	  rgba(lightgrey, 0),
+	  rgba(023, 105, 139, 1)
+	);
+  
+	text-align: right;
+	font-size: 0.8em;
+  
+	&__button {
+	  margin: 1em;
+  
+	  color: $text-light;
+	}
+  
+	&__text {
+	  color: $text-light;
+	}
+  }
+  @media only screen and (min-width: 600px) {
+	.form-container {
+	  background-position: 40% 80px; // align bg image
+	}
+  }

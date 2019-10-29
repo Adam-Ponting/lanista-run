@@ -38,7 +38,18 @@ export const store = new Vuex.Store({
     currentUser: null,
     userProfile: {},
     nextId: 1,
-    notifications: []
+    notifications: [],
+    weekNumber: [
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight'
+    ],
+    weekDays: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
   },
 
   mutations: {

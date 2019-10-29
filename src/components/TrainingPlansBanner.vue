@@ -1,11 +1,5 @@
 <template>
-  <section
-    class="feature-banner feature-banner__image"
-    alt="scroll down"
-    :style="styleObject"
-  >
-    <h1 class="feature-banner__header">{{ header }}</h1>
-    <h2 class="feature-banner__sub-header">{{ subHeader }}</h2>
+  <section class="banner-image padding" :style="styleObject">
     <div class="flex-container">
       <div
         v-for="feature in bannerDetails"
@@ -14,12 +8,11 @@
       >
         <base-icon
           :name="feature.icon"
-          class="icon--modifier"
+          class="feature__icon"
           height="32"
           width="32"
         ></base-icon>
-        <h3 class="feature__title">{{ feature.title }}</h3>
-
+        <h2 class="feature__title">{{ feature.title }}</h2>
         <p class="feature__content">{{ feature.content }}</p>
       </div>
     </div>
@@ -28,7 +21,7 @@
 
 <script>
 export default {
-  name: 'ViewsBanner',
+  name: 'TrainingPlansBanner',
   props: {
     bannerDetails: {
       type: Array,
@@ -39,14 +32,6 @@ export default {
       default: ''
     },
     position: {
-      type: String,
-      default: ''
-    },
-    header: {
-      type: String,
-      default: ''
-    },
-    subHeader: {
       type: String,
       default: ''
     }
@@ -68,58 +53,64 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.feature-banner {
-  text-align: center;
-  padding: 2em 1em;
-}
-.feature-banner__image {
-  background-repeat: no-repeat;
-  background-size: cover;
+@import '@/assets/css/app.scss';
+
+.banner-image {
   position: relative;
   top: 0;
+
   width: 100%;
-}
-.feature-banner__header {
-  text-transform: uppercase;
-  color: var(--text-color-white);
-  font-size: 1.6em;
-}
-.feature-banner__sub-header {
-  color: var(--text-color-white);
-  font-size: 1.1em;
-  font-weight: normal;
-  margin-bottom: 3em;
-}
-.icon--modifier {
-  display: flex;
-  justify-content: center;
-  color: inherit;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: $text-light;
+  text-align: center;
 }
 .feature {
-  padding: 0.1em 0;
-  &:nth-child(odd) {
-    color: var(--text-color-notwhite);
+  margin-bottom: 1em; // vertical spacing
+
+  &:last-child {
+    margin-bottom: 0; // remove spacing on last child
   }
-  &:nth-child(even) {
-    color: var(--text-color-white);
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+
+    color: $light-accent;
   }
+
   &__title {
+    margin: 0.25em 0;
+
+    color: $text-light;
+
+    font-size: 1.1em;
     text-transform: uppercase;
-    font-size: 1em;
-    margin-bottom: 0.25em;
   }
+
   &__content {
-    margin-top: 0.25em;
+    margin: 0; // removes global p margin
+
+    color: $light-shade;
+
+    font-size: 0.8em;
   }
 }
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 800px) {
   .flex-container {
     display: flex;
+    justify-content: space-between;
     flex-flow: row nowrap;
   }
   .feature {
-    flex: 1;
-    padding: 0 0.5em;
+    flex: 0 1 calc(25% - 1em); // make each the same size 4 on line
+    margin-bottom: 0; // removes mobile vertical spacing
+
+    &__title {
+      margin: 0.7em 0;
+    }
   }
 }
 </style>

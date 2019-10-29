@@ -1,42 +1,51 @@
 <template>
-  <div class="form-container">
-    <form class="form--display" @submit.prevent="updateProfile">
-      <fieldset>
-        <legend class="legend__text">Update User Name</legend>
-        <label for="firstName" class="label">First name:</label>
-        <input
-          id="firstName"
-          v-model.trim="firstName"
-          type="text"
-          name="firstName"
-          :placeholder="userProfile.firstName"
-          class="form__input"
-          minlength="1"
-          maxlength="15"
-        />
-        <label for="firstName" class="label">Last name:</label>
+  <div>
+    <main class="form-container padding">
+      <form class="form" @submit.prevent="updateProfile">
+        <fieldset>
+          <legend class="form__legend">Update User Name</legend>
+          <label for="firstName" class="label">First name:</label>
+          <input
+            id="firstName"
+            v-model.trim="firstName"
+            type="text"
+            name="firstName"
+            :placeholder="userProfile.firstName"
+            class="form__input"
+            minlength="1"
+            maxlength="15"
+          />
+          <label for="firstName" class="label">Last name:</label>
 
-        <input
-          id="lastName"
-          v-model.trim="lastName"
-          type="text"
-          name="lastName"
-          :placeholder="userProfile.lastName"
-          class="form__input"
-          minlength="1"
-          maxlength="25"
-        />
-        <NotificationContainer v-if="notifications.length > 0" />
-
-        <button
-          type="submit"
-          value="Submit"
-          class="form__button form__button--activeButton"
-        >
-          Update
-        </button>
-      </fieldset>
-    </form>
+          <input
+            id="lastName"
+            v-model.trim="lastName"
+            type="text"
+            name="lastName"
+            :placeholder="userProfile.lastName"
+            class="form__input"
+            minlength="1"
+            maxlength="25"
+          />
+          <base-button
+            ref="buttonSubmit"
+            :type="'submit'"
+            value="Submit"
+            class="form__button"
+            :class="[
+              isFormValid
+                ? 'form__button--activeButton'
+                : 'form__button--disabledButton'
+            ]"
+          >
+            <template v-slot:name>
+              <span>update</span>
+            </template>
+          </base-button>
+          <NotificationContainer v-if="notifications.length > 0" />
+        </fieldset>
+      </form>
+    </main>
   </div>
 </template>
 
@@ -44,10 +53,14 @@
 import { mapState } from 'vuex'
 
 import { updateProfile } from '@/components/functions.js'
+
+import BaseButton from '@/components/BaseButton.vue'
+
 import NotificationContainer from '@/components/NotificationContainer.vue'
 
 export default {
   components: {
+    BaseButton,
     NotificationContainer
   },
   data() {
@@ -57,6 +70,10 @@ export default {
     }
   },
   computed: {
+    isFormValid() {
+      // form is valid if any chars are added
+      return this.firstName || this.lastName
+    },
     ...mapState(['notifications', 'userProfile'])
   },
   methods: {
@@ -68,51 +85,19 @@ export default {
         lastName:
           this.lastName !== '' ? this.lastName : this.userProfile.lastName
       })
+      // reset usename in view
+      this.firstName = ''
+      this.lastName = ''
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.form-container {
-  min-height: calc(100vh - 90px); // 100vh - footer height(90px)
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('https://firebasestorage.googleapis.com/v0/b/lanista-run.appspot.com/o/bg-account.png?alt=media&token=1ee9669a-334b-4710-8cb2-b739684ef4ff');
-  background-repeat: no-repeat;
-  background-position: 40% 60px;
-  background-size: contain;
-  background-color: #ced4da;
-}
+@import '@/assets/css/app.scss';
 
-.form--display {
-  margin: 0.5em;
-}
-.legend__text {
-  text-align: left;
-  color: white;
-  font-variant: small-caps;
-}
 .form__input {
-  font-size: 0.9em;
-  line-height: 2em;
-  color: #444;
-  width: 100%;
-  padding-left: 0.5em;
-  margin: 0.25em 0;
-  background-color: #f9f9fb;
-  border: none;
-  border-bottom: 2px solid #ced4da;
-  border-radius: 0.5em;
-  transition: border-color 0.2s ease-in-out;
-  &:focus {
-    outline: none;
-    border-bottom-color: #444;
-  }
-  &::placeholder {
-    color: #919ca0;
-  }
+  border-left: 2px solid $button-warning; // add style as not required by default
 }
 .label {
   font-size: 0.7em;
@@ -120,29 +105,6 @@ export default {
   top: 0.25em;
   &:hover {
     cursor: pointer;
-  }
-}
-.form__button {
-  display: block;
-  border: none;
-  font-weight: bold;
-  margin: 3em auto 2em;
-  padding: 0.75em 1em;
-  border: 2px solid lightcoral;
-
-  &--activeButton {
-    background-color: lightgreen;
-    color: black;
-    border: 2px solid transparent;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  .form--display {
-    width: 50%;
   }
 }
 </style>
