@@ -39,7 +39,17 @@ export const store = new Vuex.Store({
     userProfile: {},
     nextId: 1,
     notifications: [],
-    weekNumber: ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight']
+    weekNumber: [
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight'
+    ],
+    weekDays: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
   },
 
   mutations: {
