@@ -3,29 +3,27 @@
     <PlanHeader>
       <!-- uses classes in PlanHeader component -->
       <template #heading>
-        <h1 class="distance-header__heading">{{ fiveK.header }}</h1>
+        <h1 class="distance-header__heading">{{ plan.header }}</h1>
       </template>
       <template #sub-heading>
-        <h2 class="distance-header__sub-heading">{{ fiveK.subHeader }}</h2>
+        <h2 class="distance-header__sub-heading">{{ plan.subHeader }}</h2>
       </template>
     </PlanHeader>
 
-    <section class="padding intro-text">
-      <p class="text">{{ fiveK.introText }}</p>
-    </section>
+    <PlanIntroText>
+      <template #intro-text>
+        <p v-for="text in plan.introText" :key="text">{{ text }}</p>
+      </template>
+    </PlanIntroText>
 
-    <aside class="padding card-wrapper">
-      <div v-for="(tip, index) in topTips" :key="index" class="card">
-        <div class="image-wrapper">
-          <img class="image" :src="tip.image" />
-        </div>
-
-        <div class="card-content">
-          <h6 class="card-content__title">{{ tip.title }}</h6>
-          <p class="card-content__text">{{ tip.tip }}</p>
-        </div>
-      </div>
-    </aside>
+    <div class="padding FAQ-card-wrapper">
+      <FAQCard
+        v-for="(image, index) in plan.tipsFAQ"
+        :key="index"
+        :image="image"
+        class="FAQ-card"
+      />
+    </div>
 
     <section class="padding ability-card-wrapper">
       <div
@@ -63,44 +61,29 @@
     </section>
     <!-- https://vuejs.org/v2/guide/transitions.html#Transitioning-Between-Elements -->
     <section class="plan-tables padding">
+      <!-- v-for one array, pass in both set of data -->
       <WeekView
         v-for="(week, index) in beginnerWeeks"
         :key="index"
+        :index="index"
         :beginner="beginnerWeeks[index]"
         :intermediate="intermediateWeeks[index]"
-        :week-number="weekNumber[index]"
-        :days-of-week="weekDays"
         :tab="currentTab"
         :tabs="tabs"
         @togglePlan="toggleLevel"
       />
     </section>
-
-    <section class="padding congratulations">
-      <h6 class="congratulations__header">
-        Congratulations!
-        <br />You’re a runner!
-      </h6>
-      <p class="congratulations__text">
-        What next?
-        <br />How about a
+    <PlanCongratulations>
+      <template #heading></template>
+      <template #next>
         <router-link
           :to="{ name: '10k' }"
           class="congratulations__link"
           title="View 10k plans"
           >10k</router-link
-        >&nbsp;(6.2-mile) run?
-      </p>
-      <p class="congratulations__text">
-        View all
-        <router-link
-          :to="{ name: 'training-plans' }"
-          class="congratulations__link"
-          title="View all plans"
-          >training plans</router-link
-        >.
-      </p>
-    </section>
+        >&nbsp;(6.2 mile)
+      </template>
+    </PlanCongratulations>
   </main>
 </template>
 
@@ -108,11 +91,17 @@
 import { beginnerData, intermediateData } from '@/assets/data/FiveK.js'
 
 import PlanHeader from '@/components/trainingPlans/PlanHeader.vue'
+import PlanIntroText from '@/components/trainingPlans/PlanIntroText.vue'
+import PlanCongratulations from '@/components/trainingPlans/PlanCongratulations.vue'
+import FAQCard from '@/components/FAQCard.vue'
 import WeekView from '@/components/WeekView.vue'
 
 export default {
   components: {
     PlanHeader,
+    PlanIntroText,
+    FAQCard,
+    PlanCongratulations,
     WeekView
   },
 
@@ -122,21 +111,48 @@ export default {
       tabs: ['Beginner', 'Intermediate', 'Advanced']
     }
   },
-
   created() {
+    this.plan = {
+      header: '5k Training Schedule',
+      subHeader:
+        " Our one-stop shop for all things 5K, whether you're a beginner in training for your first ever race or an experienced runner targeting a new PB",
+      introText: [
+        'Short and snappy, 5K races are the perfect distance for beginners targeting a first race, but an equally satisfying target for a speed-demon with more racing experience.'
+      ],
+      beginnerDat: this.beginnerWeeks,
+      intermediateData: intermediateData,
+      tipsFAQ: [
+        {
+          title: 'How far is 5k in miles?',
+          tip: '5K is 3.1 miles.',
+          image:
+            'https://img.livestrong.com/630x/clsd/getty/cache.gettyimages.com/dc2295da7240416bb0964003f821a4fe.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
+        },
+        {
+          title: 'How long will it take to train for a 5K?',
+          tip:
+            "We've got two different six week training plans to get you ready for your first 5K race, or to help you speed up on your next 5K race.",
+          image:
+            'https://img.livestrong.com/630x/photos.demandstudios.com/getty/article/106/233/517671371.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
+        },
+        {
+          title: 'How long will it take me to run a 5K?',
+          tip:
+            'Use our race time predictor to use your training runs to get a rough guide of how long it will take you to get round.',
+          image:
+            'https://img.livestrong.com/630x/clsd/getty/ecb796a6cfc34e92aea95307adc9dd45.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
+        },
+        {
+          title: 'What should I eat on race day?',
+          tip:
+            "The right pre-race nutrition will help you fuel your 5K perfectly, and avoid an upset stomach. It's important to incorporate hydrations and nutrition in training runs.",
+          image:
+            'https://img.livestrong.com/630x/photos.demandstudios.com/getty/article/68/203/492757968.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
+        }
+      ]
+    }
     this.beginnerData = beginnerData
     this.intermediateData = intermediateData
-    this.weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
-    this.weekNumber = [
-      'one',
-      'two',
-      'three',
-      'four',
-      'five',
-      'six',
-      'seven',
-      'eight'
-    ]
     /* split data into 7 day chunks */
     function chunkArray(myArray, weekLength) {
       let chunk = []
@@ -145,7 +161,7 @@ export default {
         chunk.push(myArray.splice(0, weekLength))
       }
 
-      return chunk // return each week out to weeks array
+      return chunk // return each week out to chunk array
     }
     this.beginnerWeeks = chunkArray(beginnerData, 7)
     this.intermediateWeeks = chunkArray(intermediateData, 7)
@@ -160,11 +176,6 @@ export default {
     // }
     // this.weeks = chunkArray(beginnerData, 7)
     this.fiveK = {
-      header: '5k Training Schedule',
-      subHeader:
-        " Our one-stop shop for all things 5K, whether you're a beginner in training for your first ever race or an experienced runner targeting a new PB",
-      introText:
-        'Short and snappy, 5K races are the perfect distance for beginners targeting a first race, but an equally satisfying target for a speed-demon with more racing experience.',
       levels: [
         {
           level: 'Beginner',
@@ -207,35 +218,6 @@ export default {
         ' If you feel like this is a bit much for you, take a look at our beginner training plan, aimed at getting you started. '
       ]
     }
-    this.topTips = [
-      {
-        title: 'How far is 5k in miles?',
-        tip: '5K is 3.1 miles.',
-        image:
-          'https://img.livestrong.com/630x/clsd/getty/cache.gettyimages.com/dc2295da7240416bb0964003f821a4fe.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
-      },
-      {
-        title: 'How long will it take to train for a 5K?',
-        tip:
-          "We've got two different six week training plans to get you ready for your first 5K race, or to help you speed up on your next 5K race.",
-        image:
-          'https://img.livestrong.com/630x/photos.demandstudios.com/getty/article/106/233/517671371.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
-      },
-      {
-        title: 'How long will it take me to run a 5K?',
-        tip:
-          'Use our race time predictor to use your training runs to get a rough guide of how long it will take you to get round.',
-        image:
-          'https://img.livestrong.com/630x/clsd/getty/ecb796a6cfc34e92aea95307adc9dd45.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
-      },
-      {
-        title: 'What should I eat on race day?',
-        tip:
-          "The right pre-race nutrition will help you fuel your 5K perfectly, and avoid an upset stomach. It's important to incorporate hydrations and nutrition in training runs.",
-        image:
-          'https://img.livestrong.com/630x/photos.demandstudios.com/getty/article/68/203/492757968.jpg?ipx=%7B%22f%22%3A%22webp%22%7D'
-      }
-    ]
   },
   methods: {
     sleep: function(level, ms = 400) {
@@ -272,6 +254,25 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
+.FAQ-card-wrapper {
+  display: block;
+  background-color: $dark-shade;
+}
+.FAQ-card {
+  margin: 1em auto; // center card
+}
+
+@media only screen and (min-width: 800px) {
+  .FAQ-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .FAQ-card {
+    margin: 1em;
+  }
+}
+
 .plan-tables {
   background-color: $light-shade;
 }
@@ -377,70 +378,70 @@ export default {
   text-align: center;
 }
 
-.card-wrapper {
-  background-color: $dark-shade; // color bg card section
-  text-align: center;
-}
-.card {
-  display: inline-block; // allows use of vertical align
-  margin-top: 4em;
+// .card-wrapper {
+//   background-color: $dark-shade; // color bg card section
+//   text-align: center;
+// }
+// .card {
+//   display: inline-block; // allows use of vertical align
+//   margin-top: 4em;
 
-  background-color: $dark-accent;
+//   background-color: $dark-accent;
 
-  border-radius: 6px;
+//   border-radius: 6px;
 
-  color: $text-color-primary;
+//   color: $text-color-primary;
 
-  line-height: 1.2em;
-  font-size: 1em;
+//   line-height: 1.2em;
+//   font-size: 1em;
 
-  // &:nth-child(odd) {
-  //   background-color: $dark-accent;
-  // }
-}
-.image-wrapper {
-  height: 100%;
-  margin: -2em 1em 0;
+//   // &:nth-child(odd) {
+//   //   background-color: $dark-accent;
+//   // }
+// }
+// .image-wrapper {
+//   height: 100%;
+//   margin: -2em 1em 0;
 
-  border-radius: 6px;
-  box-shadow: 0px 3px 13px 2px rgba(0, 0, 0, 0.5);
+//   border-radius: 6px;
+//   box-shadow: 0px 3px 13px 2px rgba(0, 0, 0, 0.5);
 
-  overflow: hidden;
+//   overflow: hidden;
 
-  .image {
-    height: 100%;
-    width: 100%;
+//   .image {
+//     height: 100%;
+//     width: 100%;
 
-    vertical-align: middle;
+//     vertical-align: middle;
 
-    border: 0;
-    border-radius: 6px;
-  }
-}
-.card-content {
-  padding: 0.5em 2em;
+//     border: 0;
+//     border-radius: 6px;
+//   }
+// }
+// .card-content {
+//   padding: 0.5em 2em;
 
-  &__title {
-    margin: 0.2em 0;
+//   &__title {
+//     margin: 0.2em 0;
 
-    color: $light-shade;
-    font-family: cursive;
-    letter-spacing: 0.1em;
-    font-size: 1em;
-    font-weight: bold;
+//     color: $light-shade;
+//     font-family: cursive;
+//     letter-spacing: 0.1em;
+//     font-size: 1em;
+//     font-weight: bold;
 
-    text-transform: uppercase;
-  }
+//     text-transform: uppercase;
+//   }
 
-  &__text {
-    margin: 0;
-    padding: 0.5em 0;
+//   &__text {
+//     margin: 0;
+//     padding: 0.5em 0;
 
-    font-size: 0.8em;
+//     font-size: 0.8em;
 
-    opacity: 0.75;
-  }
-}
+//     opacity: 0.75;
+//   }
+// }
 .the-plan {
   background-color: $light-shade;
   &__heading {
