@@ -70,28 +70,28 @@ export default {
         link: '5k',
         description:
           "5K (3.1 miles) is many things to many runners - it can be the perfect beginner's distance or a testing time trial. Whether you're a beginner aiming to get round or a regular runner, we've got schedules that'll see you to 5K in 6 - 12 weeks."
-      },
-      {
-        plan: 'tenK',
-        heading: '10k',
-        link: '10k',
-        description:
-          "The UK's most popular race distance is something special – versatile, testing and the perfect training companion for more other running goals than any other distance. Whether you've got two weeks or two months until your race, we've got the schedule for you."
-      },
-      {
-        plan: 'halfMarathon',
-        heading: 'Half-marathon',
-        link: 'half-marathon',
-        description:
-          "Looking for a tough, but satisfying endurance event? The half-marathon could be just the thing, and with ten and twelve-week plans, we've got a schedule for every runner."
-      },
-      {
-        plan: 'marathon',
-        heading: 'Marathon',
-        link: 'marathon',
-        description:
-          "Whether you're a first-timer or a marathon devotee, pick one of our huge range of 16-week schedules and you could soon be lining up ready to tackle the big one."
       }
+      // {
+      //   plan: 'tenK',
+      //   heading: '10k',
+      //   link: '10k',
+      //   description:
+      //     "The UK's most popular race distance is something special – versatile, testing and the perfect training companion for more other running goals than any other distance. Whether you've got two weeks or two months until your race, we've got the schedule for you."
+      // },
+      // {
+      //   plan: 'halfMarathon',
+      //   heading: 'Half-marathon',
+      //   link: 'half-marathon',
+      //   description:
+      //     "Looking for a tough, but satisfying endurance event? The half-marathon could be just the thing, and with ten and twelve-week plans, we've got a schedule for every runner."
+      // },
+      // {
+      //   plan: 'marathon',
+      //   heading: 'Marathon',
+      //   link: 'marathon',
+      //   description:
+      //     "Whether you're a first-timer or a marathon devotee, pick one of our huge range of 16-week schedules and you could soon be lining up ready to tackle the big one."
+      // }
     ]
   }
 }
