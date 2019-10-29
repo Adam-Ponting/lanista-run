@@ -1,17 +1,19 @@
 <template>
   <div>
     <transition name="fade" mode="out-in">
-      <div :id="`${tab}-${weekNumber}`" :key="tab" class="grid-wrapper">
+      <div :id="`${tab}-${index}`" :key="tab" class="grid-wrapper">
         <div
           class="level"
           title="Toggle Intensity"
-          @click="toggleLevel(tab, weekNumber)"
+          @click="toggleLevel(tab, index)"
         >
           {{ tab }}
         </div>
-        <div class="week">Week {{ weekNumber }}</div>
+        <div class="week">Week {{ this.$store.state.weekNumber[index] }}</div>
         <div class="day-wrapper">
-          <div v-for="day in daysOfWeek" :key="day" class="day">{{ day }}</div>
+          <div v-for="day in this.$store.state.weekDays" :key="day" class="day">
+            {{ day }}
+          </div>
         </div>
 
         <div v-show="tab === 'Beginner'" class="activity-wrapper">
@@ -50,14 +52,6 @@ export default {
       type: Array,
       default: () => []
     },
-    weekNumber: {
-      type: String,
-      default: 'none'
-    },
-    daysOfWeek: {
-      type: Array,
-      default: () => []
-    },
     tab: {
       type: String,
       default: 'Beginner'
@@ -65,6 +59,10 @@ export default {
     tabs: {
       type: Array,
       default: () => []
+    },
+    index: {
+      type: Number,
+      default: 0
     }
   },
 
