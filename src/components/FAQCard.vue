@@ -23,7 +23,35 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/assets/css/app.scss';
+/* 
+    ** ADD THESE TO PARENT COMPONENT **
+    <div class="padding FAQ-card-wrapper">
+      <FAQCard
+        v-for="(image, index) in topTips"
+        :key="index"
+        :image="image"
+        class="FAQ-card"
+      />
+    </div>
 
+.FAQ-card-wrapper {
+  display: block;
+  background-color: $dark-shade;
+}
+.FAQ-card {
+  margin: 1em auto; // center card
+}
+@media only screen and (min-width: 800px) {
+  .FAQ-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .FAQ-card {
+    margin: 1em;
+  }
+}
+*/
 .card {
   flex: 1 1 320px;
   max-width: 500px;
@@ -81,6 +109,7 @@ export default {
     font-family: cursive;
     letter-spacing: 0.1em;
     font-weight: bold;
+    text-transform: capitalize;
   }
 
   &__text {
