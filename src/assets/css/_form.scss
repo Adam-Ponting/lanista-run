@@ -13,7 +13,7 @@
   }
   
   .form {
-	width: 50%;
+	width: 100%;
 
 	&__legend {
 	  color: $text-light;
@@ -94,12 +94,6 @@
 	  }
 	}
   }
-  //
-  @media only screen and (min-width: 600px) {
-	.form-container {
-	  background-position: 40% 80px; // align bg image
-	}
-  }
   .login-extras {
 	display: block;
   
@@ -122,8 +116,14 @@
 	  color: $text-light;
 	}
   }
+
+  //
   @media only screen and (min-width: 600px) {
+	.form {
+		  width: 50%;
+	 }
 	.form-container {
 	  background-position: 40% 80px; // align bg image
 	}
+	
   }

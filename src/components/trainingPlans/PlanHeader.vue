@@ -24,7 +24,8 @@ export default {}
     color: $text-dark;
     border-top: 1px solid hsl(257, 36%, 17%);
 
-    font-family: fantasy;
+    font-family: 'Fredoka One', cursive;
+
     font-size: 1.2em;
     font-weight: bold;
     letter-spacing: 0.1em;
@@ -50,7 +51,8 @@ export default {}
 
     color: $text-light;
     font-size: 0.8em;
-    font-family: cursive;
+    letter-spacing: 0.1em;
+    font-family: 'Fredoka One', cursive;
   }
 }
 @media only screen and (min-width: 500px) {
