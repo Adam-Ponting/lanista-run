@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main class="form-container padding">
+    <main class="form-container">
       <form class="form" @submit.prevent="resetPassword">
         <fieldset>
           <legend class="form__legend">Reset Password</legend>
