@@ -40,8 +40,8 @@ export default {}
     color: $text-light;
     border-top: 1px solid white;
 
-    font-family: fantasy;
-    font-size: 2em;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2em;
     font-weight: bold;
     letter-spacing: 0.1em;
     text-align: center;
@@ -66,7 +66,8 @@ export default {}
     color: white;
 
     font-size: 0.9em;
-    font-family: cursive;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 0.1em;
   }
   &__text {
     opacity: 0.9;
