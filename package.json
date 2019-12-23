@@ -9,28 +9,28 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "core-js": "^2.6.10",
+    "core-js": "^2.6.11",
     "firebase": "^6.6.2",
     "register-service-worker": "^1.6.2",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-nprogress": "^0.1.5",
     "vue-router": "^3.0.3",
     "vue-scrollto": "^2.17.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-eslint": "^3.12.1",
     "@vue/cli-plugin-pwa": "^3.12.1",
-    "@vue/cli-service": "^3.12.1",
-    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/cli-service": "^4.1.1",
+    "@vue/eslint-config-prettier": "^5.1.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^5.0.0",
-    "prettier": "^1.18.2",
-    "sass": "^1.23.3",
+    "prettier": "^1.19.1",
+    "sass": "^1.24.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11"
   }
 }
